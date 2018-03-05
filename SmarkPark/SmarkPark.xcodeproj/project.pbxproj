@@ -16,6 +16,12 @@
 		086F0D41204CE18600F354EC /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D3F204CE18600F354EC /* HomeViewController.m */; };
 		086F0D42204CE18600F354EC /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D40204CE18600F354EC /* HomeViewController.xib */; };
 		086F0D45204CE66A00F354EC /* BootViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D44204CE66A00F354EC /* BootViewControllerManager.m */; };
+		086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D4E204D0C1800F354EC /* LoginViewController.m */; };
+		086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D4F204D0C1800F354EC /* LoginViewController.xib */; };
+		086F0D55204D0C4E00F354EC /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D53204D0C4E00F354EC /* SignUpViewController.m */; };
+		086F0D56204D0C4E00F354EC /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D54204D0C4E00F354EC /* SignUpViewController.xib */; };
+		086F0D5A204D0E3900F354EC /* HomeWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D59204D0E3900F354EC /* HomeWeatherView.m */; };
+		086F0D97204D35C300F354EC /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D85204D35C300F354EC /* CommonTools.m */; };
 		6FA9434C75F95090EB597EF5 /* libPods-SmarkPark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A29F880B6003BD1BF42D27 /* libPods-SmarkPark.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +64,17 @@
 		086F0D44204CE66A00F354EC /* BootViewControllerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BootViewControllerManager.m; sourceTree = "<group>"; };
 		086F0D46204CE87700F354EC /* CommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
 		086F0D47204CE88F00F354EC /* CommonConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonConfig.h; sourceTree = "<group>"; };
+		086F0D4B204D091A00F354EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		086F0D4D204D0C1800F354EC /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		086F0D4E204D0C1800F354EC /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		086F0D4F204D0C1800F354EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		086F0D52204D0C4E00F354EC /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		086F0D53204D0C4E00F354EC /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		086F0D54204D0C4E00F354EC /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		086F0D58204D0E3900F354EC /* HomeWeatherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeWeatherView.h; sourceTree = "<group>"; };
+		086F0D59204D0E3900F354EC /* HomeWeatherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeWeatherView.m; sourceTree = "<group>"; };
+		086F0D84204D35C300F354EC /* CommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTools.h; sourceTree = "<group>"; };
+		086F0D85204D35C300F354EC /* CommonTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTools.m; sourceTree = "<group>"; };
 		47BA932D9E6BB6207B8AF880 /* Pods-SmarkPark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmarkPark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmarkPark/Pods-SmarkPark.debug.xcconfig"; sourceTree = "<group>"; };
 		51A29F880B6003BD1BF42D27 /* libPods-SmarkPark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmarkPark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C631A72CE29ED439BF54406F /* Pods-SmarkPark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmarkPark.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmarkPark/Pods-SmarkPark.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +138,7 @@
 				086F0D0E204CDD3E00F354EC /* Assets.xcassets */,
 				086F0D13204CDD3E00F354EC /* Info.plist */,
 				086F0D14204CDD3E00F354EC /* main.m */,
+				086F0D4B204D091A00F354EC /* PrefixHeader.pch */,
 			);
 			path = SmarkPark;
 			sourceTree = "<group>";
@@ -146,6 +164,7 @@
 		086F0D37204CDE2900F354EC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				086F0D4C204D0C0100F354EC /* Login */,
 				086F0D3A204CE0BB00F354EC /* Basic */,
 				086F0D39204CDE4D00F354EC /* Home */,
 			);
@@ -155,6 +174,7 @@
 		086F0D38204CDE3100F354EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				086F0D60204D35C300F354EC /* CommonTools */,
 				086F0D46204CE87700F354EC /* CommonMacro.h */,
 				086F0D47204CE88F00F354EC /* CommonConfig.h */,
 			);
@@ -164,6 +184,7 @@
 		086F0D39204CDE4D00F354EC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				086F0D57204D0E1700F354EC /* View */,
 				086F0D3E204CE18600F354EC /* HomeViewController.h */,
 				086F0D3F204CE18600F354EC /* HomeViewController.m */,
 				086F0D40204CE18600F354EC /* HomeViewController.xib */,
@@ -180,6 +201,37 @@
 				086F0D44204CE66A00F354EC /* BootViewControllerManager.m */,
 			);
 			path = Basic;
+			sourceTree = "<group>";
+		};
+		086F0D4C204D0C0100F354EC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				086F0D4D204D0C1800F354EC /* LoginViewController.h */,
+				086F0D4E204D0C1800F354EC /* LoginViewController.m */,
+				086F0D4F204D0C1800F354EC /* LoginViewController.xib */,
+				086F0D52204D0C4E00F354EC /* SignUpViewController.h */,
+				086F0D53204D0C4E00F354EC /* SignUpViewController.m */,
+				086F0D54204D0C4E00F354EC /* SignUpViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		086F0D57204D0E1700F354EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				086F0D58204D0E3900F354EC /* HomeWeatherView.h */,
+				086F0D59204D0E3900F354EC /* HomeWeatherView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		086F0D60204D35C300F354EC /* CommonTools */ = {
+			isa = PBXGroup;
+			children = (
+				086F0D84204D35C300F354EC /* CommonTools.h */,
+				086F0D85204D35C300F354EC /* CommonTools.m */,
+			);
+			path = CommonTools;
 			sourceTree = "<group>";
 		};
 		3BFD4C378CF4609094D16108 /* Pods */ = {
@@ -310,6 +362,8 @@
 			files = (
 				086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */,
 				086F0D42204CE18600F354EC /* HomeViewController.xib in Resources */,
+				086F0D56204D0C4E00F354EC /* SignUpViewController.xib in Resources */,
+				086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,10 +443,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086F0D5A204D0E3900F354EC /* HomeWeatherView.m in Sources */,
 				086F0D15204CDD3E00F354EC /* main.m in Sources */,
 				086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */,
+				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,
 				086F0D3D204CE0D600F354EC /* BasicViewController.m in Sources */,
 				086F0D41204CE18600F354EC /* HomeViewController.m in Sources */,
+				086F0D97204D35C300F354EC /* CommonTools.m in Sources */,
+				086F0D55204D0C4E00F354EC /* SignUpViewController.m in Sources */,
 				086F0D45204CE66A00F354EC /* BootViewControllerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -541,6 +599,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 624TUL8XMA;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SmarkPark/PrefixHeader.pch";
 				INFOPLIST_FILE = SmarkPark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -558,6 +618,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 624TUL8XMA;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SmarkPark/PrefixHeader.pch";
 				INFOPLIST_FILE = SmarkPark/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

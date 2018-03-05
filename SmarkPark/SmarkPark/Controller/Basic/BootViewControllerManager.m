@@ -13,7 +13,6 @@
 
 + (UINavigationController *)initBootController{
     HomeViewController *home = [[HomeViewController alloc]init];
-    home.title = @"智慧停车";
     UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:home];
     return homeNav;
 }
