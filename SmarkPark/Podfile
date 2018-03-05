@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '9.0'
+
+target 'SmarkPark' do
+  # use_frameworks!
+
+  # Pods for SmarkPark
+
+  pod 'IQKeyboardManager'
+  pod 'AFNetworking', '~> 3.0'
+  pod "JSONModel"
+  pod "MJRefresh"
+
+end
