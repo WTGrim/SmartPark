@@ -10,5 +10,8 @@ target 'SmarkPark' do
   pod 'AFNetworking', '~> 3.0'
   pod "JSONModel"
   pod "MJRefresh"
+  pod "AMapNavi"
+  pod "AMapLocation"
+  pod "AMapSearch"
 
 end

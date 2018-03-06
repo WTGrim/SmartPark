@@ -9,12 +9,13 @@
 #ifndef CommonConfig_h
 #define CommonConfig_h
 
-
-// api访问地址
+//应用名称
+#define APP_NAME @"随时停"
+// 服务器API
 #define SERVER_IP @"https://panda.dengcesuo.com/api.php"
 
 //高德地图的key
-#define AMAP_KEY @""
+#define AMAP_KEY @"e8181f751569ad076bccc4d44e46fc7e"
 
 //分页数大小
 #define COMMON_PAGE_SIZE 10
