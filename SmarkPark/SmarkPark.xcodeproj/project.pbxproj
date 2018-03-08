@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080A7AC42050DE3700245D7D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC32050DE3700245D7D /* LoginView.m */; };
+		080A7AC72050DE4400245D7D /* SignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC62050DE4400245D7D /* SignView.m */; };
+		080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC920510E4500245D7D /* BackBtnLayer.m */; };
 		086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D06204CDD3E00F354EC /* AppDelegate.m */; };
 		086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D0E204CDD3E00F354EC /* Assets.xcassets */; };
 		086F0D15204CDD3E00F354EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D14204CDD3E00F354EC /* main.m */; };
@@ -41,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		080A7AC22050DE3700245D7D /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		080A7AC32050DE3700245D7D /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		080A7AC52050DE4400245D7D /* SignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignView.h; sourceTree = "<group>"; };
+		080A7AC62050DE4400245D7D /* SignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignView.m; sourceTree = "<group>"; };
+		080A7AC820510E4500245D7D /* BackBtnLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackBtnLayer.h; sourceTree = "<group>"; };
+		080A7AC920510E4500245D7D /* BackBtnLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackBtnLayer.m; sourceTree = "<group>"; };
 		086F0D02204CDD3E00F354EC /* SmarkPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmarkPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		086F0D05204CDD3E00F354EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		086F0D06204CDD3E00F354EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -101,6 +110,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		080A7AC12050DE1E00245D7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				080A7AC22050DE3700245D7D /* LoginView.h */,
+				080A7AC32050DE3700245D7D /* LoginView.m */,
+				080A7AC52050DE4400245D7D /* SignView.h */,
+				080A7AC62050DE4400245D7D /* SignView.m */,
+				080A7AC820510E4500245D7D /* BackBtnLayer.h */,
+				080A7AC920510E4500245D7D /* BackBtnLayer.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		086F0CF9204CDD3E00F354EC = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +223,7 @@
 		086F0D4C204D0C0100F354EC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				080A7AC12050DE1E00245D7D /* View */,
 				086F0D4D204D0C1800F354EC /* LoginViewController.h */,
 				086F0D4E204D0C1800F354EC /* LoginViewController.m */,
 				086F0D4F204D0C1800F354EC /* LoginViewController.xib */,
@@ -439,9 +462,12 @@
 				086F0D5A204D0E3900F354EC /* HomeWeatherView.m in Sources */,
 				086F0D15204CDD3E00F354EC /* main.m in Sources */,
 				086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */,
+				080A7AC42050DE3700245D7D /* LoginView.m in Sources */,
 				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,
+				080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */,
 				086F0D3D204CE0D600F354EC /* BasicViewController.m in Sources */,
 				086F0D41204CE18600F354EC /* HomeViewController.m in Sources */,
+				080A7AC72050DE4400245D7D /* SignView.m in Sources */,
 				086F0D97204D35C300F354EC /* CommonTools.m in Sources */,
 				086F0D45204CE66A00F354EC /* BootViewControllerManager.m in Sources */,
 			);

@@ -13,5 +13,6 @@ target 'SmarkPark' do
   pod "AMapNavi"
   pod "AMapLocation"
   pod "AMapSearch"
+  pod "Masonry"
 
 end
