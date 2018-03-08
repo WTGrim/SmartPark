@@ -32,6 +32,7 @@
     [self addSubview:bgView];
     
     _phone = [UITextField new];
+    _phone.placeholder = @"输入手机号";
     _phone.layer.cornerRadius = 3;
     _phone.layer.masksToBounds = true;
     _phone.backgroundColor = RGB(246, 246, 246);
@@ -41,6 +42,7 @@
     [bgView addSubview:_phone];
     
     _password = [UITextField new];
+    _password.placeholder = @"验证码";
     _password.layer.cornerRadius = 3;
     _password.secureTextEntry = true;
     _password.layer.masksToBounds = true;

@@ -34,6 +34,7 @@
     _phone = [UITextField new];
     _phone.layer.cornerRadius = 3;
     _phone.layer.masksToBounds = true;
+    _phone.placeholder = @"手机号登录";
     _phone.backgroundColor = RGB(246, 246, 246);
     UIImageView *phoneImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
     _phone.leftView = phoneImage;
@@ -41,6 +42,7 @@
     [bgView addSubview:_phone];
     
     _password = [UITextField new];
+    _password.placeholder = @"登录密码";
     _password.layer.cornerRadius = 3;
     _password.secureTextEntry = true;
     _password.layer.masksToBounds = true;
@@ -62,7 +64,14 @@
     [bgView addSubview:loginBtn];
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, CGRectGetWidth(loginBtn.frame), CGRectGetHeight(loginBtn.frame))];
     [loginBtn.layer addSublayer:loginBtnLayer];
-
+    
+    UIButton *forgetBtn = [UIButton new];
+    [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
+    forgetBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [forgetBtn setTitleColor:ThemeColor forState:UIControlStateNormal];
+    [forgetBtn addTarget:self action:@selector(forgetBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [bgView addSubview:forgetBtn];
+    
     [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
         make.right.equalTo(self).offset(-20);
@@ -87,6 +96,11 @@
         make.top.equalTo(_password).offset(20);
         make.height.equalTo(@50);
     }];
+}
+
+#pragma mark - 忘记密码
+- (void)forgetBtnClick{
+    
 }
 
 #pragma mark - 显示密码

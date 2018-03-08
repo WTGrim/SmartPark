@@ -7,15 +7,16 @@
 //
 
 #import "LoginViewController.h"
+#import "LoginSegment.h"
 
 //comfig
 #define kHeaderHeight 200
 #define kSegmentHeight 50
-#define kSignViewHeight 370
+#define kSignViewHeight 400
 #define kMiddleViewHeight 400
 #define kBottomHeight 100
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *backScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
@@ -23,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIView *segmentView;
 @property (weak, nonatomic) IBOutlet UIScrollView *signScrollView;
 
+@property (nonatomic, strong)LoginSegment *segment;
 
 @end
 
@@ -47,6 +49,9 @@
 
 - (void)setupUI{
     
+    [_segmentView addSubview:self.segment];
+    _signScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, <#CGFloat height#>)
+    _signScrollView.delegate = self;
     
 }
 
@@ -65,5 +70,20 @@
     }
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if (scrollView == _signScrollView) {
+        NSInteger index = scrollView.contentOffset.x / SCREEN_WIDTH;
+        self.segment.selectedIndex = index;
+
+    }
+}
+
+- (LoginSegment *)segment{
+    if(!_segment){
+        _segment = [[LoginSegment alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_segmentView.frame), CGRectGetHeight(_segmentView.frame))];
+    }
+    return _segment;
+}
 
 @end
