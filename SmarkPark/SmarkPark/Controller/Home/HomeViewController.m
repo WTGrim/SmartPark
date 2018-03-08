@@ -13,7 +13,6 @@
 @interface HomeViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 //tableView
 @property (nonatomic, strong) UITableView * tableView;
-
 @property (nonatomic, strong) HomeWeatherView * weatherHeader;
 @property (nonatomic, assign) CGFloat topContentInset;
 @property (nonatomic, assign) CGFloat alphaMemory;

@@ -20,4 +20,6 @@
 //分页数大小
 #define COMMON_PAGE_SIZE 10
 
+
+
 #endif /* CommonConfig_h */

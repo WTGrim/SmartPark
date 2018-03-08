@@ -18,8 +18,6 @@
 		086F0D45204CE66A00F354EC /* BootViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D44204CE66A00F354EC /* BootViewControllerManager.m */; };
 		086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D4E204D0C1800F354EC /* LoginViewController.m */; };
 		086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D4F204D0C1800F354EC /* LoginViewController.xib */; };
-		086F0D55204D0C4E00F354EC /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D53204D0C4E00F354EC /* SignUpViewController.m */; };
-		086F0D56204D0C4E00F354EC /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D54204D0C4E00F354EC /* SignUpViewController.xib */; };
 		086F0D5A204D0E3900F354EC /* HomeWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D59204D0E3900F354EC /* HomeWeatherView.m */; };
 		086F0D97204D35C300F354EC /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D85204D35C300F354EC /* CommonTools.m */; };
 		6FA9434C75F95090EB597EF5 /* libPods-SmarkPark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A29F880B6003BD1BF42D27 /* libPods-SmarkPark.a */; };
@@ -68,9 +66,6 @@
 		086F0D4D204D0C1800F354EC /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		086F0D4E204D0C1800F354EC /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		086F0D4F204D0C1800F354EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		086F0D52204D0C4E00F354EC /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		086F0D53204D0C4E00F354EC /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		086F0D54204D0C4E00F354EC /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		086F0D58204D0E3900F354EC /* HomeWeatherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeWeatherView.h; sourceTree = "<group>"; };
 		086F0D59204D0E3900F354EC /* HomeWeatherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeWeatherView.m; sourceTree = "<group>"; };
 		086F0D84204D35C300F354EC /* CommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTools.h; sourceTree = "<group>"; };
@@ -209,9 +204,6 @@
 				086F0D4D204D0C1800F354EC /* LoginViewController.h */,
 				086F0D4E204D0C1800F354EC /* LoginViewController.m */,
 				086F0D4F204D0C1800F354EC /* LoginViewController.xib */,
-				086F0D52204D0C4E00F354EC /* SignUpViewController.h */,
-				086F0D53204D0C4E00F354EC /* SignUpViewController.m */,
-				086F0D54204D0C4E00F354EC /* SignUpViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -362,7 +354,6 @@
 			files = (
 				086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */,
 				086F0D42204CE18600F354EC /* HomeViewController.xib in Resources */,
-				086F0D56204D0C4E00F354EC /* SignUpViewController.xib in Resources */,
 				086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +443,6 @@
 				086F0D3D204CE0D600F354EC /* BasicViewController.m in Sources */,
 				086F0D41204CE18600F354EC /* HomeViewController.m in Sources */,
 				086F0D97204D35C300F354EC /* CommonTools.m in Sources */,
-				086F0D55204D0C4E00F354EC /* SignUpViewController.m in Sources */,
 				086F0D45204CE66A00F354EC /* BootViewControllerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

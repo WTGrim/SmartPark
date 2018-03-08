@@ -58,5 +58,5 @@
 #define ThemeColor_BackGround RGB(247, 247, 250)
 #define ThemeColor_line RGB(236, 236, 236)
 #define ThemeColor_Border RGB(187, 187, 187)
-
+#define ThemeColor RGB(40, 222, 234)
 #endif /* CommonMacro_h */
