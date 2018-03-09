@@ -11,6 +11,7 @@
 		080A7AC72050DE4400245D7D /* SignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC62050DE4400245D7D /* SignView.m */; };
 		080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC920510E4500245D7D /* BackBtnLayer.m */; };
 		080A7ACD205126C800245D7D /* LoginSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7ACC205126C800245D7D /* LoginSegment.m */; };
+		0835768D205272D800C51BFF /* UserStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0835768C205272D800C51BFF /* UserStatus.m */; };
 		086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D06204CDD3E00F354EC /* AppDelegate.m */; };
 		086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D0E204CDD3E00F354EC /* Assets.xcassets */; };
 		086F0D15204CDD3E00F354EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D14204CDD3E00F354EC /* main.m */; };
@@ -53,6 +54,8 @@
 		080A7AC920510E4500245D7D /* BackBtnLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackBtnLayer.m; sourceTree = "<group>"; };
 		080A7ACB205126C800245D7D /* LoginSegment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginSegment.h; sourceTree = "<group>"; };
 		080A7ACC205126C800245D7D /* LoginSegment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginSegment.m; sourceTree = "<group>"; };
+		0835768B205272D800C51BFF /* UserStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatus.h; sourceTree = "<group>"; };
+		0835768C205272D800C51BFF /* UserStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatus.m; sourceTree = "<group>"; };
 		086F0D02204CDD3E00F354EC /* SmarkPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmarkPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		086F0D05204CDD3E00F354EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		086F0D06204CDD3E00F354EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +131,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0835768A205272BF00C51BFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0835768B205272D800C51BFF /* UserStatus.h */,
+				0835768C205272D800C51BFF /* UserStatus.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		086F0CF9204CDD3E00F354EC = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				086F0D60204D35C300F354EC /* CommonTools */,
+				0835768A205272BF00C51BFF /* Model */,
 				086F0D46204CE87700F354EC /* CommonMacro.h */,
 				086F0D47204CE88F00F354EC /* CommonConfig.h */,
 			);
@@ -469,6 +482,7 @@
 				086F0D15204CDD3E00F354EC /* main.m in Sources */,
 				086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */,
 				080A7AC42050DE3700245D7D /* LoginView.m in Sources */,
+				0835768D205272D800C51BFF /* UserStatus.m in Sources */,
 				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,
 				080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */,
 				086F0D3D204CE0D600F354EC /* BasicViewController.m in Sources */,

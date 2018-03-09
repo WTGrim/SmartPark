@@ -7,16 +7,12 @@
 //
 
 #import "BootViewControllerManager.h"
-//#import "HomeViewController.h"
-#import "LoginViewController.h"
+#import "HomeViewController.h"
 
 @implementation BootViewControllerManager
 
 + (UINavigationController *)initBootController{
-//    HomeViewController *home = [[HomeViewController alloc]init];
-//    UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:home];
-//    return homeNav;
-    LoginViewController *home = [[LoginViewController alloc]init];
+    HomeViewController *home = [[HomeViewController alloc]init];
     UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:home];
     return homeNav;
 }
