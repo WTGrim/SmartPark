@@ -55,10 +55,9 @@
     
     _backScrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     [_segmentView addSubview:self.segment];
-    _signScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, CGRectGetWidth(_signScrollView.frame));
+    _signScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, 0);
     _signScrollView.delegate = self;
     _signScrollView.bounces = false;
-    _signScrollView.directionalLockEnabled = true;
     
     [_signScrollView addSubview:self.loginView];
     [_signScrollView addSubview:self.signView];
@@ -84,7 +83,6 @@
     if (scrollView == _signScrollView) {
         NSInteger index = scrollView.contentOffset.x / SCREEN_WIDTH;
         self.segment.selectedIndex = index;
-
     }
 }
 
@@ -108,7 +106,7 @@
 
 - (SignView *)signView{
     if (!_signView) {
-        _signView = [[SignView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, CGRectGetWidth(_signScrollView.frame))];
+        _signView = [[SignView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, CGRectGetHeight(_signScrollView.frame))];
     }
     return _signView;
 }

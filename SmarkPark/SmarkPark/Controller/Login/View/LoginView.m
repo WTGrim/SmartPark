@@ -24,12 +24,20 @@
 
 - (void)setupUI{
     
+    UIView *maskView = [UIView new];
+    maskView.layer.shadowColor = RGBA(0, 0, 0, 0.9).CGColor;
+    maskView.layer.shadowOpacity = 0.2;
+    maskView.layer.shadowRadius = 10;
+    maskView.layer.cornerRadius = 10;
+    maskView.clipsToBounds = false;
+    maskView.layer.shadowOffset = CGSizeMake(0, 0);
+    [self addSubview:maskView];
+    
     UIView *bgView = [UIView new];
     bgView.layer.cornerRadius = 10;
-    bgView.layer.shadowColor = RGBA(0, 0, 0, 0.1).CGColor;
-    bgView.layer.shadowOpacity = 0.3;
     bgView.layer.masksToBounds = true;
-    [self addSubview:bgView];
+    bgView.backgroundColor = [UIColor whiteColor];
+    [maskView addSubview:bgView];
     
     _phone = [UITextField new];
     _phone.layer.cornerRadius = 3;
@@ -60,12 +68,15 @@
     _password.rightViewMode = UITextFieldViewModeAlways;
     
     UIButton *loginBtn = [UIButton new];
+    BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    [loginBtn.layer addSublayer:loginBtnLayer];
+    [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    loginBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     loginBtn.layer.cornerRadius = 3;
+    loginBtn.layer.masksToBounds = true;
     loginBtn.layer.shadowColor = RGBA(206, 248, 246, 0.9).CGColor;
     loginBtn.layer.shadowOffset = CGSizeMake(5, 5);
     [bgView addSubview:loginBtn];
-    BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, CGRectGetWidth(loginBtn.frame), CGRectGetHeight(loginBtn.frame))];
-    [loginBtn.layer addSublayer:loginBtnLayer];
     
     UIButton *forgetBtn = [UIButton new];
     [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
@@ -74,16 +85,20 @@
     [forgetBtn addTarget:self action:@selector(forgetBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [bgView addSubview:forgetBtn];
     
-    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [maskView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
         make.right.equalTo(self).offset(-20);
-        make.top.equalTo(self);
+        make.top.equalTo(self).offset(1);
         make.bottom.equalTo(self).offset(-20);
+    }];
+    
+    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.equalTo(maskView);
     }];
     
     [_phone mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bgView).offset(20);
-        make.top.equalTo(bgView).offset(20);
+        make.top.equalTo(bgView).offset(30);
         make.height.equalTo(@30);
         make.right.equalTo(bgView).offset(-20);
     }];
@@ -95,9 +110,17 @@
     
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(_phone);
-        make.top.equalTo(_password.mas_bottom).offset(20);
+        make.top.equalTo(_password.mas_bottom).offset(30);
         make.height.equalTo(@40);
     }];
+    
+    [forgetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(loginBtn.mas_bottom).offset(30);
+        make.left.right.equalTo(_password);
+        make.height.equalTo(@20);
+    }];
+    
+
 }
 
 #pragma mark - 忘记密码

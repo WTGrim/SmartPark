@@ -68,17 +68,17 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6d-GC-5gC" userLabel="bottom">
-                            <rect key="frame" x="0.0" y="758" width="395" height="0.0"/>
+                            <rect key="frame" x="0.0" y="618" width="395" height="0.0"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" id="lu8-5g-VbK"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QK7-XF-2fB">
-                            <rect key="frame" x="0.0" y="250" width="395" height="400"/>
+                            <rect key="frame" x="0.0" y="250" width="395" height="260"/>
                             <subviews>
                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgP-sN-hof">
-                                    <rect key="frame" x="0.0" y="0.0" width="395" height="400"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="395" height="260"/>
                                 </scrollView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,12 +86,12 @@
                                 <constraint firstItem="zgP-sN-hof" firstAttribute="leading" secondItem="QK7-XF-2fB" secondAttribute="leading" id="8ho-2H-4zC"/>
                                 <constraint firstAttribute="bottom" secondItem="zgP-sN-hof" secondAttribute="bottom" id="KdM-EE-fv6"/>
                                 <constraint firstItem="zgP-sN-hof" firstAttribute="top" secondItem="QK7-XF-2fB" secondAttribute="top" id="QQy-Ga-Pzq"/>
-                                <constraint firstAttribute="height" constant="400" id="QRe-1f-9Pn"/>
+                                <constraint firstAttribute="height" constant="260" id="QRe-1f-9Pn"/>
                                 <constraint firstAttribute="trailing" secondItem="zgP-sN-hof" secondAttribute="trailing" id="tq4-U3-4Sa"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oq-Rd-dyv">
-                            <rect key="frame" x="0.0" y="650" width="395" height="100"/>
+                            <rect key="frame" x="0.0" y="510" width="395" height="100"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第三方账号登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sh0-oR-1bo">
                                     <rect key="frame" x="147.5" y="8" width="100" height="17"/>

@@ -55,7 +55,7 @@
 
 #define ThemeColor_Nav RGB(132, 213, 76)
 #define ThemeColor_BlackText  RGB(10, 10, 10)
-#define ThemeColor_GrayText  RGB(223, 223, 223)
+#define ThemeColor_GrayText  RGB(180, 180, 180)
 #define ThemeColor_BackGround RGB(247, 247, 250)
 #define ThemeColor_line RGB(236, 236, 236)
 #define ThemeColor_Border RGB(187, 187, 187)
