@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "LoginSegment.h"
+#import "LoginView.h"
+#import "SignView.h"
 
 //comfig
 #define kHeaderHeight 200
@@ -25,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *signScrollView;
 
 @property (nonatomic, strong)LoginSegment *segment;
+@property (nonatomic, strong)LoginView *loginView;
+@property (nonatomic, strong)SignView *signView;
 
 @end
 
@@ -49,10 +53,15 @@
 
 - (void)setupUI{
     
+    _backScrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     [_segmentView addSubview:self.segment];
-    _signScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, <#CGFloat height#>)
+    _signScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, CGRectGetWidth(_signScrollView.frame));
     _signScrollView.delegate = self;
+    _signScrollView.bounces = false;
+    _signScrollView.directionalLockEnabled = true;
     
+    [_signScrollView addSubview:self.loginView];
+    [_signScrollView addSubview:self.signView];
 }
 
 #pragma mark - 三方登录
@@ -81,9 +90,27 @@
 
 - (LoginSegment *)segment{
     if(!_segment){
-        _segment = [[LoginSegment alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_segmentView.frame), CGRectGetHeight(_segmentView.frame))];
+        _segment = [[LoginSegment alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(_segmentView.frame))];
+        WEAKSELF;
+        _segment.selectedCallBack = ^(NSInteger selectedIndex) {
+            [weakSelf.signScrollView setContentOffset:CGPointMake(SCREEN_WIDTH * selectedIndex, 0) animated:true];
+        };
     }
     return _segment;
+}
+
+- (LoginView *)loginView{
+    if (!_loginView) {
+        _loginView = [[LoginView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(_signScrollView.frame))];
+    }
+    return _loginView;
+}
+
+- (SignView *)signView{
+    if (!_signView) {
+        _signView = [[SignView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, CGRectGetWidth(_signScrollView.frame))];
+    }
+    return _signView;
 }
 
 @end

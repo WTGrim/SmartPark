@@ -11,5 +11,5 @@
 @interface LoginSegment : UIView
 
 @property(nonatomic, assign)NSInteger selectedIndex;
-
+@property(nonatomic, copy)void(^selectedCallBack)(NSInteger selectedIndex);
 @end

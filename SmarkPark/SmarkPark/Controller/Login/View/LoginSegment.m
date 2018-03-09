@@ -27,7 +27,7 @@
 - (void)setupUI{
     
     NSArray *titles = @[@"登录", @"注册"];
-    CGFloat w = CGRectGetWidth(self.frame);
+    CGFloat w = CGRectGetWidth(self.frame) / titles.count;
     CGFloat h = CGRectGetHeight(self.frame);
     _btnArray = [NSMutableArray array];
     [titles enumerateObjectsUsingBlock:^(NSString *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -52,7 +52,6 @@
     _slider.image = [UIImage imageNamed:@"Share_zone"];
     [self addSubview:_slider];
     
-    
 }
 
 - (void)btnClick:(UIButton *)btn{
@@ -63,12 +62,15 @@
     _currentBtn = btn;
     _currentSelectedIndex = btn.tag - LoginSegmentTag;
     [self sliderAnimation:btn];
+    if (_selectedCallBack) {
+        _selectedCallBack(_currentSelectedIndex);
+    }
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
     if (_currentSelectedIndex == selectedIndex) return;
     [self setNormalStutas:_currentBtn];
-    [self setSelectedStatus:(UIButton *)_btnArray[selectedIndex]];
+    [self setSelectedStatus:(UIButton*)_btnArray[selectedIndex]];
     _currentBtn = _btnArray[selectedIndex];
     [self sliderAnimation:_currentBtn];
 }
@@ -79,7 +81,7 @@
     if (btn.tag == LoginSegmentTag) {
         _slider.transform = CGAffineTransformIdentity;
     }else{
-        _slider.transform = CGAffineTransformMakeTranslation(w * 3 - 10, 0);
+        _slider.transform = CGAffineTransformMakeTranslation(w * 2, 0);
     }
 }
 

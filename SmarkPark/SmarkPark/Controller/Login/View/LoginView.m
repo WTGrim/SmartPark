@@ -33,6 +33,7 @@
     
     _phone = [UITextField new];
     _phone.layer.cornerRadius = 3;
+    _phone.font = [UIFont systemFontOfSize:12];
     _phone.layer.masksToBounds = true;
     _phone.placeholder = @"手机号登录";
     _phone.backgroundColor = RGB(246, 246, 246);
@@ -44,6 +45,7 @@
     _password = [UITextField new];
     _password.placeholder = @"登录密码";
     _password.layer.cornerRadius = 3;
+    _password.font = [UIFont systemFontOfSize:12];
     _password.secureTextEntry = true;
     _password.layer.masksToBounds = true;
     _password.backgroundColor = RGB(246, 246, 246);
@@ -82,19 +84,19 @@
     [_phone mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bgView).offset(20);
         make.top.equalTo(bgView).offset(20);
-        make.height.equalTo(@40);
+        make.height.equalTo(@30);
         make.right.equalTo(bgView).offset(-20);
     }];
     
     [_password mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(_phone);
-        make.top.equalTo(_phone).offset(10);
+        make.top.equalTo(_phone.mas_bottom).offset(10);
     }];
     
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(_phone);
-        make.top.equalTo(_password).offset(20);
-        make.height.equalTo(@50);
+        make.top.equalTo(_password.mas_bottom).offset(20);
+        make.height.equalTo(@40);
     }];
 }
 
