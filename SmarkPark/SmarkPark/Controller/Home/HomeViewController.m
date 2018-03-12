@@ -13,7 +13,7 @@
 @interface HomeViewController ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *weatherView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherBgHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherBgWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
@@ -44,12 +44,16 @@
 
 - (void)setupUI{
     
-    _weatherBgWidth.constant = SCREEN_WIDTH*435.5/414.0;
-    _originWeatherHeight = CGRectGetHeight(_weatherView.frame);
     _weatherWidth.constant = SCREEN_WIDTH * 0.8;
-    _scrollView.contentInset = UIEdgeInsetsMake(_weatherHeight.constant, 0, -_weatherHeight.constant + 100, 0);
+    _weatherBgHeight.constant = SCREEN_WIDTH * 0.8;
+    _weatherBgWidth.constant = SCREEN_WIDTH;
+    _originWeatherHeight = _weatherBgHeight.constant;
+    _imageViewHeight.constant = _originWeatherHeight;
+    _imageViewWidth.constant = SCREEN_WIDTH;
+    _scrollView.contentInset = UIEdgeInsetsMake(_weatherBgHeight.constant, 0, -_weatherBgHeight.constant + 100, 0);
     _scrollView.delegate = self;
-    
+    [_weatherView layoutIfNeeded];
+    [_weatherView layoutSubviews];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

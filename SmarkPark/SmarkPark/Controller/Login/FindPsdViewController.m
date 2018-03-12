@@ -10,6 +10,13 @@
 
 @interface FindPsdViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *_phone;
+@property (weak, nonatomic) IBOutlet UIButton *codeBtn;
+@property (weak, nonatomic) IBOutlet UITextField *codeText;
+@property (weak, nonatomic) IBOutlet UITextField *psd;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+
+
 @end
 
 @implementation FindPsdViewController
@@ -27,6 +34,9 @@
     
 }
 
+- (IBAction)submitBtnClick:(UIButton *)sender {
+    
+}
 
 
 @end

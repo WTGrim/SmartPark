@@ -11,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FindPsdViewController">
             <connections>
+                <outlet property="_phone" destination="hqP-37-4RM" id="82c-ph-HQa"/>
+                <outlet property="codeBtn" destination="CoO-dG-sfi" id="hSb-9q-2Jj"/>
+                <outlet property="codeText" destination="mAu-ff-JBj" id="cFh-jb-5Eo"/>
+                <outlet property="psd" destination="zgp-79-teH" id="VNv-Pp-DIV"/>
+                <outlet property="submitBtn" destination="i1e-BA-4cR" id="dxZ-Me-jNo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -46,6 +51,9 @@
                     <state key="normal" title="提交">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="submitBtnClick:" destination="-1" eventType="touchUpInside" id="vbQ-BZ-IJ4"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-dG-sfi">
                     <rect key="frame" x="134" y="33" width="70" height="24"/>
