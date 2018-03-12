@@ -50,6 +50,7 @@
     _phone.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_phone];
     
+    
     _password = [UITextField new];
     _password.placeholder = @"验证码";
     _password.layer.cornerRadius = 3;
@@ -127,12 +128,16 @@
 
 #pragma mark - 获取验证码
 - (void)seePsdClick:(UIButton *)btn{
-    
+    if (_signBtnClick) {
+        _signBtnClick(SignBtnType_Code);
+    }
 }
 
 #pragma mark - 注册协议
 - (void)loginProtocolBtnClick{
-    
+    if (_signBtnClick) {
+        _signBtnClick(SignBtnType_Protocol);
+    }
 }
 
 - (NSAttributedString *)getAttrString:(NSString *)string{

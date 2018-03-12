@@ -10,6 +10,8 @@
 #import "LoginSegment.h"
 #import "LoginView.h"
 #import "SignView.h"
+#import "FindPsdViewController.h"
+#import "ProtocolViewController.h"
 
 //comfig
 #define kHeaderHeight 200
@@ -86,6 +88,49 @@
     }
 }
 
+#pragma mark - 注册界面点击事件
+- (void)signClick:(SignBtnType)type{
+    switch (type) {
+        case SignBtnType_Code://获取验证码
+        {
+            
+        }
+            break;
+        case SignBtnType_Sign://注册
+        {
+            
+        }
+            break;
+        case SignBtnType_Protocol://注册协议
+        {
+            ProtocolViewController *protocol = [[ProtocolViewController alloc]init];
+            [self.navigationController pushViewController:protocol animated:true];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)loginClick:(LoginBtnType)type{
+    switch (type) {
+        case LoginBtnType_Login://登录
+        {
+            
+        }
+            break;
+        case LoginBtnType_FindPsd:
+        {
+            FindPsdViewController *findVc = [[FindPsdViewController alloc]init];
+            [self.navigationController pushViewController:findVc animated:true];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 - (LoginSegment *)segment{
     if(!_segment){
         _segment = [[LoginSegment alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(_segmentView.frame))];
@@ -100,6 +145,10 @@
 - (LoginView *)loginView{
     if (!_loginView) {
         _loginView = [[LoginView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(_signScrollView.frame))];
+        WEAKSELF;
+        _loginView.loginBtnClick = ^(LoginBtnType type) {
+            [weakSelf loginClick:type];
+        };
     }
     return _loginView;
 }
@@ -107,6 +156,10 @@
 - (SignView *)signView{
     if (!_signView) {
         _signView = [[SignView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, CGRectGetHeight(_signScrollView.frame))];
+        WEAKSELF;
+        _signView.signBtnClick = ^(SignBtnType type) {
+            [weakSelf signClick:type];
+        };
     }
     return _signView;
 }

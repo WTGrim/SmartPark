@@ -14,6 +14,11 @@
 
 @property (weak, nonatomic) IBOutlet UIView *weatherView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherBgWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
+@property (weak, nonatomic) IBOutlet UIImageView *cityImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *weatherWidth;
 @property (weak, nonatomic) IBOutlet UILabel *city;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
 @property (weak, nonatomic) IBOutlet UILabel *weatherText;
@@ -26,7 +31,9 @@
 
 @end
 
-@implementation HomeViewController
+@implementation HomeViewController{
+    CGFloat _originWeatherHeight;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,8 +44,32 @@
 
 - (void)setupUI{
     
-    _scrollView.contentInset = UIEdgeInsetsMake(_weatherHeight.constant, 0, 0, 0);
+    _weatherBgWidth.constant = SCREEN_WIDTH*435.5/414.0;
+    _originWeatherHeight = CGRectGetHeight(_weatherView.frame);
+    _weatherWidth.constant = SCREEN_WIDTH * 0.8;
+    _scrollView.contentInset = UIEdgeInsetsMake(_weatherHeight.constant, 0, -_weatherHeight.constant + 100, 0);
+    _scrollView.delegate = self;
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    CGRect frame = _weatherView.frame;
+    _weatherView.backgroundColor = [UIColor redColor];
+    CGFloat offsetY = scrollView.contentOffset.y + scrollView.contentInset.top;
+    if (offsetY <= 0) {
+        frame.origin.y = 0;
+        frame.size.height = _originWeatherHeight + -offsetY;
+        _imageViewHeight.constant =  _originWeatherHeight + -offsetY;
+    }else{
+        frame.origin.y = -offsetY;
+        frame.size.height = _originWeatherHeight;
+        _imageViewHeight.constant = _originWeatherHeight;
+    }
+    _weatherView.frame = frame;
+    [_weatherView layoutIfNeeded];
+    [_weatherView layoutSubviews];
+    NSLog(@"%.2f", offsetY);
 }
 
 - (void)viewWillAppear:(BOOL)animated{

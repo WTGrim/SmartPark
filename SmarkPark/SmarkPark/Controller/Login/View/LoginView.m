@@ -74,6 +74,7 @@
     loginBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     loginBtn.layer.cornerRadius = 3;
     loginBtn.layer.masksToBounds = true;
+    [loginBtn addTarget:self action:@selector(loginBtnPress) forControlEvents:UIControlEventTouchUpInside];
     loginBtn.layer.shadowColor = RGBA(206, 248, 246, 0.9).CGColor;
     loginBtn.layer.shadowOffset = CGSizeMake(5, 5);
     [bgView addSubview:loginBtn];
@@ -120,12 +121,20 @@
         make.height.equalTo(@20);
     }];
     
-
 }
 
 #pragma mark - 忘记密码
 - (void)forgetBtnClick{
-    
+    if (_loginBtnClick) {
+        _loginBtnClick(LoginBtnType_FindPsd);
+    }
+}
+
+#pragma mark - 登录
+- (void)loginBtnPress{
+    if (_loginBtnClick) {
+        _loginBtnClick(LoginBtnType_Login);
+    }
 }
 
 #pragma mark - 显示密码

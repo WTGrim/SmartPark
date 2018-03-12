@@ -16,5 +16,7 @@
 #import "CommonConfig.h"
 #import "CommonTools.h"
 #import <MJRefresh.h>
+#import "GlobalModel.h"
+
 #endif
 #endif /* PrefixHeader_pch */

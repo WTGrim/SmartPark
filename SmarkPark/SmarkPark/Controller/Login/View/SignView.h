@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, SignBtnType) {
+    SignBtnType_Sign,
+    SignBtnType_Code,
+    SignBtnType_Protocol,
+};
 @interface SignView : UIView
+
+@property(nonatomic, copy)void(^signBtnClick)(SignBtnType type);
 
 @end
