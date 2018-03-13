@@ -49,7 +49,8 @@
     }];
     
     _slider = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame) /4.0 - 10 , 0, 20, 20)];
-    _slider.image = [UIImage imageNamed:@"Share_zone"];
+    _slider.contentMode = UIViewContentModeScaleAspectFit;
+    _slider.image = [UIImage imageNamed:@"login_san"];
     [self addSubview:_slider];
     
 }

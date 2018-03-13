@@ -11,6 +11,8 @@
 
 static NSString *const kMessage = @"message";                   //信息
 static NSString *const kData = @"data";                         //数据
+static NSString *const kPhone = @"phone";                        
+static NSString *const kMsg = @"msg";
 
 
 

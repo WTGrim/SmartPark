@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4420577C57005CB86B /* LeftViewTextField.m */; };
 		08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4820577F8B005CB86B /* RelayoutButton.m */; };
+		08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4B2057A2CC005CB86B /* NetworkTool.m */; };
+		08081E512057B3C2005CB86B /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4F2057B3C2005CB86B /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		08081E522057B3C2005CB86B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 08081E502057B3C2005CB86B /* README.md */; };
 		080A7AC42050DE3700245D7D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC32050DE3700245D7D /* LoginView.m */; };
 		080A7AC72050DE4400245D7D /* SignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC62050DE4400245D7D /* SignView.m */; };
 		080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC920510E4500245D7D /* BackBtnLayer.m */; };
@@ -57,6 +60,11 @@
 		08081E4420577C57005CB86B /* LeftViewTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTextField.m; sourceTree = "<group>"; };
 		08081E4720577F8B005CB86B /* RelayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelayoutButton.h; sourceTree = "<group>"; };
 		08081E4820577F8B005CB86B /* RelayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelayoutButton.m; sourceTree = "<group>"; };
+		08081E4A2057A2CC005CB86B /* NetworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
+		08081E4B2057A2CC005CB86B /* NetworkTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
+		08081E4E2057B3C2005CB86B /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		08081E4F2057B3C2005CB86B /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		08081E502057B3C2005CB86B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		080A7AC22050DE3700245D7D /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		080A7AC32050DE3700245D7D /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		080A7AC52050DE4400245D7D /* SignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignView.h; sourceTree = "<group>"; };
@@ -152,6 +160,16 @@
 				08081E4820577F8B005CB86B /* RelayoutButton.m */,
 			);
 			path = RelayoutButton;
+			sourceTree = "<group>";
+		};
+		08081E4D2057B3C2005CB86B /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				08081E4E2057B3C2005CB86B /* JSONKit.h */,
+				08081E4F2057B3C2005CB86B /* JSONKit.m */,
+				08081E502057B3C2005CB86B /* README.md */,
+			);
+			path = JSONKit;
 			sourceTree = "<group>";
 		};
 		080A7AC12050DE1E00245D7D /* View */ = {
@@ -318,8 +336,11 @@
 		087282862056B7B20098B358 /* NetworkTool */ = {
 			isa = PBXGroup;
 			children = (
+				08081E4D2057B3C2005CB86B /* JSONKit */,
 				087282872056B7F30098B358 /* CommonNetwork.h */,
 				087282882056B7F30098B358 /* CommonNetwork.m */,
+				08081E4A2057A2CC005CB86B /* NetworkTool.h */,
+				08081E4B2057A2CC005CB86B /* NetworkTool.m */,
 			);
 			path = NetworkTool;
 			sourceTree = "<group>";
@@ -450,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08081E522057B3C2005CB86B /* README.md in Resources */,
 				086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */,
 				087282852056806B0098B358 /* ProtocolViewController.xib in Resources */,
 				08728280205676D10098B358 /* FindPsdViewController.xib in Resources */,
@@ -540,6 +562,7 @@
 				086F0D5A204D0E3900F354EC /* HomeWeatherView.m in Sources */,
 				080A7ACD205126C800245D7D /* LoginSegment.m in Sources */,
 				086F0D15204CDD3E00F354EC /* main.m in Sources */,
+				08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */,
 				087282842056806B0098B358 /* ProtocolViewController.m in Sources */,
 				08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */,
 				08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */,
@@ -550,6 +573,7 @@
 				080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */,
 				086F0D3D204CE0D600F354EC /* BasicViewController.m in Sources */,
 				0872827F205676D10098B358 /* FindPsdViewController.m in Sources */,
+				08081E512057B3C2005CB86B /* JSONKit.m in Sources */,
 				086F0D41204CE18600F354EC /* HomeViewController.m in Sources */,
 				080A7AC72050DE4400245D7D /* SignView.m in Sources */,
 				087282892056B7F30098B358 /* CommonNetwork.m in Sources */,

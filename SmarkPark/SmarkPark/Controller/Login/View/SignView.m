@@ -10,10 +10,16 @@
 #import <Masonry.h>
 #import "BackBtnLayer.h"
 #import "LeftViewTextField.h"
+#import "NetworkTool.h"
+
+static const NSInteger kTotalTimeInterval = 60;
 
 @implementation SignView{
     LeftViewTextField *_phone;
     LeftViewTextField *_password;
+    UIButton *_vertiBtn;
+    dispatch_source_t _timer;
+    NSInteger _second;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -65,12 +71,12 @@
     _password.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_password];
     
-    UIButton *seebtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
-    [seebtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-    seebtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [seebtn setTitleColor:ThemeColor_BlackText forState:UIControlStateNormal];
-    [seebtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];
-    _password.rightView = seebtn;
+    _vertiBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
+    [_vertiBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+    _vertiBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_vertiBtn setTitleColor:ThemeColor_BlackText forState:UIControlStateNormal];
+    [_vertiBtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];
+    _password.rightView = _vertiBtn;
     _password.rightViewMode = UITextFieldViewModeAlways;
     
     UIButton *loginBtn = [UIButton new];
@@ -130,8 +136,50 @@
 
 #pragma mark - 获取验证码
 - (void)seePsdClick:(UIButton *)btn{
+    if (![CommonTools isTelNumber:_phone.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        [SVProgressHUD dismissWithDelay:1.5];
+        return;
+    }
+    [SVProgressHUD show];
+    WEAKSELF;
+    //获取验证码接口
+    [NetworkTool getVerifyCodeWithPhone:_phone.text succeedBlock:^(NSDictionary * _Nullable result) {
+        [weakSelf dealTimer:result];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMsg]];
+        [SVProgressHUD dismissWithDelay:2];
+    }];
+    
     if (_signBtnClick) {
         _signBtnClick(SignBtnType_Code);
+    }
+}
+
+- (void)dealTimer:(NSDictionary *)dict{
+    [SVProgressHUD dismiss];
+    [self startTimer];
+}
+
+- (void)startTimer{
+    _vertiBtn.enabled = false;
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    WEAKSELF;
+    dispatch_source_set_event_handler(_timer, ^{
+        [weakSelf resetTimer];
+    });
+    dispatch_resume(_timer);
+}
+
+- (void)resetTimer{
+    _second ++;
+    [_vertiBtn setTitle:[NSString stringWithFormat:@"重新获取(%02ld)",(kTotalTimeInterval - _second)] forState:UIControlStateNormal];
+    if (_second == kTotalTimeInterval) {
+        _second = _second % kTotalTimeInterval;
+        dispatch_cancel(_timer);
+        [_vertiBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+        _vertiBtn.enabled = true;
     }
 }
 
