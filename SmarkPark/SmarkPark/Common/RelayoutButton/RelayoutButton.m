@@ -186,7 +186,7 @@
         CGRect imgFrame = self.imageView.frame;
         imgFrame = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.height);
         self.imageView.frame = imgFrame;
-        self.imageView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds) - imgFrame.size.height * 0.2);
+        self.imageView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds) - imgFrame.size.height * 0.5);
         
         CGRect labelFrame = self.titleLabel.frame;
         labelFrame = CGRectMake(0, CGRectGetMidY(self.bounds) + 8, frame.size.width, 14);
