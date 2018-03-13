@@ -14,5 +14,6 @@ target 'SmarkPark' do
   pod "AMapLocation"
   pod "AMapSearch"
   pod "Masonry"
+  pod 'SVProgressHUD'
 
 end

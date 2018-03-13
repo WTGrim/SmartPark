@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UIView *segmentView;
 @property (weak, nonatomic) IBOutlet UIScrollView *signScrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerHeight;
 
 @property (nonatomic, strong)LoginSegment *segment;
 @property (nonatomic, strong)LoginView *loginView;
@@ -55,6 +56,7 @@
 
 - (void)setupUI{
     
+    _headerHeight.constant = SCREEN_WIDTH * 0.6;
     _backScrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     [_segmentView addSubview:self.segment];
     _signScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 2, 0);

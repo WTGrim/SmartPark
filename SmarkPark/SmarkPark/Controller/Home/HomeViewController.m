@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "HomeWeatherView.h"
+#import "LoginViewController.h"
 
 #define HEADER_HEIGHT 136
 @interface HomeViewController ()<UIScrollViewDelegate>
@@ -79,6 +80,13 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
+    //检查登录状态
+    if (![UserStatus shareInstance].isLogin) {
+        LoginViewController *login = [[LoginViewController alloc]init];
+        [self presentViewController:login animated:true completion:^{
+            
+        }];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

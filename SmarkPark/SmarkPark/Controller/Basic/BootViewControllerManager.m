@@ -16,9 +16,7 @@
     HomeViewController *home = [[HomeViewController alloc]init];
     UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:home];
     return homeNav;
-//    LoginViewController *home = [[LoginViewController alloc]init];
-//    UINavigationController *homeNav = [[UINavigationController alloc]initWithRootViewController:home];
-//    return homeNav;
+
 }
 
 @end

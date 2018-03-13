@@ -17,6 +17,7 @@
 #import "CommonTools.h"
 #import <MJRefresh.h>
 #import "GlobalModel.h"
-
+#import "UserStatus.h"
+#import <SVProgressHUD.h>
 #endif
 #endif /* PrefixHeader_pch */

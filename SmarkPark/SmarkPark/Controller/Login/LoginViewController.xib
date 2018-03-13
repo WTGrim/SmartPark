@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="backScrollView" destination="WbB-CC-Ff8" id="lMB-p0-FCv"/>
                 <outlet property="bgImageView" destination="Hbr-ru-y41" id="enu-GX-0vL"/>
+                <outlet property="headerHeight" destination="asb-g8-vWs" id="5F6-zP-Jkn"/>
                 <outlet property="logoImageView" destination="brg-8L-bBx" id="ufx-nQ-g2w"/>
                 <outlet property="segmentView" destination="bfn-6k-zN7" id="nnH-Yf-bcI"/>
                 <outlet property="signScrollView" destination="zgP-sN-hof" id="xad-Wm-zvp"/>

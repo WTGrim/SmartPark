@@ -9,10 +9,11 @@
 #import "LoginView.h"
 #import "BackBtnLayer.h"
 #import <Masonry.h>
+#import "LeftViewTextField.h"
 
 @implementation LoginView{
-    UITextField *_phone;
-    UITextField *_password;
+    LeftViewTextField *_phone;
+    LeftViewTextField *_password;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -39,25 +40,25 @@
     bgView.backgroundColor = [UIColor whiteColor];
     [maskView addSubview:bgView];
     
-    _phone = [UITextField new];
+    _phone = [LeftViewTextField new];
     _phone.layer.cornerRadius = 3;
     _phone.font = [UIFont systemFontOfSize:12];
     _phone.layer.masksToBounds = true;
     _phone.placeholder = @"手机号登录";
     _phone.backgroundColor = RGB(246, 246, 246);
-    UIImageView *phoneImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+    UIImageView *phoneImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_phone"]];
     _phone.leftView = phoneImage;
     _phone.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_phone];
     
-    _password = [UITextField new];
+    _password = [LeftViewTextField new];
     _password.placeholder = @"登录密码";
     _password.layer.cornerRadius = 3;
     _password.font = [UIFont systemFontOfSize:12];
     _password.secureTextEntry = true;
     _password.layer.masksToBounds = true;
     _password.backgroundColor = RGB(246, 246, 246);
-    UIImageView *psdImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+    UIImageView *psdImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_psd"]];
     _password.leftView = psdImage;
     _password.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_password];

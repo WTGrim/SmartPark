@@ -9,10 +9,11 @@
 #import "SignView.h"
 #import <Masonry.h>
 #import "BackBtnLayer.h"
+#import "LeftViewTextField.h"
 
 @implementation SignView{
-    UITextField *_phone;
-    UITextField *_password;
+    LeftViewTextField *_phone;
+    LeftViewTextField *_password;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -39,26 +40,27 @@
     bgView.backgroundColor = [UIColor whiteColor];
     [maskView addSubview:bgView];
     
-    _phone = [UITextField new];
+    _phone = [LeftViewTextField new];
     _phone.placeholder = @"输入手机号";
     _phone.layer.cornerRadius = 3;
+    _phone.keyboardType = UIKeyboardTypeNumberPad;
     _phone.font = [UIFont systemFontOfSize:12];
     _phone.layer.masksToBounds = true;
     _phone.backgroundColor = RGB(246, 246, 246);
-    UIImageView *phoneImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+    UIImageView *phoneImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_phone"]];
     _phone.leftView = phoneImage;
     _phone.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_phone];
     
     
-    _password = [UITextField new];
+    _password = [LeftViewTextField new];
     _password.placeholder = @"验证码";
     _password.layer.cornerRadius = 3;
     _password.font = [UIFont systemFontOfSize:12];
     _password.secureTextEntry = true;
     _password.layer.masksToBounds = true;
     _password.backgroundColor = RGB(246, 246, 246);
-    UIImageView *psdImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+    UIImageView *psdImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_psd"]];
     _password.leftView = psdImage;
     _password.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_password];
@@ -66,7 +68,7 @@
     UIButton *seebtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
     [seebtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     seebtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [seebtn setTitleColor:ThemeColor_GrayText forState:UIControlStateNormal];
+    [seebtn setTitleColor:ThemeColor_BlackText forState:UIControlStateNormal];
     [seebtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];
     _password.rightView = seebtn;
     _password.rightViewMode = UITextFieldViewModeAlways;

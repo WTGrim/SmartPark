@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4420577C57005CB86B /* LeftViewTextField.m */; };
+		08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4820577F8B005CB86B /* RelayoutButton.m */; };
 		080A7AC42050DE3700245D7D /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC32050DE3700245D7D /* LoginView.m */; };
 		080A7AC72050DE4400245D7D /* SignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC62050DE4400245D7D /* SignView.m */; };
 		080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 080A7AC920510E4500245D7D /* BackBtnLayer.m */; };
@@ -51,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08081E4320577C57005CB86B /* LeftViewTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTextField.h; sourceTree = "<group>"; };
+		08081E4420577C57005CB86B /* LeftViewTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTextField.m; sourceTree = "<group>"; };
+		08081E4720577F8B005CB86B /* RelayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelayoutButton.h; sourceTree = "<group>"; };
+		08081E4820577F8B005CB86B /* RelayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelayoutButton.m; sourceTree = "<group>"; };
 		080A7AC22050DE3700245D7D /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		080A7AC32050DE3700245D7D /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		080A7AC52050DE4400245D7D /* SignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignView.h; sourceTree = "<group>"; };
@@ -130,6 +136,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08081E4220577C33005CB86B /* CommonCategory */ = {
+			isa = PBXGroup;
+			children = (
+				08081E4320577C57005CB86B /* LeftViewTextField.h */,
+				08081E4420577C57005CB86B /* LeftViewTextField.m */,
+			);
+			path = CommonCategory;
+			sourceTree = "<group>";
+		};
+		08081E4620577F8B005CB86B /* RelayoutButton */ = {
+			isa = PBXGroup;
+			children = (
+				08081E4720577F8B005CB86B /* RelayoutButton.h */,
+				08081E4820577F8B005CB86B /* RelayoutButton.m */,
+			);
+			path = RelayoutButton;
+			sourceTree = "<group>";
+		};
 		080A7AC12050DE1E00245D7D /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +247,8 @@
 		086F0D38204CDE3100F354EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				08081E4620577F8B005CB86B /* RelayoutButton */,
+				08081E4220577C33005CB86B /* CommonCategory */,
 				087282862056B7B20098B358 /* NetworkTool */,
 				086F0D60204D35C300F354EC /* CommonTools */,
 				0835768A205272BF00C51BFF /* Model */,
@@ -460,6 +486,7 @@
 				"${PODS_ROOT}/AMapNavi/AMapNaviKit.framework/AMapNavi.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -514,6 +541,8 @@
 				080A7ACD205126C800245D7D /* LoginSegment.m in Sources */,
 				086F0D15204CDD3E00F354EC /* main.m in Sources */,
 				087282842056806B0098B358 /* ProtocolViewController.m in Sources */,
+				08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */,
+				08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */,
 				086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */,
 				080A7AC42050DE3700245D7D /* LoginView.m in Sources */,
 				0835768D205272D800C51BFF /* UserStatus.m in Sources */,
