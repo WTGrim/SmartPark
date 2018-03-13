@@ -11,53 +11,40 @@
 @implementation UserStatus
 
 + (instancetype)shareInstance {
-    static UserStatus *user = nil;
-    static dispatch_once_t predicate;
-    dispatch_once(&predicate, ^{
+    static UserStatus *user;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         user = [[UserStatus alloc] init];
     });
     return user;
 }
 
-- (void)initWithDict:(NSDictionary *)dict{
+- (void)initWithDict:(NSDictionary *)dict {
     _isLogin = YES;
-    if (dict[@"UserName"]) {
-        _userName = dict[@"UserName"];
+    if (dict[kPhone]) {
+        _phone = dict[kPhone];
     }
-    if (dict[@"TimeSpan"]) {
-        _timeSpan = dict[@"TimeSpan"];
-    }
-    if (dict[@"AuthToken"]) {
-        _authToken = dict[@"AuthToken"];
-    }
-    if (dict[@"AuthPlatform"]) {
-        _authPlatform = dict[@"AuthPlatform"];
-    }
-    if (dict[@"DeviceId"]) {
-        _deviceId = dict[@"DeviceId"];
-    }
-    
-    if (dict[@"Message"]) {
-        _authMessage = dict[@"Message"];
-    }
-    
-    if ([dict objectForKey:@"IsBindWX"]) {
-        _isWXBind = [[dict objectForKey:@"IsBindWX"] boolValue];
+    if (dict[kToken]) {
+        _token = dict[kToken];
     }
 }
 
-- (void)addUserToken:(NSString *)token {
-    _token = token;
+
+- (NSDictionary *)userInfoDict {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    if (!StringIsNull(_phone)) {
+        [dict setObject:_phone forKey:kPhone];
+    }
+    if (!StringIsNull(_token)) {
+        [dict setObject:_token forKey:kToken];
+    }
+
+    return dict;
 }
 
 - (void)destoryUserStatus {
     _isLogin = NO;
-    _userName = nil;
-    _timeSpan = nil;
-    _authToken = nil;
-    _authPlatform = nil;
-    _deviceId = nil;
-    _authMessage = nil;
-    _isWXBind = NO;
+    _phone = nil;
+    _token = nil;
 }
 @end

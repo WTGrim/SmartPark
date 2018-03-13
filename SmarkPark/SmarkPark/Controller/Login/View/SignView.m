@@ -16,10 +16,13 @@ static const NSInteger kTotalTimeInterval = 60;
 
 @implementation SignView{
     LeftViewTextField *_phone;
+    LeftViewTextField *_codeText;
     LeftViewTextField *_password;
+
     UIButton *_vertiBtn;
     dispatch_source_t _timer;
     NSInteger _second;
+    NSDictionary *_codeDict;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -59,11 +62,29 @@ static const NSInteger kTotalTimeInterval = 60;
     [bgView addSubview:_phone];
     
     
+    _codeText = [LeftViewTextField new];
+    _codeText.placeholder = @"验证码";
+    _codeText.layer.cornerRadius = 3;
+    _codeText.font = [UIFont systemFontOfSize:12];
+    _codeText.layer.masksToBounds = true;
+    _codeText.backgroundColor = RGB(246, 246, 246);
+    UIImageView *codeImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_code"]];
+    _codeText.leftView = codeImage;
+    _codeText.leftViewMode = UITextFieldViewModeAlways;
+    [bgView addSubview:_codeText];
+    
+    _vertiBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
+    [_vertiBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+    _vertiBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_vertiBtn setTitleColor:ThemeColor_BlackText forState:UIControlStateNormal];
+    [_vertiBtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];
+    _codeText.rightView = _vertiBtn;
+    _codeText.rightViewMode = UITextFieldViewModeAlways;
+    
     _password = [LeftViewTextField new];
-    _password.placeholder = @"验证码";
+    _password.placeholder = @"输入密码";
     _password.layer.cornerRadius = 3;
     _password.font = [UIFont systemFontOfSize:12];
-    _password.secureTextEntry = true;
     _password.layer.masksToBounds = true;
     _password.backgroundColor = RGB(246, 246, 246);
     UIImageView *psdImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_psd"]];
@@ -71,18 +92,11 @@ static const NSInteger kTotalTimeInterval = 60;
     _password.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_password];
     
-    _vertiBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
-    [_vertiBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-    _vertiBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [_vertiBtn setTitleColor:ThemeColor_BlackText forState:UIControlStateNormal];
-    [_vertiBtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];
-    _password.rightView = _vertiBtn;
-    _password.rightViewMode = UITextFieldViewModeAlways;
-    
     UIButton *loginBtn = [UIButton new];
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     [loginBtn.layer addSublayer:loginBtnLayer];
     [loginBtn setTitle:@"注册" forState:UIControlStateNormal];
+    [loginBtn addTarget:self action:@selector(loginClick:) forControlEvents:UIControlEventTouchUpInside];
     loginBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     loginBtn.layer.cornerRadius = 3;
     loginBtn.layer.masksToBounds = true;
@@ -116,22 +130,90 @@ static const NSInteger kTotalTimeInterval = 60;
         make.right.equalTo(bgView).offset(-20);
     }];
     
-    [_password mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_codeText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(_phone);
         make.top.equalTo(_phone.mas_bottom).offset(10);
+
+    }];
+    
+    [_password mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.height.equalTo(_phone);
+        make.top.equalTo(_codeText.mas_bottom).offset(10);
     }];
     
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(_phone);
-        make.top.equalTo(_password.mas_bottom).offset(30);
+        make.top.equalTo(_password.mas_bottom).offset(20);
         make.height.equalTo(@40);
     }];
     
     [forgetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(loginBtn.mas_bottom).offset(30);
+        make.top.equalTo(loginBtn.mas_bottom).offset(15);
         make.left.right.equalTo(_password);
-        make.height.equalTo(@20);
+        make.height.equalTo(@15);
     }];
+}
+
+- (void)loginClick:(UIButton *)btn{
+    
+    if (![CommonTools isTelNumber:_phone.text]) {
+        [SVProgressHUD showInfoWithStatus:@"请输入正确的手机号码"];
+        [SVProgressHUD dismissWithDelay:1.5];
+        return;
+    }
+    NSArray *textFei = @[_codeText, _password];
+    NSArray *message = @[@"请输入验证码", @"请输入密码"];
+    __block BOOL canGo = true;
+    __block NSString *msg = nil;
+    [textFei enumerateObjectsUsingBlock:^(UITextField  *_Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.text.length == 0) {
+            canGo = false;
+            msg = message[idx];
+            *stop = true;
+        }
+    }];
+    if (!canGo) {
+        [SVProgressHUD showInfoWithStatus:msg];
+        [SVProgressHUD dismissWithDelay:1.5];
+        return;
+    }
+    
+    if (_password.text.length > 12 || _password.text.length < 6) {
+        [SVProgressHUD showInfoWithStatus:@"请输入6-12位长度的密码"];
+        [SVProgressHUD dismissWithDelay:1.5];
+        return;
+    }
+    
+    [SVProgressHUD show];
+    WEAKSELF;
+    [NetworkTool registerWithPhone:_phone.text pwd:_password.text code:_codeText.text sign:[_codeDict objectForKey:@"sign"] exp:[[_codeDict objectForKey:@"exp"] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
+        [weakSelf loginSucceed:result];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMessage]];
+        [SVProgressHUD dismissWithDelay:1.5];
+    }];
+}
+
+#pragma mark - 注册成功
+- (void)loginSucceed:(NSDictionary *)dict{
+    [[UserStatus shareInstance]initWithDict:dict];
+    [self saveUserInfoWith:dict];
+    [SVProgressHUD showInfoWithStatus:@"注册成功"];
+    [SVProgressHUD dismissWithDelay:1];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UIViewController *vc = [CommonTools findViewController:self];
+        [vc dismissViewControllerAnimated:true completion:nil];
+    });
+}
+
+- (void)saveUserInfoWith:(NSDictionary *)result {
+    NSMutableDictionary *userInfo = [[NSMutableDictionary alloc] init];
+    for (NSString *key in result.allKeys) {
+        if ([result objectForKey:key] != nil && ![[result objectForKey:key] isKindOfClass:[NSNull class]]) {
+            [userInfo setObject:[result objectForKey:key] forKey:key];
+        }
+    }
+    [CommonTools saveLocalWithKey:kSaveUserInfo Obj:userInfo];
 }
 
 #pragma mark - 获取验证码
@@ -158,6 +240,7 @@ static const NSInteger kTotalTimeInterval = 60;
 
 - (void)dealTimer:(NSDictionary *)dict{
     [SVProgressHUD dismiss];
+    _codeDict = [NSDictionary dictionaryWithDictionary:[dict objectForKey:kData]];
     [self startTimer];
 }
 
@@ -185,6 +268,7 @@ static const NSInteger kTotalTimeInterval = 60;
 
 #pragma mark - 注册协议
 - (void)loginProtocolBtnClick{
+    
     if (_signBtnClick) {
         _signBtnClick(SignBtnType_Protocol);
     }

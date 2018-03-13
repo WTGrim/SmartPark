@@ -17,19 +17,21 @@
 
 #define AuthFlag  @"05eckguqasvB4bVS14unBsq9gZvYBhgYN75T9MHMWAFzHZIwxEk0Kxwl+7nTwDwGyXPnbAjd6dQMTvqetXBkdPi9Flj2RXUlyELUribwlxmksE7t4iFWT/WdHgjZIwNYs0O/Q20sBfLWGvet1E/tihCS30QJ+UTzlnp8Tri/nilQoFebza3yXM/ZpzxYSXdyTSnJfYYpubDUQFtCArmjyGn0hbc9UTMxe3hyiCV/8pC719OjeJp9+8Dp69mw5hX825vMoeBqEq9FdYdoxsfsGBRifTxSw7ymayJ7FQ2Myaw="
 
-static NSString *const kKeyValueType = @"application/x-www-form-urlencoded";
-
+static NSString *const kKeyValueType = @"application/json";
 
 @implementation CommonNetwork
 
 + (NSURLSessionDataTask *)postDataWithUrl:(NSString *)url param:(id )params showLoader:(BOOL)showLoader showAlert:(BOOL)showAlert gZip:(BOOL)gZip succeedBlock:(RequestSucceed)succeedBlock failedBlock:(RequestFailed)failed {
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
     [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer.timeoutInterval = kTimeOutInterval;
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    [manager.requestSerializer setValue:kKeyValueType forHTTPHeaderField:@"Content-Type"];
+    
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:kKeyValueType forHTTPHeaderField:@"Content-Type"];
 
 //    if ([UserStatus shareInstance].isLogin) {
 //        [manager.requestSerializer setValue:[UserStatus shareInstance].authMessage forHTTPHeaderField:@"Agent-AppAuth"];
@@ -57,11 +59,11 @@ static NSString *const kKeyValueType = @"application/x-www-form-urlencoded";
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    if ([UserStatus shareInstance].isLogin) {
-        [manager.requestSerializer setValue:[UserStatus shareInstance].authMessage forHTTPHeaderField:@"Agent-AppAuth"];
-    }else {
-        [manager.requestSerializer setValue:AuthFlag forHTTPHeaderField:@"Agent-AppAuth"];
-    }
+//    if ([UserStatus shareInstance].isLogin) {
+//        [manager.requestSerializer setValue:[UserStatus shareInstance].authMessage forHTTPHeaderField:@"Agent-AppAuth"];
+//    }else {
+//        [manager.requestSerializer setValue:AuthFlag forHTTPHeaderField:@"Agent-AppAuth"];
+//    }
     NSURLSessionDataTask *dataTask =  [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

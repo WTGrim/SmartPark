@@ -10,18 +10,22 @@
 
 @interface UserStatus : NSObject
 
-@property (assign, nonatomic, readonly) BOOL isLogin;
-@property (strong, nonatomic, readonly) NSString *authPlatform;
-@property (strong, nonatomic, readonly) NSString *authToken;
-@property (strong, nonatomic, readonly) NSString *deviceId;
-@property (strong, nonatomic, readonly) NSString *timeSpan;
-@property (strong, nonatomic, readonly) NSString *userName;
-@property (strong, nonatomic, readonly) NSString *authMessage;
-@property (assign, nonatomic, readonly) BOOL isWXBind;
-@property (strong, nonatomic, readonly) NSString *token;
+/** 用户手机号 **/
+@property (copy, nonatomic) NSString *phone;
+/** 用户登录token **/
+@property (copy, nonatomic) NSString *token;
+/** 是否登录 **/
+@property (assign, nonatomic) BOOL isLogin;
 
+// 初始化
 + (instancetype)shareInstance;
-- (void)destoryUserStatus;
+// 生成用户数据
 - (void)initWithDict:(NSDictionary *)dict;
+
+//获取用户信息的字典
+- (NSDictionary *)userInfoDict;
+
+// 销毁用户信息
+- (void)destoryUserStatus;
 
 @end

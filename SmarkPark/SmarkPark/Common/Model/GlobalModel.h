@@ -9,10 +9,12 @@
 #ifndef GlobalModel_h
 #define GlobalModel_h
 
-static NSString *const kMessage = @"message";                   //信息
+static NSString *const kMessage = @"msg";                   //信息
 static NSString *const kData = @"data";                         //数据
 static NSString *const kPhone = @"phone";                        
 static NSString *const kMsg = @"msg";
+static NSString *const kToken = @"token";
+static NSString *const kSaveUserInfo = @"saveUserInfo";
 
 
 
