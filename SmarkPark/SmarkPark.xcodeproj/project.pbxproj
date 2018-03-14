@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0802881F2058EC7600FEBA4E /* CommonSystemAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 0802881D2058EC7500FEBA4E /* CommonSystemAlert.m */; };
+		080288262059205600FEBA4E /* SignUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 080288242059205600FEBA4E /* SignUserInfoController.m */; };
+		080288272059205600FEBA4E /* SignUserInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080288252059205600FEBA4E /* SignUserInfoController.xib */; };
+		0802882A2059297800FEBA4E /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080288292059297800FEBA4E /* AlertView.m */; };
 		08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4420577C57005CB86B /* LeftViewTextField.m */; };
 		08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4820577F8B005CB86B /* RelayoutButton.m */; };
 		08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4B2057A2CC005CB86B /* NetworkTool.m */; };
@@ -59,6 +62,11 @@
 /* Begin PBXFileReference section */
 		0802881D2058EC7500FEBA4E /* CommonSystemAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonSystemAlert.m; sourceTree = "<group>"; };
 		0802881E2058EC7500FEBA4E /* CommonSystemAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSystemAlert.h; sourceTree = "<group>"; };
+		080288232059205600FEBA4E /* SignUserInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUserInfoController.h; sourceTree = "<group>"; };
+		080288242059205600FEBA4E /* SignUserInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUserInfoController.m; sourceTree = "<group>"; };
+		080288252059205600FEBA4E /* SignUserInfoController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUserInfoController.xib; sourceTree = "<group>"; };
+		080288282059297800FEBA4E /* AlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
+		080288292059297800FEBA4E /* AlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
 		08081E4320577C57005CB86B /* LeftViewTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTextField.h; sourceTree = "<group>"; };
 		08081E4420577C57005CB86B /* LeftViewTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTextField.m; sourceTree = "<group>"; };
 		08081E4720577F8B005CB86B /* RelayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelayoutButton.h; sourceTree = "<group>"; };
@@ -147,6 +155,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08028820205913E900FEBA4E /* Find */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Find;
+			sourceTree = "<group>";
+		};
+		080288212059140200FEBA4E /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		080288222059141800FEBA4E /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
 		08081E4220577C33005CB86B /* CommonCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +290,9 @@
 				086F0D4C204D0C0100F354EC /* Login */,
 				086F0D3A204CE0BB00F354EC /* Basic */,
 				086F0D39204CDE4D00F354EC /* Home */,
+				08028820205913E900FEBA4E /* Find */,
+				080288212059140200FEBA4E /* Publish */,
+				080288222059141800FEBA4E /* Mine */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,6 +346,9 @@
 				087282812056806B0098B358 /* ProtocolViewController.h */,
 				087282822056806B0098B358 /* ProtocolViewController.m */,
 				087282832056806B0098B358 /* ProtocolViewController.xib */,
+				080288232059205600FEBA4E /* SignUserInfoController.h */,
+				080288242059205600FEBA4E /* SignUserInfoController.m */,
+				080288252059205600FEBA4E /* SignUserInfoController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -334,6 +369,8 @@
 				0802881D2058EC7500FEBA4E /* CommonSystemAlert.m */,
 				086F0D84204D35C300F354EC /* CommonTools.h */,
 				086F0D85204D35C300F354EC /* CommonTools.m */,
+				080288282059297800FEBA4E /* AlertView.h */,
+				080288292059297800FEBA4E /* AlertView.m */,
 			);
 			path = CommonTools;
 			sourceTree = "<group>";
@@ -482,6 +519,7 @@
 				08728280205676D10098B358 /* FindPsdViewController.xib in Resources */,
 				086F0D42204CE18600F354EC /* HomeViewController.xib in Resources */,
 				086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */,
+				080288272059205600FEBA4E /* SignUserInfoController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				086F0D5A204D0E3900F354EC /* HomeWeatherView.m in Sources */,
+				080288262059205600FEBA4E /* SignUserInfoController.m in Sources */,
 				080A7ACD205126C800245D7D /* LoginSegment.m in Sources */,
 				086F0D15204CDD3E00F354EC /* main.m in Sources */,
 				08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */,
@@ -574,6 +613,7 @@
 				08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */,
 				086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */,
 				080A7AC42050DE3700245D7D /* LoginView.m in Sources */,
+				0802882A2059297800FEBA4E /* AlertView.m in Sources */,
 				0835768D205272D800C51BFF /* UserStatus.m in Sources */,
 				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,
 				080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */,

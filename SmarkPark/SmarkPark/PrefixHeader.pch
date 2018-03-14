@@ -19,5 +19,6 @@
 #import "GlobalModel.h"
 #import "UserStatus.h"
 #import <SVProgressHUD.h>
+#import "AlertView.h"
 #endif
 #endif /* PrefixHeader_pch */

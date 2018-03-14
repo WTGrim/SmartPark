@@ -14,6 +14,7 @@
 #import "CommonSystemAlert.h"
 
 #define HEADER_HEIGHT 136
+#define LIMIT_API @""
 @interface HomeViewController ()<UIScrollViewDelegate, AMapSearchDelegate, AMapLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *weatherView;
