@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BootViewControllerManager.h"
 #import <IQKeyboardManager.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @interface AppDelegate ()
 
@@ -22,7 +23,7 @@
     
     [self showHomeVc];
     [self setIQKeyboardManager];
-    
+    [self setAmap];
     
     return YES;
 }
@@ -45,6 +46,11 @@
 
 - (void)setIQKeyboardManager{
     [IQKeyboardManager sharedManager].enable = true;
+}
+
+- (void)setAmap{
+    [AMapServices sharedServices].apiKey = AMAP_KEY;
+    [AMapServices sharedServices].enableHTTPS = YES;
 }
 
 
