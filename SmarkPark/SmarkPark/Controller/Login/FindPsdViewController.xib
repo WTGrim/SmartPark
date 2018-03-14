@@ -11,11 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FindPsdViewController">
             <connections>
-                <outlet property="_phone" destination="hqP-37-4RM" id="82c-ph-HQa"/>
-                <outlet property="codeBtn" destination="CoO-dG-sfi" id="hSb-9q-2Jj"/>
-                <outlet property="codeText" destination="mAu-ff-JBj" id="cFh-jb-5Eo"/>
-                <outlet property="psd" destination="zgp-79-teH" id="VNv-Pp-DIV"/>
-                <outlet property="submitBtn" destination="i1e-BA-4cR" id="dxZ-Me-jNo"/>
+                <outlet property="code" destination="mAu-ff-JBj" id="RWL-s8-KQB"/>
+                <outlet property="phone" destination="hqP-37-4RM" id="KcO-Zz-GJL"/>
+                <outlet property="psd" destination="zgp-79-teH" id="Hd4-7T-f5x"/>
+                <outlet property="submitBtn" destination="i1e-BA-4cR" id="cCV-bO-kmF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,65 +23,66 @@
             <rect key="frame" x="0.0" y="0.0" width="224" height="404"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqP-37-4RM">
-                    <rect key="frame" x="20" y="30" width="104" height="30"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqP-37-4RM" customClass="LeftViewTextField">
+                    <rect key="frame" x="20" y="30" width="184" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="gLI-dL-7AH"/>
+                    </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mAu-ff-JBj">
-                    <rect key="frame" x="20" y="70" width="184" height="30"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mAu-ff-JBj" customClass="LeftViewTextField">
+                    <rect key="frame" x="20" y="80" width="184" height="40"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入重置的密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgp-79-teH">
-                    <rect key="frame" x="20" y="110" width="184" height="30"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入重置的密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgp-79-teH" customClass="LeftViewTextField">
+                    <rect key="frame" x="20" y="130" width="184" height="40"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1e-BA-4cR">
-                    <rect key="frame" x="20" y="180" width="184" height="30"/>
+                    <rect key="frame" x="20" y="210" width="184" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="DeN-fc-8rX"/>
+                        <constraint firstAttribute="height" constant="40" id="DeN-fc-8rX"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="提交">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="submitBtnClick:" destination="-1" eventType="touchUpInside" id="vbQ-BZ-IJ4"/>
                     </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-dG-sfi">
-                    <rect key="frame" x="134" y="33" width="70" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="70" id="kbr-HI-eh7"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="获取验证码"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="mAu-ff-JBj" firstAttribute="top" secondItem="hqP-37-4RM" secondAttribute="bottom" constant="10" id="5zf-Xa-3dh"/>
-                <constraint firstItem="CoO-dG-sfi" firstAttribute="centerY" secondItem="hqP-37-4RM" secondAttribute="centerY" id="8l8-yA-AgS"/>
                 <constraint firstItem="i1e-BA-4cR" firstAttribute="top" secondItem="zgp-79-teH" secondAttribute="bottom" constant="40" id="Fjq-hR-PBr"/>
+                <constraint firstItem="hqP-37-4RM" firstAttribute="trailing" secondItem="mAu-ff-JBj" secondAttribute="trailing" id="HKv-lt-F6g"/>
                 <constraint firstAttribute="trailing" secondItem="i1e-BA-4cR" secondAttribute="trailing" constant="20" id="KbR-Qa-jQi"/>
-                <constraint firstAttribute="trailing" secondItem="CoO-dG-sfi" secondAttribute="trailing" constant="20" id="Khq-RE-TjC"/>
-                <constraint firstItem="CoO-dG-sfi" firstAttribute="leading" secondItem="hqP-37-4RM" secondAttribute="trailing" constant="10" id="PSc-Pn-GhU"/>
+                <constraint firstItem="zgp-79-teH" firstAttribute="height" secondItem="hqP-37-4RM" secondAttribute="height" id="LLw-5Q-Ifu"/>
                 <constraint firstItem="i1e-BA-4cR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="VRP-0U-is9"/>
                 <constraint firstItem="zgp-79-teH" firstAttribute="top" secondItem="mAu-ff-JBj" secondAttribute="bottom" constant="10" id="YND-fx-g1v"/>
                 <constraint firstItem="zgp-79-teH" firstAttribute="leading" secondItem="hqP-37-4RM" secondAttribute="leading" id="ajZ-pM-W50"/>
                 <constraint firstItem="zgp-79-teH" firstAttribute="trailing" secondItem="mAu-ff-JBj" secondAttribute="trailing" id="eF0-R4-28d"/>
+                <constraint firstItem="mAu-ff-JBj" firstAttribute="height" secondItem="hqP-37-4RM" secondAttribute="height" id="eIx-3x-A7Z"/>
                 <constraint firstItem="hqP-37-4RM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="i8Z-8R-Gk0"/>
                 <constraint firstItem="mAu-ff-JBj" firstAttribute="leading" secondItem="hqP-37-4RM" secondAttribute="leading" id="kR1-BN-2jg"/>
                 <constraint firstAttribute="trailing" secondItem="mAu-ff-JBj" secondAttribute="trailing" constant="20" id="o2h-gR-i4l"/>
                 <constraint firstItem="hqP-37-4RM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="qSA-z6-Ah2"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-42" y="-78"/>
+            <point key="canvasLocation" x="-147" y="-164"/>
         </view>
     </objects>
 </document>

@@ -36,6 +36,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [BootViewControllerManager initBootController];
     [self.window makeKeyAndVisible];
+    
+    NSDictionary *userInfo = [CommonTools loadLocalWithKey:kSaveUserInfo];
+    if (![userInfo isKindOfClass:[NSNull class]] && userInfo != nil) {
+        [[UserStatus shareInstance] initWithDict:userInfo];
+    }
 }
 
 - (void)setIQKeyboardManager{

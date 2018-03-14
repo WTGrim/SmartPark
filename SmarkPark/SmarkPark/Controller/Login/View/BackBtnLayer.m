@@ -16,7 +16,7 @@
     layer.frame = frame;
     layer.startPoint = CGPointMake(0, 0);
     layer.endPoint = CGPointMake(1, 0);
-    layer.colors = @[(__bridge id)RGB(56, 212, 214).CGColor, (__bridge id)RGB(107, 219, 235).CGColor];
+    layer.colors = @[ (__bridge id)RGB(107, 219, 235).CGColor, (__bridge id)RGB(56, 212, 214).CGColor];
     return layer;
 }
 

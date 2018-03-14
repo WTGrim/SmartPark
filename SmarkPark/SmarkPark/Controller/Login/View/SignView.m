@@ -11,6 +11,7 @@
 #import "BackBtnLayer.h"
 #import "LeftViewTextField.h"
 #import "NetworkTool.h"
+#import "ProtocolViewController.h"
 
 static const NSInteger kTotalTimeInterval = 60;
 
@@ -77,7 +78,7 @@ static const NSInteger kTotalTimeInterval = 60;
     [_vertiBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
     _vertiBtn.titleLabel.font = [UIFont systemFontOfSize:12];
     [_vertiBtn setTitleColor:ThemeColor_BlackText forState:UIControlStateNormal];
-    [_vertiBtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_vertiBtn addTarget:self action:@selector(getCode:) forControlEvents:UIControlEventTouchUpInside];
     _codeText.rightView = _vertiBtn;
     _codeText.rightViewMode = UITextFieldViewModeAlways;
     
@@ -217,7 +218,7 @@ static const NSInteger kTotalTimeInterval = 60;
 }
 
 #pragma mark - 获取验证码
-- (void)seePsdClick:(UIButton *)btn{
+- (void)getCode:(UIButton *)btn{
     if (![CommonTools isTelNumber:_phone.text]) {
         [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
         [SVProgressHUD dismissWithDelay:1.5];
@@ -268,6 +269,10 @@ static const NSInteger kTotalTimeInterval = 60;
 
 #pragma mark - 注册协议
 - (void)loginProtocolBtnClick{
+    
+    ProtocolViewController *protocol = [[ProtocolViewController alloc]init];
+    UIViewController *vc = [CommonTools findViewController:self];
+    [vc presentViewController:[[UINavigationController alloc] initWithRootViewController:protocol] animated:true completion:nil];
     
     if (_signBtnClick) {
         _signBtnClick(SignBtnType_Protocol);

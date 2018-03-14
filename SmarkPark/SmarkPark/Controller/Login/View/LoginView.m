@@ -11,6 +11,7 @@
 #import <Masonry.h>
 #import "LeftViewTextField.h"
 #import "NetworkTool.h"
+#import "FindPsdViewController.h"
 
 @implementation LoginView{
     LeftViewTextField *_phone;
@@ -64,7 +65,8 @@
     _password.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_password];
     
-    UIButton *seebtn = [UIButton new];
+    UIButton *seebtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [seebtn setImage:[UIImage imageNamed:@"login_see"] forState:UIControlStateNormal];
     [seebtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];
     _password.rightView = seebtn;
     _password.rightViewMode = UITextFieldViewModeAlways;
@@ -127,9 +129,11 @@
 
 #pragma mark - 忘记密码
 - (void)forgetBtnClick{
-    if (_loginBtnClick) {
-        _loginBtnClick(LoginBtnType_FindPsd);
-    }
+    
+    FindPsdViewController *find = [[FindPsdViewController alloc]init];
+    UIViewController *vc = [CommonTools findViewController:self];
+    [vc presentViewController:[[UINavigationController alloc] initWithRootViewController:find] animated:true completion:nil];
+    
 }
 
 #pragma mark - 登录

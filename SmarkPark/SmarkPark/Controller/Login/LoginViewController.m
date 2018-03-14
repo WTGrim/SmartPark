@@ -10,8 +10,6 @@
 #import "LoginSegment.h"
 #import "LoginView.h"
 #import "SignView.h"
-#import "FindPsdViewController.h"
-#import "ProtocolViewController.h"
 
 //comfig
 #define kHeaderHeight 200
@@ -92,45 +90,11 @@
 
 #pragma mark - 注册界面点击事件
 - (void)signClick:(SignBtnType)type{
-    switch (type) {
-        case SignBtnType_Code://获取验证码
-        {
-            
-        }
-            break;
-        case SignBtnType_Sign://注册
-        {
-            
-        }
-            break;
-        case SignBtnType_Protocol://注册协议
-        {
-            ProtocolViewController *protocol = [[ProtocolViewController alloc]init];
-            [self.navigationController pushViewController:protocol animated:true];
-        }
-            break;
-            
-        default:
-            break;
-    }
+
 }
 
 - (void)loginClick:(LoginBtnType)type{
-    switch (type) {
-        case LoginBtnType_Login://登录
-        {
-            
-        }
-            break;
-        case LoginBtnType_FindPsd:
-        {
-            FindPsdViewController *findVc = [[FindPsdViewController alloc]init];
-            [self.navigationController pushViewController:findVc animated:true];
-        }
-            break;
-        default:
-            break;
-    }
+
 }
 
 - (LoginSegment *)segment{
