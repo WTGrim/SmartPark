@@ -18,6 +18,9 @@
 		08028839205A21C400FEBA4E /* FindCarportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028837205A21C400FEBA4E /* FindCarportCell.m */; };
 		0802883A205A21C400FEBA4E /* FindCarportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08028838205A21C400FEBA4E /* FindCarportCell.xib */; };
 		0802883D205A228A00FEBA4E /* FindCarportHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0802883C205A228A00FEBA4E /* FindCarportHeader.m */; };
+		08028841205A5BEF00FEBA4E /* FindCarportDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0802883F205A5BEF00FEBA4E /* FindCarportDetailController.m */; };
+		08028842205A5BEF00FEBA4E /* FindCarportDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08028840205A5BEF00FEBA4E /* FindCarportDetailController.xib */; };
+		08028845205A775300FEBA4E /* MinePointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028843205A775300FEBA4E /* MinePointAnnotation.m */; };
 		08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4420577C57005CB86B /* LeftViewTextField.m */; };
 		08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4820577F8B005CB86B /* RelayoutButton.m */; };
 		08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4B2057A2CC005CB86B /* NetworkTool.m */; };
@@ -85,6 +88,11 @@
 		08028838205A21C400FEBA4E /* FindCarportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindCarportCell.xib; sourceTree = "<group>"; };
 		0802883B205A228A00FEBA4E /* FindCarportHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindCarportHeader.h; sourceTree = "<group>"; };
 		0802883C205A228A00FEBA4E /* FindCarportHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindCarportHeader.m; sourceTree = "<group>"; };
+		0802883E205A5BEF00FEBA4E /* FindCarportDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindCarportDetailController.h; sourceTree = "<group>"; };
+		0802883F205A5BEF00FEBA4E /* FindCarportDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindCarportDetailController.m; sourceTree = "<group>"; };
+		08028840205A5BEF00FEBA4E /* FindCarportDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindCarportDetailController.xib; sourceTree = "<group>"; };
+		08028843205A775300FEBA4E /* MinePointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinePointAnnotation.m; sourceTree = "<group>"; };
+		08028844205A775300FEBA4E /* MinePointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePointAnnotation.h; sourceTree = "<group>"; };
 		08081E4320577C57005CB86B /* LeftViewTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTextField.h; sourceTree = "<group>"; };
 		08081E4420577C57005CB86B /* LeftViewTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTextField.m; sourceTree = "<group>"; };
 		08081E4720577F8B005CB86B /* RelayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelayoutButton.h; sourceTree = "<group>"; };
@@ -180,6 +188,9 @@
 				08028830205A191000FEBA4E /* FindCarportViewController.h */,
 				08028831205A191000FEBA4E /* FindCarportViewController.m */,
 				08028832205A191000FEBA4E /* FindCarportViewController.xib */,
+				0802883E205A5BEF00FEBA4E /* FindCarportDetailController.h */,
+				0802883F205A5BEF00FEBA4E /* FindCarportDetailController.m */,
+				08028840205A5BEF00FEBA4E /* FindCarportDetailController.xib */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -204,6 +215,8 @@
 		08028835205A21A300FEBA4E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08028844205A775300FEBA4E /* MinePointAnnotation.h */,
+				08028843205A775300FEBA4E /* MinePointAnnotation.m */,
 				08028836205A21C400FEBA4E /* FindCarportCell.h */,
 				08028837205A21C400FEBA4E /* FindCarportCell.m */,
 				08028838205A21C400FEBA4E /* FindCarportCell.xib */,
@@ -553,6 +566,7 @@
 				08081E522057B3C2005CB86B /* README.md in Resources */,
 				086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */,
 				087282852056806B0098B358 /* ProtocolViewController.xib in Resources */,
+				08028842205A5BEF00FEBA4E /* FindCarportDetailController.xib in Resources */,
 				08728280205676D10098B358 /* FindPsdViewController.xib in Resources */,
 				086F0D42204CE18600F354EC /* HomeViewController.xib in Resources */,
 				086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */,
@@ -649,6 +663,7 @@
 				08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */,
 				087282842056806B0098B358 /* ProtocolViewController.m in Sources */,
 				0802881F2058EC7600FEBA4E /* CommonSystemAlert.m in Sources */,
+				08028841205A5BEF00FEBA4E /* FindCarportDetailController.m in Sources */,
 				08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */,
 				08028833205A191000FEBA4E /* FindCarportViewController.m in Sources */,
 				08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */,
@@ -657,6 +672,7 @@
 				080A7AC42050DE3700245D7D /* LoginView.m in Sources */,
 				0802882A2059297800FEBA4E /* AlertView.m in Sources */,
 				0835768D205272D800C51BFF /* UserStatus.m in Sources */,
+				08028845205A775300FEBA4E /* MinePointAnnotation.m in Sources */,
 				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,
 				080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */,
 				0802882E20592B2900FEBA4E /* MineViewController.m in Sources */,

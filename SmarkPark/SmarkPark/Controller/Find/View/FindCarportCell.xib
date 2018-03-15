@@ -48,14 +48,14 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车主：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEJ-My-ed2">
-                        <rect key="frame" x="41" y="94" width="37" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="由车主XX提供车位" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEJ-My-ed2">
+                        <rect key="frame" x="41" y="94" width="102.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpC-fu-lIK">
-                        <rect key="frame" x="20" y="123" width="256" height="1"/>
+                        <rect key="frame" x="20" y="123" width="285" height="1"/>
                         <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="L2W-Cs-PJ7"/>
@@ -67,7 +67,6 @@
                     <constraint firstItem="nEJ-My-ed2" firstAttribute="top" secondItem="PV5-d6-BjZ" secondAttribute="bottom" constant="5" id="Ag2-gh-gEO"/>
                     <constraint firstAttribute="trailing" secondItem="WTw-J8-IGc" secondAttribute="trailing" constant="15" id="ElW-MY-SLX"/>
                     <constraint firstItem="w0H-Je-3HO" firstAttribute="leading" secondItem="ssc-1D-tUO" secondAttribute="trailing" constant="10" id="NLN-TR-Nn2"/>
-                    <constraint firstItem="WTw-J8-IGc" firstAttribute="leading" secondItem="QpC-fu-lIK" secondAttribute="trailing" constant="5" id="O5A-Az-B4b"/>
                     <constraint firstItem="PV5-d6-BjZ" firstAttribute="leading" secondItem="DIn-YF-Hyd" secondAttribute="leading" id="OVC-99-KJ4"/>
                     <constraint firstItem="WTw-J8-IGc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="THs-OO-UX1"/>
                     <constraint firstItem="w0H-Je-3HO" firstAttribute="centerY" secondItem="ssc-1D-tUO" secondAttribute="centerY" id="UpJ-HR-gRL"/>
@@ -77,6 +76,7 @@
                     <constraint firstItem="WTw-J8-IGc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w0H-Je-3HO" secondAttribute="trailing" constant="5" id="gsF-3L-8pZ"/>
                     <constraint firstAttribute="bottom" secondItem="nEJ-My-ed2" secondAttribute="bottom" constant="15" id="nrA-Th-FdC"/>
                     <constraint firstItem="QpC-fu-lIK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="rII-hj-7d8"/>
+                    <constraint firstItem="QpC-fu-lIK" firstAttribute="trailing" secondItem="WTw-J8-IGc" secondAttribute="trailing" id="v6x-lw-GPV"/>
                     <constraint firstItem="DIn-YF-Hyd" firstAttribute="leading" secondItem="w0H-Je-3HO" secondAttribute="leading" id="vuV-d1-Fgo"/>
                     <constraint firstItem="ssc-1D-tUO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="z47-j2-2yw"/>
                 </constraints>

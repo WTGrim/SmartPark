@@ -15,7 +15,7 @@
 
 #define kTimeOutInterval 10
 
-#define AuthFlag  @"05eckguqasvB4bVS14unBsq9gZvYBhgYN75T9MHMWAFzHZIwxEk0Kxwl+7nTwDwGyXPnbAjd6dQMTvqetXBkdPi9Flj2RXUlyELUribwlxmksE7t4iFWT/WdHgjZIwNYs0O/Q20sBfLWGvet1E/tihCS30QJ+UTzlnp8Tri/nilQoFebza3yXM/ZpzxYSXdyTSnJfYYpubDUQFtCArmjyGn0hbc9UTMxe3hyiCV/8pC719OjeJp9+8Dp69mw5hX825vMoeBqEq9FdYdoxsfsGBRifTxSw7ymayJ7FQ2Myaw="
+#define AuthFlag  @""
 
 static NSString *const kKeyValueType = @"application/json";
 

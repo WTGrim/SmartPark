@@ -16,4 +16,16 @@
     [SVProgressHUD dismissWithDelay:duration];
 }
 
++ (void)showProgress:(CGFloat)timeout msg:(NSString *)msg{
+    if (msg) {
+        [SVProgressHUD showProgress:timeout status:msg];
+    }else{
+        [SVProgressHUD showProgress:timeout];
+    }
+}
+
++ (void)dimiss{
+    [SVProgressHUD dismiss];
+}
+
 @end

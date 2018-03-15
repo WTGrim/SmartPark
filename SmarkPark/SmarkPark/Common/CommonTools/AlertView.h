@@ -12,4 +12,7 @@
 
 + (void)showMsg:(NSString *)msg duration:(CGFloat)duration;
 
++ (void)showProgress:(CGFloat)timeout msg:(NSString *)msg;
+
++ (void)dimiss;
 @end

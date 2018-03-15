@@ -11,6 +11,7 @@
 #import "NetworkTool.h"
 #import "FindCarportCell.h"
 #import "FindCarportHeader.h"
+#import "FindCarportDetailController.h"
 
 @interface FindCarportViewController ()<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -45,6 +46,7 @@
     _tableView.delegate = self;
     _tableView.rowHeight = 120;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = ThemeColor_BackGround;
     [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([FindCarportCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FindCarportCell class])];
     [self.view addSubview:_tableView];
 }
@@ -84,6 +86,11 @@
     return CGFLOAT_MIN;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    FindCarportDetailController *detail = [[FindCarportDetailController alloc]init];
+    [self.navigationController pushViewController:detail animated:true];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField.text.length == 0) {
