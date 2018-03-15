@@ -12,6 +12,9 @@
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "CommonSystemAlert.h"
+#import "RelayoutButton.h"
+#import "MineViewController.h"
+#import "FindCarportViewController.h"
 
 #define HEADER_HEIGHT 136
 #define LIMIT_API @""
@@ -150,6 +153,7 @@
 
 - (void)setupUI{
     
+    self.backItemHidden = true;
     _weatherWidth.constant = SCREEN_WIDTH * 0.8;
     _weatherBgHeight.constant = SCREEN_WIDTH * 0.8;
     _weatherBgWidth.constant = SCREEN_WIDTH;
@@ -192,6 +196,32 @@
     [_weatherView layoutSubviews];
     NSLog(@"%.2f", offsetY);
 }
+
+- (IBAction)btnClick:(ShopCartButton *)sender {
+    
+    switch (sender.tag) {
+        case 100:
+        {
+            FindCarportViewController *carport = [[FindCarportViewController alloc]init];
+            [self.navigationController pushViewController:carport animated:true];
+        }
+            break;
+        case 101:
+        {
+            
+        }
+            break;
+        case 102:
+        {
+            MineViewController *mine = [[MineViewController alloc]init];
+            [self.navigationController pushViewController:mine animated:true];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 
 
 - (void)viewWillDisappear:(BOOL)animated{

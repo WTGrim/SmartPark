@@ -64,9 +64,6 @@
         [AlertView showMsg:@"请输入正确的手机号码" duration:1.5];
         return;
     }
-    
-    
-    
 }
 
 @end

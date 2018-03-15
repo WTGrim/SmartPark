@@ -19,6 +19,23 @@
     // Do any additional setup after loading the view.
     
     [self setupNavColor];
+    [self setSubView];
+    if (!_backItemHidden) {
+        [self setBackItem];
+    }
+}
+
+- (void)setSubView{
+    self.view.backgroundColor = ThemeColor_BackGround;
+}
+
+- (void)setBackItem {
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backBtn"] style:UIBarButtonItemStyleDone target:self action:@selector(navigationBackItemClicked)];
+    self.navigationItem.leftBarButtonItem = backItem;
+}
+
+- (void)navigationBackItemClicked {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)setupNavColor{
