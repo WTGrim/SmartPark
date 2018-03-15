@@ -10,12 +10,14 @@
 #import "LeftViewTextField.h"
 #import "NetworkTool.h"
 #import "FindCarportCell.h"
+#import "FindCarportHeader.h"
 
 @interface FindCarportViewController ()<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong)LeftViewTextField *textField;
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, strong)NSMutableArray *dataArray;
+@property(nonatomic, strong)FindCarportHeader  *header;
 
 @end
 
@@ -41,6 +43,7 @@
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - SAFE_NAV_HEIGHT) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _tableView.rowHeight = 120;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([FindCarportCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FindCarportCell class])];
     [self.view addSubview:_tableView];
@@ -48,6 +51,11 @@
 
 #pragma mark - 搜索车位
 - (void)searchCarport{
+    
+}
+
+#pragma mark - header点击事件
+- (void)headerClick:(FindCarportHeaderType)type{
     
 }
 
@@ -59,6 +67,23 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 2;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return self.header;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField.text.length == 0) {
@@ -88,6 +113,7 @@
     _textField.placeholder = @"搜索车位";
     _textField.font = [UIFont systemFontOfSize:12];
     _textField.textColor = ThemeColor_BlackText;
+    _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"find_search"]];
     _textField.leftView = imageView;
@@ -102,6 +128,19 @@
     }
     return _dataArray;
 }
+
+- (FindCarportHeader *)header{
+    if (!_header) {
+        _header = [[FindCarportHeader alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+        NSArray *arr = @[@"推荐车位", @"附近车位", @"最快车位"];
+        WEAKSELF;
+        [_header setTitles:arr didSelected:^(FindCarportHeaderType type) {
+            [weakSelf headerClick:type];
+        }];
+    }
+    return _header;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
