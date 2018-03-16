@@ -22,6 +22,8 @@
 		08028842205A5BEF00FEBA4E /* FindCarportDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08028840205A5BEF00FEBA4E /* FindCarportDetailController.xib */; };
 		08028845205A775300FEBA4E /* MinePointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028843205A775300FEBA4E /* MinePointAnnotation.m */; };
 		08028848205B641900FEBA4E /* GeocodeAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028847205B641800FEBA4E /* GeocodeAnnotation.m */; };
+		0802884C205BBAF400FEBA4E /* EnsureReserveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0802884A205BBAF300FEBA4E /* EnsureReserveController.m */; };
+		0802884D205BBAF400FEBA4E /* EnsureReserveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0802884B205BBAF300FEBA4E /* EnsureReserveController.xib */; };
 		08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4420577C57005CB86B /* LeftViewTextField.m */; };
 		08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4820577F8B005CB86B /* RelayoutButton.m */; };
 		08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4B2057A2CC005CB86B /* NetworkTool.m */; };
@@ -96,6 +98,9 @@
 		08028844205A775300FEBA4E /* MinePointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinePointAnnotation.h; sourceTree = "<group>"; };
 		08028846205B641800FEBA4E /* GeocodeAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeocodeAnnotation.h; sourceTree = "<group>"; };
 		08028847205B641800FEBA4E /* GeocodeAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeocodeAnnotation.m; sourceTree = "<group>"; };
+		08028849205BBAF300FEBA4E /* EnsureReserveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnsureReserveController.h; sourceTree = "<group>"; };
+		0802884A205BBAF300FEBA4E /* EnsureReserveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnsureReserveController.m; sourceTree = "<group>"; };
+		0802884B205BBAF300FEBA4E /* EnsureReserveController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnsureReserveController.xib; sourceTree = "<group>"; };
 		08081E4320577C57005CB86B /* LeftViewTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTextField.h; sourceTree = "<group>"; };
 		08081E4420577C57005CB86B /* LeftViewTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTextField.m; sourceTree = "<group>"; };
 		08081E4720577F8B005CB86B /* RelayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelayoutButton.h; sourceTree = "<group>"; };
@@ -194,6 +199,9 @@
 				0802883E205A5BEF00FEBA4E /* FindCarportDetailController.h */,
 				0802883F205A5BEF00FEBA4E /* FindCarportDetailController.m */,
 				08028840205A5BEF00FEBA4E /* FindCarportDetailController.xib */,
+				08028849205BBAF300FEBA4E /* EnsureReserveController.h */,
+				0802884A205BBAF300FEBA4E /* EnsureReserveController.m */,
+				0802884B205BBAF300FEBA4E /* EnsureReserveController.xib */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -570,6 +578,7 @@
 			files = (
 				08081E522057B3C2005CB86B /* README.md in Resources */,
 				086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */,
+				0802884D205BBAF400FEBA4E /* EnsureReserveController.xib in Resources */,
 				087282852056806B0098B358 /* ProtocolViewController.xib in Resources */,
 				08028842205A5BEF00FEBA4E /* FindCarportDetailController.xib in Resources */,
 				08728280205676D10098B358 /* FindPsdViewController.xib in Resources */,
@@ -666,6 +675,7 @@
 				080A7ACD205126C800245D7D /* LoginSegment.m in Sources */,
 				086F0D15204CDD3E00F354EC /* main.m in Sources */,
 				08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */,
+				0802884C205BBAF400FEBA4E /* EnsureReserveController.m in Sources */,
 				087282842056806B0098B358 /* ProtocolViewController.m in Sources */,
 				0802881F2058EC7600FEBA4E /* CommonSystemAlert.m in Sources */,
 				08028841205A5BEF00FEBA4E /* FindCarportDetailController.m in Sources */,

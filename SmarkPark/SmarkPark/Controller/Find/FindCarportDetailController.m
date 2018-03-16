@@ -28,10 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *price;
 //预计到达时间
 @property (weak, nonatomic) IBOutlet UILabel *planTime;
-
 //确认预定
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
-
 //地图相关
 @property(nonatomic, strong)MAMapView *aMapView;
 @property(nonatomic, strong)AMapLocationManager *locationManager;
@@ -75,8 +73,8 @@
 }
 
 - (void)setData{
-    _leisureTime.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"车位空闲时间：%@", @"11:00~12:00"] attr:@{NSForegroundColorAttributeName:ThemeColor_BlackText} rang:NSMakeRange(0, 7)];
-    _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"价格：%@", @"¥12.00"] attr:@{NSForegroundColorAttributeName:ThemeColor_BlackText} rang:NSMakeRange(0, 7)];
+    _leisureTime.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"车位空闲时间：%@", @"11:00~12:00"] attr:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]} rang:NSMakeRange(0, 7)];
+    _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"价格：%@", @"2积分"] attr:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]} rang:NSMakeRange(0, 3)];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
