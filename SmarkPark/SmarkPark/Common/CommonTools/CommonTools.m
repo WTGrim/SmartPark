@@ -277,12 +277,11 @@ NSString* DeleteWitheAndSpace(NSString *string) {
     return @[status, arrImage.lastObject,status];
 }
 
-+ (NSAttributedString *)createAttributedStringWithString:(NSString *)string rang:(NSRange)range{
++ (NSAttributedString *)createAttributedStringWithString:(NSString *)string attr:(nullable NSDictionary<NSAttributedStringKey,id> *)attr rang:(NSRange)range{
     
-    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc]initWithString:string];
-    [attr setAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} range:range];
-    
-    return attr;
+    NSMutableAttributedString *aString = [[NSMutableAttributedString alloc]initWithString:string];
+    [aString setAttributes:attr range:range];
+    return aString;
 }
 
 + (NSRange)rangeWithStr:(NSString *)str{

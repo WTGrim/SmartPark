@@ -54,7 +54,7 @@ NSString* DeleteWitheAndSpace(NSString *string);
 + (NSArray *)orderStatus:(NSString *)status;
 
 //设置价格显示方式的富文本
-+ (NSAttributedString *)createAttributedStringWithString:(NSString *)string rang:(NSRange)range;
++ (NSAttributedString *)createAttributedStringWithString:(NSString *)string attr:(nullable NSDictionary<NSAttributedStringKey,id> *)attr rang:(NSRange)range;
 
 + (NSRange)rangeWithStr:(NSString *)str;
 

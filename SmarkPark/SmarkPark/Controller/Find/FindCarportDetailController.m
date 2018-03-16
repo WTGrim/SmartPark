@@ -15,6 +15,7 @@
 #import <AMapSearchKit/AMapSearchKit.h>
 #import "GeocodeAnnotation.h"
 #import <AMapNaviKit/AMapNaviKit.h>
+#import "CommonSystemAlert.h"
 
 @interface FindCarportDetailController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
 
@@ -24,8 +25,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewHeight;
 //空闲时间
 @property (weak, nonatomic) IBOutlet UILabel *leisureTime;
+@property (weak, nonatomic) IBOutlet UILabel *price;
 //预计到达时间
 @property (weak, nonatomic) IBOutlet UILabel *planTime;
+
 //确认预定
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
@@ -54,6 +57,11 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setupUI];
+    [self setData];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self setupLocation];
 }
 
@@ -65,6 +73,12 @@
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_sureBtn.layer addSublayer:loginBtnLayer];
 }
+
+- (void)setData{
+    _leisureTime.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"车位空闲时间：%@", @"11:00~12:00"] attr:@{NSForegroundColorAttributeName:ThemeColor_BlackText} rang:NSMakeRange(0, 7)];
+    _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"价格：%@", @"¥12.00"] attr:@{NSForegroundColorAttributeName:ThemeColor_BlackText} rang:NSMakeRange(0, 7)];
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     _aMapView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
@@ -81,6 +95,16 @@
     _aMapView.headingFilter = 90;
     _aMapView.showsUserLocation = true;
     _aMapView.delegate = self;
+    
+    //没有开启定位服务
+    if(![CLLocationManager locationServicesEnabled]||[CLLocationManager authorizationStatus]!=kCLAuthorizationStatusAuthorizedWhenInUse){
+        [CommonSystemAlert alertWithTitle:@"温馨提示" message:@"您还没有开启定位服务，现在开启？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"去开启" rootVc:self leftClick:nil rightClick:^{
+            NSURL *settingUrl = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            if ([[UIApplication sharedApplication]canOpenURL:settingUrl]) {
+                [[UIApplication sharedApplication]openURL:settingUrl];
+            }
+        }];
+    }
     
     //定位
     self.locationManager = [[AMapLocationManager alloc] init];
@@ -128,8 +152,9 @@
     
     NSInteger hour = driveManager.naviRoute.routeTime / 3600;
     NSInteger second = driveManager.naviRoute.routeTime / 60;
-    
-    [AlertView showMsg:[NSString stringWithFormat:@"%ld小时%ld分钟", hour, second] duration:1.5];
+    NSString *hourStr = hour > 0? [NSString stringWithFormat:@"%ld小时", (long)hour] : @"";
+    NSString *secondStr = second > 0?[NSString stringWithFormat:@"%ld分钟", (long)second] : @"";
+    _planTime.text = [NSString stringWithFormat:@"%@%@",hourStr, secondStr];
 }
 
 - (void)driveManager:(AMapNaviDriveManager *)driveManager onCalculateRouteFailure:(NSError *)error{
@@ -233,7 +258,6 @@
 
 #pragma mark - 确认预定
 - (IBAction)sureBtnClick:(UIButton *)sender {
-    
     
 }
 

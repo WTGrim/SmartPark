@@ -75,17 +75,6 @@
 
 - (void)setAmap{
     
-    //没有开启定位服务
-    if(![CLLocationManager locationServicesEnabled]||[CLLocationManager authorizationStatus]!=kCLAuthorizationStatusAuthorizedWhenInUse){
-        [CommonSystemAlert alertWithTitle:@"温馨提示" message:@"您还没有开启定位服务，现在开启？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"去开启" rootVc:self leftClick:nil rightClick:^{
-            NSURL *settingUrl = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-            if ([[UIApplication sharedApplication]canOpenURL:settingUrl]) {
-                [[UIApplication sharedApplication]openURL:settingUrl];
-            }
-        }];
-        return;
-    }
-    
     _locationManager = [[AMapLocationManager alloc]init];
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -94,6 +83,16 @@
     
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
+    
+    //没有开启定位服务
+    if(![CLLocationManager locationServicesEnabled]||[CLLocationManager authorizationStatus]!=kCLAuthorizationStatusAuthorizedWhenInUse){
+        [CommonSystemAlert alertWithTitle:@"温馨提示" message:@"您还没有开启定位服务，现在开启？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"去开启" rootVc:self leftClick:nil rightClick:^{
+            NSURL *settingUrl = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            if ([[UIApplication sharedApplication]canOpenURL:settingUrl]) {
+                [[UIApplication sharedApplication]openURL:settingUrl];
+            }
+        }];
+    }
 
     [self beginLocation];
 }
