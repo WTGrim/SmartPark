@@ -11,6 +11,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnsureReserveController">
             <connections>
+                <outlet property="cancelBtn" destination="CV2-uF-MOb" id="fI8-yK-cQg"/>
+                <outlet property="cancelTips" destination="p9K-jt-c4B" id="Rfr-4V-ajz"/>
+                <outlet property="carNo" destination="HZp-DE-YvC" id="Hk1-n8-nUm"/>
+                <outlet property="carType" destination="Wgv-Mg-VpF" id="iCZ-pi-IdS"/>
+                <outlet property="ensurePortBtn" destination="ehg-hV-lo1" id="AAV-b3-cbA"/>
+                <outlet property="hour" destination="DhH-6f-8zk" id="lnr-bc-Ebg"/>
+                <outlet property="leisureTime" destination="Flu-pU-JWq" id="Al9-6k-uoX"/>
+                <outlet property="mapBgView" destination="1nD-Qz-8Kc" id="UEU-xu-kUI"/>
+                <outlet property="mapBgViewHeight" destination="Clu-QK-Vn3" id="mgx-m3-nzt"/>
+                <outlet property="minute" destination="fov-bp-pge" id="aaT-dJ-eHm"/>
+                <outlet property="phone" destination="0Xj-jd-e1V" id="paO-Om-J88"/>
+                <outlet property="price" destination="o4N-X3-npQ" id="HuP-Ud-Oyn"/>
+                <outlet property="second" destination="Xm6-OT-3o0" id="rRU-gh-QQU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -207,6 +220,9 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="cancelBtnClick:" destination="-1" eventType="touchUpInside" id="C6Q-5w-2oB"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离可取消还剩：2分钟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9K-jt-c4B">
                                     <rect key="frame" x="133.5" y="112" width="108.5" height="12"/>
@@ -229,6 +245,9 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="ensureBtnClick:" destination="-1" eventType="touchUpInside" id="baT-KY-xwB"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
