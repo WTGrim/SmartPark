@@ -16,6 +16,7 @@
 #import "GeocodeAnnotation.h"
 #import <AMapNaviKit/AMapNaviKit.h>
 #import "CommonSystemAlert.h"
+#import "EnsureReserveController.h"
 
 @interface FindCarportDetailController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
 
@@ -123,7 +124,7 @@
 
     
     //导航
-    [[AMapNaviDriveManager sharedInstance] setDelegate:self];
+//    [[AMapNaviDriveManager sharedInstance] setDelegate:self];
     
 }
 
@@ -189,7 +190,7 @@
         [self.aMapView setCenterCoordinate:[(GeocodeAnnotation *)annotations[0] coordinate] animated:YES];
         _destinationCoordinate = [(GeocodeAnnotation *)annotations[0] coordinate];
         //路线规划
-        [self showRouteNavi];
+//        [self showRouteNavi];
     }else{
         [self.aMapView showAnnotations:annotations animated:YES];
         [AlertView showMsg:@"目标停车位地址不够具体明确，存在多个位置" duration:1.5];
@@ -257,6 +258,9 @@
 #pragma mark - 确认预定
 - (IBAction)sureBtnClick:(UIButton *)sender {
     
+    EnsureReserveController *ensure = [[EnsureReserveController alloc]init];
+    ensure.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:ensure animated:true];
 }
 
 - (void)dealloc{
@@ -265,6 +269,13 @@
     [[AMapNaviDriveManager sharedInstance] stopNavi];
     [[AMapNaviDriveManager sharedInstance] setDelegate:nil];
     BOOL success = [AMapNaviDriveManager destroyInstance];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    _locationManager.delegate = nil;
+    _aMapView.delegate = nil;
+
 }
 
 

@@ -48,6 +48,7 @@
 
 @implementation HomeViewController{
     CGFloat _originWeatherHeight;
+    CGRect _lastFrame;
 }
 
 - (void)viewDidLoad {
@@ -55,11 +56,15 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setupUI];
+    //定位
+    [self setAmap];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
+    [_scrollView setContentOffset:CGPointMake(0, -_scrollView.contentInset.top)];
+
     //检查登录状态
 //    if (![UserStatus shareInstance].isLogin) {
 //        LoginViewController *login = [[LoginViewController alloc]init];
@@ -68,10 +73,7 @@
 //        }];
 //    }
     
-    //定位
-    [self setAmap];
 }
-
 
 - (void)setAmap{
     
@@ -92,6 +94,7 @@
                 [[UIApplication sharedApplication]openURL:settingUrl];
             }
         }];
+        return;
     }
 
     [self beginLocation];
@@ -161,8 +164,8 @@
     _imageViewWidth.constant = SCREEN_WIDTH;
     _scrollView.contentInset = UIEdgeInsetsMake(_weatherBgHeight.constant, 0, -_weatherBgHeight.constant + 100, 0);
     _scrollView.delegate = self;
-    [_weatherView layoutIfNeeded];
-    [_weatherView layoutSubviews];
+//    [_weatherView layoutIfNeeded];
+//    [_weatherView layoutSubviews];
     
     [self weatherSubViewHidden:true];
 }
@@ -179,7 +182,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     CGRect frame = _weatherView.frame;
-    _weatherView.backgroundColor = [UIColor redColor];
     CGFloat offsetY = scrollView.contentOffset.y + scrollView.contentInset.top;
     if (offsetY <= 0) {
         frame.origin.y = 0;
@@ -190,9 +192,9 @@
         frame.size.height = _originWeatherHeight;
         _imageViewHeight.constant = _originWeatherHeight;
     }
+    _lastFrame = frame;
     _weatherView.frame = frame;
-    [_weatherView layoutIfNeeded];
-    [_weatherView layoutSubviews];
+ 
     NSLog(@"%.2f", offsetY);
 }
 
@@ -227,6 +229,7 @@
     
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = false;
+    _weatherView.frame = _lastFrame;
 }
 
 - (void)dealloc{

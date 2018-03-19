@@ -73,6 +73,7 @@
 
 - (void)setupUI{
     
+    self.title = @"确认预定";
     _mapBgViewHeight.constant = SCREEN_WIDTH;
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_ensurePortBtn.layer addSublayer:loginBtnLayer];
@@ -116,7 +117,6 @@
     AMapGeocodeSearchRequest *geo = [[AMapGeocodeSearchRequest alloc] init];
     geo.address = @"四川大学望江校区";
     [self.search AMapGeocodeSearch:geo];
-    
     
     //导航
     [[AMapNaviDriveManager sharedInstance] setDelegate:self];

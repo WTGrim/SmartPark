@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入称呼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pZw-fl-k70" customClass="LeftViewTextField">
-                    <rect key="frame" x="95" y="50" width="260" height="40"/>
+                    <rect key="frame" x="95" y="30" width="260" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="rVI-Ut-41L"/>
                     </constraints>
@@ -35,7 +34,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ww5-Qb-gkg" customClass="LeftViewTextField">
-                    <rect key="frame" x="95" y="100" width="260" height="40"/>
+                    <rect key="frame" x="95" y="80" width="260" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="xBS-pG-sBw"/>
                     </constraints>
@@ -44,7 +43,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入车辆类型" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NoE-aE-WQS" customClass="LeftViewTextField">
-                    <rect key="frame" x="95" y="150" width="260" height="40"/>
+                    <rect key="frame" x="95" y="130" width="260" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="cTa-V3-t70"/>
                     </constraints>
@@ -53,13 +52,13 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="称        呼:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2w-Yd-GV4">
-                    <rect key="frame" x="20" y="61.5" width="65" height="17"/>
+                    <rect key="frame" x="20" y="41.5" width="65" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.039215686274509803" green="0.039215686274509803" blue="0.039215686274509803" alpha="0.5" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话号码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-oE-jWQ">
-                    <rect key="frame" x="20" y="111.5" width="65" height="17"/>
+                    <rect key="frame" x="20" y="91.5" width="65" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="hAB-oh-fcm"/>
                     </constraints>
@@ -68,7 +67,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车辆类型:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuI-Ev-V7K">
-                    <rect key="frame" x="20" y="161" width="65" height="17"/>
+                    <rect key="frame" x="20" y="141" width="65" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="jjb-SL-Iad"/>
                     </constraints>
@@ -77,7 +76,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车        牌:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHH-wX-MHi">
-                    <rect key="frame" x="20" y="211.5" width="65" height="17"/>
+                    <rect key="frame" x="20" y="191.5" width="65" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="UQO-HB-egY"/>
                     </constraints>
@@ -86,7 +85,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入车牌号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L4F-0t-x2t" customClass="LeftViewTextField">
-                    <rect key="frame" x="95" y="200" width="260" height="40"/>
+                    <rect key="frame" x="95" y="180" width="260" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="3bh-Yl-iKx"/>
                     </constraints>
@@ -95,7 +94,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-r7-sdv">
-                    <rect key="frame" x="30" y="310" width="315" height="40"/>
+                    <rect key="frame" x="30" y="290" width="315" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="jM2-DD-1lc"/>
                     </constraints>
@@ -119,12 +118,12 @@
                 <constraint firstItem="NoE-aE-WQS" firstAttribute="centerY" secondItem="MuI-Ev-V7K" secondAttribute="centerY" id="2KP-bm-ZuS"/>
                 <constraint firstItem="cHH-wX-MHi" firstAttribute="leading" secondItem="h2w-Yd-GV4" secondAttribute="leading" id="9fg-oy-LF7"/>
                 <constraint firstItem="pZw-fl-k70" firstAttribute="centerY" secondItem="h2w-Yd-GV4" secondAttribute="centerY" id="D0F-sj-3vV"/>
-                <constraint firstItem="pZw-fl-k70" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="30" id="GAU-MF-PHE"/>
+                <constraint firstItem="pZw-fl-k70" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="GAU-MF-PHE"/>
                 <constraint firstItem="Ww5-Qb-gkg" firstAttribute="trailing" secondItem="pZw-fl-k70" secondAttribute="trailing" id="JHv-hE-BNz"/>
-                <constraint firstItem="VaV-r7-sdv" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="JyK-ln-RWa"/>
+                <constraint firstItem="VaV-r7-sdv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="JyK-ln-RWa"/>
                 <constraint firstItem="L4F-0t-x2t" firstAttribute="centerY" secondItem="cHH-wX-MHi" secondAttribute="centerY" id="KT0-tc-WQo"/>
                 <constraint firstItem="NoE-aE-WQS" firstAttribute="trailing" secondItem="pZw-fl-k70" secondAttribute="trailing" id="TAK-SD-Ib7"/>
-                <constraint firstItem="h2w-Yd-GV4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Tq9-uy-aeC"/>
+                <constraint firstItem="h2w-Yd-GV4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Tq9-uy-aeC"/>
                 <constraint firstItem="Ww5-Qb-gkg" firstAttribute="centerY" secondItem="AYh-oE-jWQ" secondAttribute="centerY" id="VNJ-Bh-9El"/>
                 <constraint firstItem="Ww5-Qb-gkg" firstAttribute="leading" secondItem="pZw-fl-k70" secondAttribute="leading" id="WKN-IF-ycl"/>
                 <constraint firstItem="VaV-r7-sdv" firstAttribute="top" secondItem="L4F-0t-x2t" secondAttribute="bottom" constant="70" id="Wfz-Z6-Kzh"/>
@@ -135,13 +134,12 @@
                 <constraint firstItem="L4F-0t-x2t" firstAttribute="leading" secondItem="pZw-fl-k70" secondAttribute="leading" id="h05-Zq-rGG"/>
                 <constraint firstItem="AYh-oE-jWQ" firstAttribute="width" secondItem="h2w-Yd-GV4" secondAttribute="width" id="hsV-Cq-Vqc"/>
                 <constraint firstItem="MuI-Ev-V7K" firstAttribute="leading" secondItem="h2w-Yd-GV4" secondAttribute="leading" id="l3a-Rp-eSu"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="VaV-r7-sdv" secondAttribute="trailing" constant="30" id="pxL-eQ-ZPg"/>
+                <constraint firstAttribute="trailing" secondItem="VaV-r7-sdv" secondAttribute="trailing" constant="30" id="pxL-eQ-ZPg"/>
                 <constraint firstItem="L4F-0t-x2t" firstAttribute="trailing" secondItem="pZw-fl-k70" secondAttribute="trailing" id="raW-Ub-vV5"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="pZw-fl-k70" secondAttribute="trailing" constant="20" id="sDl-kf-D5t"/>
+                <constraint firstAttribute="trailing" secondItem="pZw-fl-k70" secondAttribute="trailing" constant="20" id="sDl-kf-D5t"/>
                 <constraint firstItem="NoE-aE-WQS" firstAttribute="leading" secondItem="pZw-fl-k70" secondAttribute="leading" id="wPV-Fp-ruz"/>
                 <constraint firstItem="Ww5-Qb-gkg" firstAttribute="top" secondItem="pZw-fl-k70" secondAttribute="bottom" constant="10" id="y4k-kJ-iXm"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>

@@ -99,7 +99,7 @@
 		08028846205B641800FEBA4E /* GeocodeAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeocodeAnnotation.h; sourceTree = "<group>"; };
 		08028847205B641800FEBA4E /* GeocodeAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeocodeAnnotation.m; sourceTree = "<group>"; };
 		08028849205BBAF300FEBA4E /* EnsureReserveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnsureReserveController.h; sourceTree = "<group>"; };
-		0802884A205BBAF300FEBA4E /* EnsureReserveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnsureReserveController.m; sourceTree = "<group>"; };
+		0802884A205BBAF300FEBA4E /* EnsureReserveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnsureReserveController.m; sourceTree = "<group>"; usesTabs = 0; };
 		0802884B205BBAF300FEBA4E /* EnsureReserveController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnsureReserveController.xib; sourceTree = "<group>"; };
 		08081E4320577C57005CB86B /* LeftViewTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTextField.h; sourceTree = "<group>"; };
 		08081E4420577C57005CB86B /* LeftViewTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTextField.m; sourceTree = "<group>"; };
@@ -851,7 +851,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SmarkPark/PrefixHeader.pch";
 				INFOPLIST_FILE = SmarkPark/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SandClock.ParkAnyTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -870,7 +870,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SmarkPark/PrefixHeader.pch";
 				INFOPLIST_FILE = SmarkPark/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SandClock.ParkAnyTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
