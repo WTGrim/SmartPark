@@ -9,6 +9,7 @@
 #import "SignUserInfoController.h"
 #import "LeftViewTextField.h"
 #import "BackBtnLayer.h"
+#import "NetworkTool.h"
 
 @interface SignUserInfoController ()
 
@@ -34,9 +35,10 @@
 - (void)setupUI{
     
     self.title = @"注册信息";
-    
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 40, 40)];
     [_sumitBtn.layer addSublayer:loginBtnLayer];
+    _carType.keyboardType = UIKeyboardTypeNumberPad;
+    _phone.enabled = false;
     
 }
 
@@ -66,6 +68,21 @@
         [AlertView showMsg:@"请输入正确的手机号码" duration:1.5];
         return;
     }
+    
+    [NetworkTool consummateWithName:_name.text plates:_carNo.text type:[_carType.text integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
+        [self presentData:result];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [AlertView showMsg:[errorInfo message] duration:2];
+    }];
+}
+
+- (void)presentData:(NSDictionary *)dict{
+    
+    [self dismissViewControllerAnimated:true completion:^{
+        if (_consummateCallBack) {
+            _consummateCallBack();
+        }
+    }];
 }
 
 @end

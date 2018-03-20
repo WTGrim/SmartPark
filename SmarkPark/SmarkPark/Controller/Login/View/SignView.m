@@ -158,8 +158,6 @@ static const NSInteger kTotalTimeInterval = 60;
 
 - (void)loginClick:(UIButton *)btn{
     
-    [self loginSucceed:nil];
-
     if (![CommonTools isTelNumber:_phone.text]) {
         [SVProgressHUD showInfoWithStatus:@"请输入正确的手机号码"];
         [SVProgressHUD dismissWithDelay:1.5];
@@ -177,36 +175,39 @@ static const NSInteger kTotalTimeInterval = 60;
         }
     }];
     if (!canGo) {
-        [SVProgressHUD showInfoWithStatus:msg];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:msg duration:2];
         return;
     }
     
     if (_password.text.length > 12 || _password.text.length < 6) {
-        [SVProgressHUD showInfoWithStatus:@"请输入6-12位长度的密码"];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:@"请输入6-12位长度的密码" duration:2];
         return;
     }
     
     [SVProgressHUD show];
     WEAKSELF;
-//    [NetworkTool registerWithPhone:_phone.text pwd:_password.text code:_codeText.text sign:[_codeDict objectForKey:@"sign"] exp:[[_codeDict objectForKey:@"exp"] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
-//        [weakSelf loginSucceed:result];
-//    } failedBlock:^(id  _Nullable errorInfo) {
-//        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMessage]];
-//        [SVProgressHUD dismissWithDelay:1.5];
-//    }];
+    [NetworkTool registerWithPhone:_phone.text pwd:_password.text code:_codeText.text sign:[_codeDict objectForKey:@"sign"] exp:[[_codeDict objectForKey:@"exp"] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
+        [SVProgressHUD dismiss];
+        [weakSelf loginSucceed:result];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMessage]];
+        [SVProgressHUD dismissWithDelay:1.5];
+    }];
 }
 
 #pragma mark - 注册成功
 - (void)loginSucceed:(NSDictionary *)dict{
+    
     [[UserStatus shareInstance]initWithDict:dict];
     [self saveUserInfoWith:dict];
-    [SVProgressHUD showInfoWithStatus:@"注册成功"];
-    [SVProgressHUD dismissWithDelay:1];
+    [AlertView showMsg:@"注册成功" duration:2];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIViewController *vc = [CommonTools findViewController:self];
         SignUserInfoController *info = [[SignUserInfoController alloc]init];
+        info.consummateCallBack = ^{
+            [vc dismissViewControllerAnimated:true completion:nil];
+        };
         [vc presentViewController:[[UINavigationController alloc] initWithRootViewController:info] animated:true completion:nil];        
     });
 }
@@ -224,16 +225,17 @@ static const NSInteger kTotalTimeInterval = 60;
 #pragma mark - 获取验证码
 - (void)getCode:(UIButton *)btn{
     if (![CommonTools isTelNumber:_phone.text]) {
-        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:@"请输入正确的手机号码" duration:2];
         return;
     }
     [SVProgressHUD show];
     WEAKSELF;
     //获取验证码接口
     [NetworkTool getVerifyCodeWithPhone:_phone.text succeedBlock:^(NSDictionary * _Nullable result) {
+        [SVProgressHUD dismiss];
         [weakSelf dealTimer:result];
     } failedBlock:^(id  _Nullable errorInfo) {
+        [SVProgressHUD dismiss];
         [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMsg]];
         [SVProgressHUD dismissWithDelay:2];
     }];
@@ -244,7 +246,6 @@ static const NSInteger kTotalTimeInterval = 60;
 }
 
 - (void)dealTimer:(NSDictionary *)dict{
-    [SVProgressHUD dismiss];
     _codeDict = [NSDictionary dictionaryWithDictionary:[dict objectForKey:kData]];
     [self startTimer];
 }

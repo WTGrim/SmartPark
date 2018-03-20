@@ -10,4 +10,7 @@
 
 @interface SignUserInfoController : BasicViewController
 
+@property(nonatomic, strong)NSString *phoneNo;
+@property(nonatomic, copy)void(^consummateCallBack)(void);
+
 @end

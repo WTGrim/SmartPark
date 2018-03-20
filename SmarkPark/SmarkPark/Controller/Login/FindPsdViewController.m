@@ -26,6 +26,7 @@ static const NSInteger kTotalTimeInterval = 60;
     UIButton *_vertiBtn;
     dispatch_source_t _timer;
     NSInteger _second;
+    NSDictionary *_codeDict;
 }
 
 - (void)viewDidLoad {
@@ -73,8 +74,7 @@ static const NSInteger kTotalTimeInterval = 60;
 - (void)getCode{
     
     if (![CommonTools isTelNumber:_phone.text]) {
-        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:@"请输入正确的手机号码" duration:2];
         return;
     }
     [SVProgressHUD show];
@@ -83,6 +83,7 @@ static const NSInteger kTotalTimeInterval = 60;
     [NetworkTool getVerifyCodeWithPhone:_phone.text succeedBlock:^(NSDictionary * _Nullable result) {
         [weakSelf dealTimer:result];
     } failedBlock:^(id  _Nullable errorInfo) {
+        [SVProgressHUD dismiss];
         [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMsg]];
         [SVProgressHUD dismissWithDelay:2];
     }];
@@ -90,7 +91,7 @@ static const NSInteger kTotalTimeInterval = 60;
 
 - (void)dealTimer:(NSDictionary *)dict{
     [SVProgressHUD dismiss];
-//    _codeDict = [NSDictionary dictionaryWithDictionary:[dict objectForKey:kData]];
+    _codeDict = [NSDictionary dictionaryWithDictionary:[dict objectForKey:kData]];
     [self startTimer];
 }
 
@@ -135,25 +136,29 @@ static const NSInteger kTotalTimeInterval = 60;
         }
     }];
     if (!canGo) {
-        [SVProgressHUD showInfoWithStatus:msg];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:msg duration:2];
         return;
     }
     
     if (_psd.text.length > 12 || _psd.text.length < 6) {
-        [SVProgressHUD showInfoWithStatus:@"请输入6-12位长度的密码"];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:@"请输入6-12位长度的密码" duration:2];
         return;
     }
     
     [SVProgressHUD show];
     WEAKSELF;
-//    [NetworkTool registerWithPhone:_phone.text pwd:_password.text code:_codeText.text sign:[_codeDict objectForKey:@"sign"] exp:[[_codeDict objectForKey:@"exp"] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
-//        [weakSelf loginSucceed:result];
-//    } failedBlock:^(id  _Nullable errorInfo) {
-//        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMessage]];
-//        [SVProgressHUD dismissWithDelay:1.5];
-//    }];
+    [NetworkTool forgetPsdWithPhone:_phone.text pwd:_psd.text code:_code.text sign:[_codeDict objectForKey:kSign] exp:[[_codeDict objectForKey:kExp] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
+        [SVProgressHUD dismiss];
+        [weakSelf presentData:result];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [SVProgressHUD dismiss];
+        [AlertView showMsg:[errorInfo message] duration:2];
+    }];
+}
+
+- (void)presentData:(NSDictionary *)dict{
+    [[UserStatus shareInstance]initWithDict:[dict objectForKey:kData]];
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 - (void)backClick{
