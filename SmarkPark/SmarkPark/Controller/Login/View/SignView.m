@@ -199,12 +199,13 @@ static const NSInteger kTotalTimeInterval = 60;
 #pragma mark - 注册成功
 - (void)loginSucceed:(NSDictionary *)dict{
     
-    [[UserStatus shareInstance]initWithDict:dict];
-    [self saveUserInfoWith:dict];
-    [AlertView showMsg:@"注册成功" duration:2];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [[UserStatus shareInstance]initWithDict:[dict objectForKey:kData]];
+    [self saveUserInfoWith:[dict objectForKey:kData]];
+    [AlertView showMsg:@"注册成功,请完善您的信息哦~" duration:2];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIViewController *vc = [CommonTools findViewController:self];
         SignUserInfoController *info = [[SignUserInfoController alloc]init];
+        info.phoneNo = _phone.text;
         info.consummateCallBack = ^{
             [vc dismissViewControllerAnimated:true completion:nil];
         };

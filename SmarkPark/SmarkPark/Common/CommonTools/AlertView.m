@@ -8,7 +8,6 @@
 
 #import "AlertView.h"
 
-
 @implementation AlertView
 
 + (void)showMsg:(NSString *)msg duration:(CGFloat)duration{
@@ -16,12 +15,17 @@
     [SVProgressHUD dismissWithDelay:duration];
 }
 
-+ (void)showProgress:(CGFloat)timeout msg:(NSString *)msg{
++ (void)showProgress:(NSString *)msg timeout:(CGFloat)timeout{
     if (msg) {
         [SVProgressHUD showProgress:timeout status:msg];
     }else{
         [SVProgressHUD showProgress:timeout];
     }
+}
+
++ (void)showError:(NSString *)msg duration:(CGFloat)duration{
+    [SVProgressHUD showErrorWithStatus:msg];
+    [SVProgressHUD dismissWithDelay:duration];
 }
 
 + (void)dimiss{

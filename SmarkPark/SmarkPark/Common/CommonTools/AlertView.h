@@ -12,7 +12,9 @@
 
 + (void)showMsg:(NSString *)msg duration:(CGFloat)duration;
 
-+ (void)showProgress:(CGFloat)timeout msg:(NSString *)msg;
++ (void)showProgress:(NSString *)msg timeout:(CGFloat)timeout;
+
++ (void)showError:(NSString *)msg duration:(CGFloat)duration;
 
 + (void)dimiss;
 @end

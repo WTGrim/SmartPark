@@ -158,6 +158,7 @@ static const NSInteger kTotalTimeInterval = 60;
 
 - (void)presentData:(NSDictionary *)dict{
     [[UserStatus shareInstance]initWithDict:[dict objectForKey:kData]];
+    [AlertView showMsg:@"重置密码成功" duration:2];
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

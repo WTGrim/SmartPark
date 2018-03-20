@@ -60,7 +60,7 @@
     [self setAmap];
     
     //授权
-    [self checkAthu];
+    [self checkLocationServicesAuthorizationStatus];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -133,6 +133,11 @@
             [self setWeatherViewWithWeatrher:liveWeather];
         }
     }
+}
+
+#pragma mark - 授权状态改变
+- (void)amapLocationManager:(AMapLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    [self reportLocationServicesAuthorizationStatus:status];
 }
 
 - (void)setWeatherViewWithWeatrher:(AMapLocalWeatherLive *)liveWeather{
@@ -213,19 +218,29 @@
     }
 }
 
-- (void)checkAthu{
-    //没有开启定位服务
-    if(![CLLocationManager locationServicesEnabled]||[CLLocationManager authorizationStatus]!=kCLAuthorizationStatusAuthorizedWhenInUse){
+#pragma mark - 检查授权状态
+- (void)checkLocationServicesAuthorizationStatus {
+    
+    [self reportLocationServicesAuthorizationStatus:[CLLocationManager authorizationStatus]];
+}
+
+
+- (void)reportLocationServicesAuthorizationStatus:(CLAuthorizationStatus)status{
+    if(status == kCLAuthorizationStatusNotDetermined){
+        //未决定，继续请求授权
+//        [self requestLocationServicesAuthorization];
+        
+    }else if(status == kCLAuthorizationStatusDenied){
+        //拒绝使用，提示是否进入设置页面进行修改
         [CommonSystemAlert alertWithTitle:@"温馨提示" message:@"您还没有开启定位服务，现在开启？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"去开启" rootVc:self leftClick:nil rightClick:^{
             NSURL *settingUrl = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
             if ([[UIApplication sharedApplication]canOpenURL:settingUrl]) {
                 [[UIApplication sharedApplication]openURL:settingUrl];
             }
         }];
-        return;
+        
     }
 }
-
 
 - (void)viewWillDisappear:(BOOL)animated{
     
