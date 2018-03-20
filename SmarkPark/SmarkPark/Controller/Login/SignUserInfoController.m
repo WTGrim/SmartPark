@@ -43,6 +43,8 @@
 
 - (IBAction)submitClick:(UIButton *)sender {
     
+    [self dismissViewControllerAnimated:self completion:nil];
+    
     NSArray *arr = @[_name, _phone];
     NSArray *msg = @[@"请输入称呼", @"请输入手机号"];
      __block NSString *tips = nil;

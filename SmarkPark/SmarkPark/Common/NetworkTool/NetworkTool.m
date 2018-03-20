@@ -38,4 +38,26 @@
     NSString *url = [NSString stringWithFormat:@"%@/user/login",SERVER_IP];
     return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
 }
+
++ (NSURLSessionDataTask *)forgetPsdWithPhone:(NSString *)phone pwd:(NSString *)pwd code:(NSString *)code sign:(NSString *)sign exp:(NSInteger )exp succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:phone forKey:kPhone];
+    [param setObject:pwd forKey:@"pwd"];
+    [param setObject:code forKey:@"code"];
+    [param setObject:sign forKey:@"sign"];
+    [param setObject:@(exp) forKey:@"exp"];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/user/forget",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
+
++ (NSURLSessionDataTask *)consummateWithName:(NSString *)name plates:(NSString *)plates  type:(NSInteger)type succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:name forKey:kName];
+    [param setObject:plates forKey:kPlates];
+    [param setObject:@(type) forKey:kType];
+    NSString *url = [NSString stringWithFormat:@"%@/user/a/consummate",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
 @end

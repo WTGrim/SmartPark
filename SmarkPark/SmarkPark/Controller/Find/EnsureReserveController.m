@@ -16,6 +16,7 @@
 #import "MinePointAnnotation.h"
 #import "GeocodeAnnotation.h"
 #import "BackBtnLayer.h"
+#import "EnsureCancelController.h"
 
 
 @interface EnsureReserveController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
@@ -262,6 +263,8 @@
 #pragma mark - 取消
 - (IBAction)cancelBtnClick:(UIButton *)sender {
     
+    EnsureCancelController *cancel = [[EnsureCancelController alloc]init];
+    [self.navigationController pushViewController:cancel animated:true];
 }
 
 #pragma mark - 确认

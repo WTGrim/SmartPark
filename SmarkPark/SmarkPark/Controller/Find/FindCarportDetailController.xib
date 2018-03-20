@@ -36,7 +36,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-ye-e8U">
-                            <rect key="frame" x="0.0" y="420" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="428" width="375" height="0.0"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" id="Cob-ag-LU4"/>
@@ -50,7 +50,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZ0-FK-PGn">
-                            <rect key="frame" x="0.0" y="200" width="375" height="100"/>
+                            <rect key="frame" x="0.0" y="208" width="375" height="100"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车位空闲时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00q-Tj-8dG">
                                     <rect key="frame" x="30" y="10" width="100" height="17"/>
@@ -95,7 +95,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydU-YE-4ec">
-                            <rect key="frame" x="40" y="340" width="295" height="40"/>
+                            <rect key="frame" x="40" y="348" width="295" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="MGk-eq-AKJ"/>
                             </constraints>
@@ -122,7 +122,7 @@
                         <constraint firstItem="Amp-ye-e8U" firstAttribute="leading" secondItem="eld-QW-4FT" secondAttribute="leading" id="CBc-R4-InV"/>
                         <constraint firstItem="ydU-YE-4ec" firstAttribute="leading" secondItem="eld-QW-4FT" secondAttribute="leading" constant="40" id="D1Z-Zh-loF"/>
                         <constraint firstItem="RSc-er-BfE" firstAttribute="top" secondItem="0vX-NW-EJF" secondAttribute="bottom" id="GYS-iv-ai2"/>
-                        <constraint firstItem="UZ0-FK-PGn" firstAttribute="top" secondItem="RSc-er-BfE" secondAttribute="bottom" id="MNw-uV-BO6"/>
+                        <constraint firstItem="UZ0-FK-PGn" firstAttribute="top" secondItem="RSc-er-BfE" secondAttribute="bottom" constant="8" id="MNw-uV-BO6"/>
                         <constraint firstItem="Amp-ye-e8U" firstAttribute="width" secondItem="eld-QW-4FT" secondAttribute="width" id="OJw-Q4-SqL"/>
                         <constraint firstItem="UZ0-FK-PGn" firstAttribute="leading" secondItem="eld-QW-4FT" secondAttribute="leading" id="Oxv-Lr-fkg"/>
                         <constraint firstItem="0vX-NW-EJF" firstAttribute="width" secondItem="eld-QW-4FT" secondAttribute="width" id="Qua-l4-lT3"/>

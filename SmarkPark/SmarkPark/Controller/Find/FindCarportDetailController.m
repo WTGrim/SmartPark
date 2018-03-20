@@ -57,11 +57,11 @@
     
     [self setupUI];
     [self setData];
+    [self setupLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setupLocation];
 }
 
 - (void)setupUI{
@@ -266,15 +266,15 @@
 - (void)dealloc{
     _locationManager.delegate = nil;
     _aMapView.delegate = nil;
-    [[AMapNaviDriveManager sharedInstance] stopNavi];
-    [[AMapNaviDriveManager sharedInstance] setDelegate:nil];
-    BOOL success = [AMapNaviDriveManager destroyInstance];
+//    [[AMapNaviDriveManager sharedInstance] stopNavi];
+//    [[AMapNaviDriveManager sharedInstance] setDelegate:nil];
+//    BOOL success = [AMapNaviDriveManager destroyInstance];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    _locationManager.delegate = nil;
-    _aMapView.delegate = nil;
+//    _locationManager.delegate = nil;
+//    _aMapView.delegate = nil;
 
 }
 

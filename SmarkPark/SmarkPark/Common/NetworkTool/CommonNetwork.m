@@ -17,7 +17,7 @@
 
 #define AuthFlag  @""
 
-static NSString *const kKeyValueType = @"application/json";
+static NSString *const kJsonType = @"application/json";
 
 @implementation CommonNetwork
 
@@ -31,13 +31,12 @@ static NSString *const kKeyValueType = @"application/json";
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:kKeyValueType forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:kJsonType forHTTPHeaderField:@"Content-Type"];
 
-//    if ([UserStatus shareInstance].isLogin) {
-//        [manager.requestSerializer setValue:[UserStatus shareInstance].authMessage forHTTPHeaderField:@"Agent-AppAuth"];
-//    }else {
-//        [manager.requestSerializer setValue:AuthFlag forHTTPHeaderField:@"Agent-AppAuth"];
-//    }
+    if ([UserStatus shareInstance].isLogin) {
+        [manager.requestSerializer setValue:[UserStatus shareInstance].token forHTTPHeaderField:@"Authorization"];
+    }
+    
     NSURLSessionDataTask *dataTask = [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -59,11 +58,11 @@ static NSString *const kKeyValueType = @"application/json";
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    if ([UserStatus shareInstance].isLogin) {
-//        [manager.requestSerializer setValue:[UserStatus shareInstance].authMessage forHTTPHeaderField:@"Agent-AppAuth"];
-//    }else {
+    if ([UserStatus shareInstance].isLogin) {
+        [manager.requestSerializer setValue:[UserStatus shareInstance].token forHTTPHeaderField:@"Authorization"];
+    }else {
 //        [manager.requestSerializer setValue:AuthFlag forHTTPHeaderField:@"Agent-AppAuth"];
-//    }
+    }
     NSURLSessionDataTask *dataTask =  [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -85,12 +84,11 @@ static NSString *const kKeyValueType = @"application/json";
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-//    if ([UserStatus shareInstance].isLogin) {
-//        [manager.requestSerializer setValue:[UserStatus shareInstance].authMessage forHTTPHeaderField:@"Agent-AppAuth"];
-//    }else {
+    if ([UserStatus shareInstance].isLogin) {
+        [manager.requestSerializer setValue:[UserStatus shareInstance].token forHTTPHeaderField:@"Authorization"];
+    }else {
 //        [manager.requestSerializer setValue:AuthFlag forHTTPHeaderField:@"Agent-AppAuth"];
-//    }
-//    
+    }
     NSURLSessionDataTask *dataTask =  [manager GET:url parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

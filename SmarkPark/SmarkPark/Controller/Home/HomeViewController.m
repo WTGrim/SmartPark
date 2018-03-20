@@ -58,6 +58,9 @@
     [self setupUI];
     //定位
     [self setAmap];
+    
+    //授权
+    [self checkAthu];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -66,12 +69,12 @@
     [_scrollView setContentOffset:CGPointMake(0, -_scrollView.contentInset.top)];
 
     //检查登录状态
-//    if (![UserStatus shareInstance].isLogin) {
-//        LoginViewController *login = [[LoginViewController alloc]init];
-//        [self presentViewController:login animated:true completion:^{
-//
-//        }];
-//    }
+    if (![UserStatus shareInstance].isLogin) {
+        LoginViewController *login = [[LoginViewController alloc]init];
+        [self presentViewController:login animated:true completion:^{
+
+        }];
+    }
     
 }
 
@@ -85,17 +88,6 @@
     
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
-    
-    //没有开启定位服务
-    if(![CLLocationManager locationServicesEnabled]||[CLLocationManager authorizationStatus]!=kCLAuthorizationStatusAuthorizedWhenInUse){
-        [CommonSystemAlert alertWithTitle:@"温馨提示" message:@"您还没有开启定位服务，现在开启？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"去开启" rootVc:self leftClick:nil rightClick:^{
-            NSURL *settingUrl = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-            if ([[UIApplication sharedApplication]canOpenURL:settingUrl]) {
-                [[UIApplication sharedApplication]openURL:settingUrl];
-            }
-        }];
-        return;
-    }
 
     [self beginLocation];
 }
@@ -164,8 +156,6 @@
     _imageViewWidth.constant = SCREEN_WIDTH;
     _scrollView.contentInset = UIEdgeInsetsMake(_weatherBgHeight.constant, 0, -_weatherBgHeight.constant + 100, 0);
     _scrollView.delegate = self;
-//    [_weatherView layoutIfNeeded];
-//    [_weatherView layoutSubviews];
     
     [self weatherSubViewHidden:true];
 }
@@ -223,6 +213,18 @@
     }
 }
 
+- (void)checkAthu{
+    //没有开启定位服务
+    if(![CLLocationManager locationServicesEnabled]||[CLLocationManager authorizationStatus]!=kCLAuthorizationStatusAuthorizedWhenInUse){
+        [CommonSystemAlert alertWithTitle:@"温馨提示" message:@"您还没有开启定位服务，现在开启？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"去开启" rootVc:self leftClick:nil rightClick:^{
+            NSURL *settingUrl = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            if ([[UIApplication sharedApplication]canOpenURL:settingUrl]) {
+                [[UIApplication sharedApplication]openURL:settingUrl];
+            }
+        }];
+        return;
+    }
+}
 
 
 - (void)viewWillDisappear:(BOOL)animated{

@@ -12,6 +12,7 @@
 #import "LeftViewTextField.h"
 #import "NetworkTool.h"
 #import "ProtocolViewController.h"
+#import "SignUserInfoController.h"
 
 static const NSInteger kTotalTimeInterval = 60;
 
@@ -157,6 +158,8 @@ static const NSInteger kTotalTimeInterval = 60;
 
 - (void)loginClick:(UIButton *)btn{
     
+    [self loginSucceed:nil];
+
     if (![CommonTools isTelNumber:_phone.text]) {
         [SVProgressHUD showInfoWithStatus:@"请输入正确的手机号码"];
         [SVProgressHUD dismissWithDelay:1.5];
@@ -187,12 +190,12 @@ static const NSInteger kTotalTimeInterval = 60;
     
     [SVProgressHUD show];
     WEAKSELF;
-    [NetworkTool registerWithPhone:_phone.text pwd:_password.text code:_codeText.text sign:[_codeDict objectForKey:@"sign"] exp:[[_codeDict objectForKey:@"exp"] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
-        [weakSelf loginSucceed:result];
-    } failedBlock:^(id  _Nullable errorInfo) {
-        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMessage]];
-        [SVProgressHUD dismissWithDelay:1.5];
-    }];
+//    [NetworkTool registerWithPhone:_phone.text pwd:_password.text code:_codeText.text sign:[_codeDict objectForKey:@"sign"] exp:[[_codeDict objectForKey:@"exp"] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
+//        [weakSelf loginSucceed:result];
+//    } failedBlock:^(id  _Nullable errorInfo) {
+//        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMessage]];
+//        [SVProgressHUD dismissWithDelay:1.5];
+//    }];
 }
 
 #pragma mark - 注册成功
@@ -203,7 +206,8 @@ static const NSInteger kTotalTimeInterval = 60;
     [SVProgressHUD dismissWithDelay:1];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIViewController *vc = [CommonTools findViewController:self];
-        [vc dismissViewControllerAnimated:true completion:nil];
+        SignUserInfoController *info = [[SignUserInfoController alloc]init];
+        [vc presentViewController:[[UINavigationController alloc] initWithRootViewController:info] animated:true completion:nil];        
     });
 }
 

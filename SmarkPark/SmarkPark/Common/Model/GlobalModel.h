@@ -16,6 +16,13 @@ static NSString *const kMsg = @"msg";
 static NSString *const kToken = @"token";
 static NSString *const kSaveUserInfo = @"saveUserInfo";
 
+static NSString *const kName = @"name";
+static NSString *const kPlates = @"plates";
+static NSString *const kType = @"type";
+static NSString *const kPwd = @"pwd";
+static NSString *const kCode = @"code";
+static NSString *const kSign = @"sign";
+static NSString *const kExp = @"exp";
 
 
 #endif /* GlobalModel_h */
