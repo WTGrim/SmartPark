@@ -59,11 +59,11 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setupUI];
+    [self setupLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setupLocation];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -75,6 +75,7 @@
 - (void)setupUI{
     
     self.title = @"确认预定";
+    self.view.backgroundColor = [UIColor whiteColor];
     _mapBgViewHeight.constant = SCREEN_WIDTH;
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_ensurePortBtn.layer addSublayer:loginBtnLayer];

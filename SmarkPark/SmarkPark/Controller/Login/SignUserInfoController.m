@@ -99,6 +99,7 @@
         _carType.text = nil;
         [self hiddenKeyboard];
         [self downListClick];
+        return false;
     }
     return true;
 }

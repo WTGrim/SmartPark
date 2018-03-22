@@ -46,6 +46,7 @@
     _phone.layer.cornerRadius = 3;
     _phone.font = [UIFont systemFontOfSize:12];
     _phone.layer.masksToBounds = true;
+    _phone.keyboardType = UIKeyboardTypeNumberPad;
     _phone.placeholder = @"手机号登录";
     _phone.backgroundColor = RGB(246, 246, 246);
     UIImageView *phoneImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_phone"]];
@@ -103,13 +104,13 @@
     [_phone mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bgView).offset(20);
         make.top.equalTo(bgView).offset(30);
-        make.height.equalTo(@30);
+        make.height.equalTo(@35);
         make.right.equalTo(bgView).offset(-20);
     }];
     
     [_password mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(_phone);
-        make.top.equalTo(_phone.mas_bottom).offset(10);
+        make.top.equalTo(_phone.mas_bottom).offset(20);
     }];
     
     [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,7 +120,7 @@
     }];
     
     [forgetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(loginBtn.mas_bottom).offset(30);
+        make.top.equalTo(loginBtn.mas_bottom).offset(15);
         make.left.right.equalTo(_password);
         make.height.equalTo(@20);
     }];

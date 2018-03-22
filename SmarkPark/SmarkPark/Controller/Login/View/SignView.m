@@ -73,6 +73,7 @@ static const NSInteger kTotalTimeInterval = 60;
     UIImageView *codeImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"login_code"]];
     _codeText.leftView = codeImage;
     _codeText.leftViewMode = UITextFieldViewModeAlways;
+    _codeText.keyboardType = UIKeyboardTypeNumberPad;
     [bgView addSubview:_codeText];
     
     _vertiBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
@@ -134,8 +135,8 @@ static const NSInteger kTotalTimeInterval = 60;
     
     [_phone mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(bgView).offset(20);
-        make.top.equalTo(bgView).offset(30);
-        make.height.equalTo(@30);
+        make.top.equalTo(bgView).offset(20);
+        make.height.equalTo(@35);
         make.right.equalTo(bgView).offset(-20);
     }];
     
@@ -157,7 +158,7 @@ static const NSInteger kTotalTimeInterval = 60;
     }];
     
     [forgetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(loginBtn.mas_bottom).offset(15);
+        make.top.equalTo(loginBtn.mas_bottom).offset(10);
         make.left.right.equalTo(_password);
         make.height.equalTo(@15);
     }];

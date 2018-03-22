@@ -7,6 +7,7 @@
 //
 
 #import "EnsureCancelController.h"
+#import "BackBtnLayer.h"
 
 @interface EnsureCancelController ()<UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -52,7 +53,14 @@ static NSString *const kCancelTip = @"请选择取消原因";
     _tableView.layer.shadowOpacity = 0.8;
     _tableView.layer.shadowRadius = 2;
     
+    BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 60, 40)];
+    [_ensureCancel.layer addSublayer:loginBtnLayer];
+    
     _dataArr = @[@"临时改变行程，不停了", @"点错了，误点预定按钮", @"距离太远，不想停了", @"车位信息错误，不能停", @"到达车位，车位不能在指定时间空闲出来", @"联系不到车主，停不了", @"停车场限进入，停不了"];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _dataArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
