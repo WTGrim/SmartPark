@@ -86,6 +86,7 @@ static const NSInteger kTotalTimeInterval = 60;
     _password = [LeftViewTextField new];
     _password.placeholder = @"输入密码";
     _password.layer.cornerRadius = 3;
+    _password.secureTextEntry = true;
     _password.font = [UIFont systemFontOfSize:12];
     _password.layer.masksToBounds = true;
     _password.backgroundColor = RGB(246, 246, 246);
@@ -93,6 +94,12 @@ static const NSInteger kTotalTimeInterval = 60;
     _password.leftView = psdImage;
     _password.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_password];
+    
+    UIButton *seebtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [seebtn setImage:[UIImage imageNamed:@"login_see"] forState:UIControlStateNormal];
+    [seebtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];
+    _password.rightView = seebtn;
+    _password.rightViewMode = UITextFieldViewModeAlways;
     
     UIButton *loginBtn = [UIButton new];
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
@@ -290,6 +297,11 @@ static const NSInteger kTotalTimeInterval = 60;
     [att addAttributes:@{NSForegroundColorAttributeName: ThemeColor_GrayText} range:NSMakeRange(0, string.length - 4)];
     [att addAttributes:@{NSForegroundColorAttributeName: ThemeColor} range:NSMakeRange(string.length - 4, 4)];
     return att;
+}
+
+- (void)seePsdClick:(UIButton *)btn{
+    _password.secureTextEntry = btn.isSelected;
+    btn.selected = !btn.selected;
 }
 
 @end

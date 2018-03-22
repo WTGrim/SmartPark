@@ -64,7 +64,6 @@
     _password.leftView = psdImage;
     _password.leftViewMode = UITextFieldViewModeAlways;
     [bgView addSubview:_password];
-    
     UIButton *seebtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     [seebtn setImage:[UIImage imageNamed:@"login_see"] forState:UIControlStateNormal];
     [seebtn addTarget:self action:@selector(seePsdClick:) forControlEvents:UIControlEventTouchUpInside];

@@ -60,4 +60,10 @@
     NSString *url = [NSString stringWithFormat:@"%@/user/a/consummate",SERVER_IP];
     return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
 }
+
++ (NSURLSessionDataTask *)getLimitNoWithCity:(NSString *)city succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+
+    NSString *url = [NSString stringWithFormat:@"http://v.juhe.cn/xianxing/index?key=%@&city=%@&type=1",JUHE_KEY, @"chengdu"];
+    return [CommonNetwork postDataWithUrl:url param:nil showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
 @end

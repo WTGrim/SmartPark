@@ -48,7 +48,7 @@
         [_btnArray addObject:btn];
     }];
     
-    _slider = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame) /4.0 - 10 , -5, 20, 20)];
+    _slider = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.frame) /4.0 - 10 , -7, 25, 25)];
     _slider.contentMode = UIViewContentModeScaleAspectFit;
     _slider.image = [UIImage imageNamed:@"login_san"];
     [self addSubview:_slider];

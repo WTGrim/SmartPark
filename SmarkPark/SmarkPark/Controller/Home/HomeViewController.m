@@ -15,6 +15,7 @@
 #import "RelayoutButton.h"
 #import "MineViewController.h"
 #import "FindCarportViewController.h"
+#import "NetworkTool.h"
 
 #define HEADER_HEIGHT 136
 #define LIMIT_API @""
@@ -61,6 +62,9 @@
     
     //授权
     [self checkLocationServicesAuthorizationStatus];
+    
+    //限行
+    [self getLimitNo];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -163,6 +167,26 @@
     _scrollView.delegate = self;
     
     [self weatherSubViewHidden:true];
+}
+
+- (void)getLimitNo{
+    [NetworkTool getLimitNoWithCity:_city.text succeedBlock:^(NSDictionary * _Nullable result) {
+        
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [self presentLimitNo:[errorInfo objectForKey:@"result"]];
+    }];
+}
+
+- (void)presentLimitNo:(NSDictionary *)dict{
+    NSArray *arr = [dict objectForKey:@"xxweihao"];
+    if (arr.count == 1) {
+        _leftLimit.text = [NSString stringWithFormat:@"%ld", [arr[0] integerValue]];
+    }
+    if (arr.count == 2) {
+        _leftLimit.text = [NSString stringWithFormat:@"%ld", [arr[0] integerValue]];
+        _rightLimit.text = [NSString stringWithFormat:@"%ld", [arr[1] integerValue]];
+
+    }
 }
 
 - (void)weatherSubViewHidden:(BOOL)isHidden{

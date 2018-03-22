@@ -54,6 +54,7 @@
 
 - (void)setupUI{
     
+    self.view.backgroundColor = [UIColor whiteColor];
     _headerHeight.constant = SCREEN_WIDTH * 0.6;
     _backScrollView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     [_segmentView addSubview:self.segment];

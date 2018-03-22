@@ -18,3 +18,4 @@ typedef NS_ENUM(NSUInteger, LoginBtnType) {
 @property(nonatomic, copy)void(^loginBtnClick)(LoginBtnType type);
 
 @end
+
