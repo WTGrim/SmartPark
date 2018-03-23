@@ -24,8 +24,9 @@
 - (void)setCellWithDict:(NSDictionary *)dict indexPath:(NSIndexPath *)indexPath{
     
     location.text = [dict objectForKey:kAddress];
+    NSString *priceTxt = [NSString stringWithFormat:@"%.2f", [[dict objectForKey:kPrice] floatValue]];
+    price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"价格：%@积分", priceTxt] attr:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]} rang:NSMakeRange(3, [priceTxt length])];
     time.text = [NSString stringWithFormat:@"空闲时间：%@-%@", [dict objectForKey:kStart], [dict objectForKey:kEnd]];
-    price.text = [NSString stringWithFormat:@"价格：%.2f积分", [[dict objectForKey:kPrice] floatValue]];
     owner.text = [NSString stringWithFormat:@"由车主 %@ 提供车位", [dict objectForKey:kName]];
 }
 

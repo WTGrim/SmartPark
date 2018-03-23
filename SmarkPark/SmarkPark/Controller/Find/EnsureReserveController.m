@@ -177,6 +177,7 @@
         return;
     }
     
+    [self.locationManager stopUpdatingLocation];
     NSMutableArray *annotations = [NSMutableArray array];
     [response.geocodes enumerateObjectsUsingBlock:^(AMapGeocode *obj, NSUInteger idx, BOOL *stop) {
         GeocodeAnnotation *geocodeAnnotation = [[GeocodeAnnotation alloc] initWithGeocode:obj];

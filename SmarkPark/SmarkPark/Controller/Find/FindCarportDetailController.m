@@ -111,9 +111,9 @@
     [self.locationManager setLocatingWithReGeocode:YES];
     
     [self.locationManager startUpdatingLocation];
-    if ([AMapLocationManager headingAvailable]) {
-        [self.locationManager startUpdatingHeading];
-    }
+//    if ([AMapLocationManager headingAvailable]) {
+//        [self.locationManager startUpdatingHeading];
+//    }
     
     //搜索
     self.search = [[AMapSearchAPI alloc] init];
@@ -150,8 +150,8 @@
     
     NSInteger hour = driveManager.naviRoute.routeTime / 3600;
     NSInteger second = driveManager.naviRoute.routeTime / 60;
-    NSString *hourStr = hour > 0? [NSString stringWithFormat:@"%ld小时", (long)hour] : @"";
-    NSString *secondStr = second > 0?[NSString stringWithFormat:@"%ld分钟", (long)second] : @"";
+    NSString *hourStr = hour > 0 ? [NSString stringWithFormat:@"%ld小时", (long)hour] : @"";
+    NSString *secondStr = second > 0 ? [NSString stringWithFormat:@"%ld分钟", (long)second] : @"";
     _planTime.text = [NSString stringWithFormat:@"%@%@",hourStr, secondStr];
 }
 
@@ -179,6 +179,7 @@
         return;
     }
     
+    [self.locationManager stopUpdatingLocation];
     NSMutableArray *annotations = [NSMutableArray array];
     [response.geocodes enumerateObjectsUsingBlock:^(AMapGeocode *obj, NSUInteger idx, BOOL *stop) {
         GeocodeAnnotation *geocodeAnnotation = [[GeocodeAnnotation alloc] initWithGeocode:obj];
@@ -271,11 +272,6 @@
     BOOL success = [AMapNaviDriveManager destroyInstance];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-
-
-}
 
 
 @end
