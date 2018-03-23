@@ -163,7 +163,7 @@ static NSString *const kCancelTip = @"请选择取消原因";
     }
     
     if ([_reasonTip.text isEqualToString:kCancelTip] && _textView.text.length <= 0) {
-        [AlertView showMsg:@"请选择或者填写取消原因" duration:2];
+        [AlertView showMsg:@"请选择或者填写取消原因"];
         return ;
     }
     
@@ -172,7 +172,7 @@ static NSString *const kCancelTip = @"请选择取消原因";
         //确认取消
         
     }else{
-        [AlertView showMsg:@"字数长度超出200字" duration:2];
+        [AlertView showMsg:@"字数长度超出200字"];
     }
 }
 

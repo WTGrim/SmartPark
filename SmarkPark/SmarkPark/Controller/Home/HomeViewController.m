@@ -111,7 +111,6 @@
         if (regeocode){
             NSLog(@"reGeocode:%@", regeocode);
             [self searchLiveWeatherWithCity:regeocode.city];
-            
         }
     }];
 }
@@ -271,11 +270,14 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = false;
     _weatherView.frame = _lastFrame;
+    
 }
 
 - (void)dealloc{
     _locationManager.delegate = nil;
     _search.delegate = nil;
+    _locationManager = nil;
+    _search = nil;
 }
 
 

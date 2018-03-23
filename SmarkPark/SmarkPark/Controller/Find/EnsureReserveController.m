@@ -190,7 +190,7 @@
         [self showRouteNavi];
     }else{
         [self.aMapView showAnnotations:annotations animated:YES];
-        [AlertView showMsg:@"目标停车位地址不够具体明确，存在多个位置" duration:1.5];
+        [AlertView showMsg:@"目标停车位地址不够具体明确，存在多个位置"];
     }
     
     [self.aMapView addAnnotations:annotations];

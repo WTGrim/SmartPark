@@ -51,6 +51,7 @@
 - (void)startLocation{
     
     WEAKSELF;
+    [[LocationTool shareInstance] beginLocation];
     [LocationTool shareInstance].locationCompleted = ^(NSArray *address, CLLocation *location) {
         _currentAddress = address;
         _currentLocation = location;
@@ -92,7 +93,7 @@
     } failedBlock:^(id  _Nullable errorInfo) {
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
-        [AlertView showMsg:[errorInfo objectForKey:kMessage] duration:2];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
 }
 
@@ -115,7 +116,10 @@
 
 #pragma mark - header点击事件
 - (void)headerClick:(FindCarportHeaderType)type{
-    
+    _currentType = type;
+    _pageIndex = 1;
+    [self.dataArray removeAllObjects];
+    [self searchCarport];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -151,6 +155,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     FindCarportDetailController *detail = [[FindCarportDetailController alloc]init];
+    detail.dict = self.dataArray[indexPath.row];
     [self.navigationController pushViewController:detail animated:true];
 }
 

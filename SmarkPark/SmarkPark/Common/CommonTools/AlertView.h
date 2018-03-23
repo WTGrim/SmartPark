@@ -10,11 +10,19 @@
 
 @interface AlertView : NSObject
 
-+ (void)showMsg:(NSString *)msg duration:(CGFloat)duration;
++ (void)showMsg:(NSString *)msg icon:(NSString *)icon view:(UIView *)view;
+
++ (void)showMsg:(NSString *)msg;
+
++ (void)showError:(NSString *)error toView:(UIView *)view;
+
++ (void)showError:(NSString *)error;
+
++ (void)showSuccess:(NSString *)success toView:(UIView *)view;
+
++ (void)showSuccess:(NSString *)success;
 
 + (void)showProgress:(NSString *)msg timeout:(CGFloat)timeout;
-
-+ (void)showError:(NSString *)msg duration:(CGFloat)duration;
 
 + (void)dimiss;
 @end

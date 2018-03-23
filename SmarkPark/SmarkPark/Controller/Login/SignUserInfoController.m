@@ -167,19 +167,19 @@
     }];
     
     if (!canGo) {
-        [AlertView showMsg:tips duration:1.5];
+        [AlertView showMsg:tips];
         return;
     }
     
     if (![CommonTools isTelNumber:_phone.text]) {
-        [AlertView showMsg:@"请输入正确的手机号码" duration:1.5];
+        [AlertView showMsg:@"请输入正确的手机号码"];
         return;
     }
     
     [NetworkTool consummateWithName:_name.text plates:_carNo.text type:_selectedRow + 1 succeedBlock:^(NSDictionary * _Nullable result) {
         [self presentData:result];
     } failedBlock:^(id  _Nullable errorInfo) {
-        [AlertView showMsg:[errorInfo objectForKey:kMessage] duration:2];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
 }
 

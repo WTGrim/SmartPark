@@ -15,5 +15,6 @@ target 'SmarkPark' do
   pod "AMapSearch"
   pod "Masonry"
   pod 'SVProgressHUD'
+  pod 'MBProgressHUD', '~> 1.1.0'
 
 end

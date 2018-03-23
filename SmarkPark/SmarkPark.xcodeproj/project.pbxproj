@@ -57,6 +57,7 @@
 		08FEE8E92063B2A200ADA00F /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FEE8E72063B2A200ADA00F /* PublishViewController.m */; };
 		08FEE8EA2063B2A200ADA00F /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08FEE8E82063B2A200ADA00F /* PublishViewController.xib */; };
 		08FEE8ED20649AFF00ADA00F /* LocationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FEE8EC20649AFF00ADA00F /* LocationTool.m */; };
+		08FEE8F02064E75100ADA00F /* MBProgressHUD+MT.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FEE8EF2064E75100ADA00F /* MBProgressHUD+MT.m */; };
 		6FA9434C75F95090EB597EF5 /* libPods-SmarkPark.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A29F880B6003BD1BF42D27 /* libPods-SmarkPark.a */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +172,8 @@
 		08FEE8E82063B2A200ADA00F /* PublishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
 		08FEE8EB20649AFF00ADA00F /* LocationTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationTool.h; sourceTree = "<group>"; };
 		08FEE8EC20649AFF00ADA00F /* LocationTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationTool.m; sourceTree = "<group>"; };
+		08FEE8EE2064E75000ADA00F /* MBProgressHUD+MT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MT.h"; sourceTree = "<group>"; };
+		08FEE8EF2064E75100ADA00F /* MBProgressHUD+MT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MT.m"; sourceTree = "<group>"; };
 		47BA932D9E6BB6207B8AF880 /* Pods-SmarkPark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmarkPark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmarkPark/Pods-SmarkPark.debug.xcconfig"; sourceTree = "<group>"; };
 		51A29F880B6003BD1BF42D27 /* libPods-SmarkPark.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SmarkPark.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C631A72CE29ED439BF54406F /* Pods-SmarkPark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmarkPark.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmarkPark/Pods-SmarkPark.release.xcconfig"; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 		086F0D60204D35C300F354EC /* CommonTools */ = {
 			isa = PBXGroup;
 			children = (
+				08FEE8EE2064E75000ADA00F /* MBProgressHUD+MT.h */,
+				08FEE8EF2064E75100ADA00F /* MBProgressHUD+MT.m */,
 				0802881E2058EC7500FEBA4E /* CommonSystemAlert.h */,
 				0802881D2058EC7500FEBA4E /* CommonSystemAlert.m */,
 				086F0D84204D35C300F354EC /* CommonTools.h */,
@@ -714,6 +719,7 @@
 				0835768D205272D800C51BFF /* UserStatus.m in Sources */,
 				08028845205A775300FEBA4E /* MinePointAnnotation.m in Sources */,
 				08FEE8ED20649AFF00ADA00F /* LocationTool.m in Sources */,
+				08FEE8F02064E75100ADA00F /* MBProgressHUD+MT.m in Sources */,
 				08FEE8E92063B2A200ADA00F /* PublishViewController.m in Sources */,
 				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,
 				080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */,

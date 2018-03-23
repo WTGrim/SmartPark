@@ -12,6 +12,6 @@
 @interface LocationTool : NSObject
 
 + (instancetype)shareInstance;
+- (void)beginLocation;
 @property(nonatomic, copy)void(^locationCompleted)(NSArray *address, CLLocation *location);
-
 @end

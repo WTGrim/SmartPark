@@ -10,4 +10,6 @@
 
 @interface FindCarportDetailController : BasicViewController
 
+@property(nonatomic, copy)NSDictionary *dict;
+
 @end

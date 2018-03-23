@@ -42,6 +42,12 @@
     }
 }
 
+- (void)beginLocation{
+    if (_locationManager) {
+        [_locationManager startUpdatingLocation];
+    }
+}
+
 - (void)amapLocationManager:(AMapLocationManager *)manager didFailWithError:(NSError *)error{
     if (error) {
         NSLog(@"定位工具类定位失败：%@", error);
@@ -57,7 +63,7 @@
         currentLocation = location;
         if (_locationCompleted) {
             _locationCompleted(address, currentLocation);
-//            [_locationManager stopUpdatingLocation];
+            [_locationManager stopUpdatingLocation];
         }
     }
 }

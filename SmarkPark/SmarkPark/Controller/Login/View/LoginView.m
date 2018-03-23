@@ -140,23 +140,25 @@
 - (void)loginBtnPress{
     
     if (![CommonTools isTelNumber:_phone.text]) {
-        [AlertView showMsg:@"请输入正确的手机号码" duration:2];
+        [AlertView showMsg:@"请输入正确的手机号码"];
         return;
     }
     if (_password.text.length == 0) {
-        [AlertView showMsg:@"请输入密码" duration:2];
+        [AlertView showMsg:@"请输入密码"];
         return;
     }
     
     if (_password.text.length < 6 || _password.text.length > 12) {
-        [AlertView showMsg:@"请输入6-12位长度的密码" duration:2];
+        [AlertView showMsg:@"请输入6-12位长度的密码"];
         return;
     }
     WEAKSELF;
     [NetworkTool loginWithPhone:_phone.text pwd:_password.text succeedBlock:^(NSDictionary * _Nullable result) {
         [weakSelf loginSucceed:result];
     } failedBlock:^(id  _Nullable errorInfo) {
-        [AlertView showMsg:[errorInfo objectForKey:kMessage] duration:2];
+        [AlertView showMsg:@"请输入6-12位长度的密码"];
+
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
     if (_loginBtnClick) {
         _loginBtnClick(LoginBtnType_Login);
@@ -166,7 +168,7 @@
 - (void)loginSucceed:(NSDictionary *)dict{
     [[UserStatus shareInstance]initWithDict:[dict objectForKey:kData]];
     [self saveUserInfoWith:[dict objectForKey:kData]];
-    [AlertView showMsg:@"登录成功" duration:2];
+    [AlertView showMsg:@"登录成功"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIViewController *vc = [CommonTools findViewController:self];
         [vc dismissViewControllerAnimated:true completion:nil];

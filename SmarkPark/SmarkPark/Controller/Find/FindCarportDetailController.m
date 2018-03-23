@@ -119,10 +119,9 @@
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
     AMapGeocodeSearchRequest *geo = [[AMapGeocodeSearchRequest alloc] init];
-    geo.address = @"四川大学望江校区";
+    geo.address = [_dict objectForKey:kAddress];
     [self.search AMapGeocodeSearch:geo];
 
-    
     //导航
     [[AMapNaviDriveManager sharedInstance] setDelegate:self];
     
@@ -193,7 +192,7 @@
         [self showRouteNavi];
     }else{
         [self.aMapView showAnnotations:annotations animated:YES];
-        [AlertView showMsg:@"目标停车位地址不够具体明确，存在多个位置" duration:1.5];
+        [AlertView showMsg:@"目标停车位地址不够具体明确，存在多个位置"];
     }
     
     [self.aMapView addAnnotations:annotations];
@@ -201,6 +200,7 @@
 }
 
 - (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error{
+    [AlertView showMsg:@"搜索停车地点失败"];
     NSLog(@"搜索停车地点失败:Error: %@", error);
 }
 
@@ -273,8 +273,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    _locationManager.delegate = nil;
-//    _aMapView.delegate = nil;
+
 
 }
 

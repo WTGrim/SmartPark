@@ -183,12 +183,12 @@ static const NSInteger kTotalTimeInterval = 60;
         }
     }];
     if (!canGo) {
-        [AlertView showMsg:msg duration:2];
+        [AlertView showMsg:msg];
         return;
     }
     
     if (_password.text.length > 12 || _password.text.length < 6) {
-        [AlertView showMsg:@"请输入6-12位长度的密码" duration:2];
+        [AlertView showMsg:@"请输入6-12位长度的密码"];
         return;
     }
     
@@ -209,7 +209,7 @@ static const NSInteger kTotalTimeInterval = 60;
     
     [[UserStatus shareInstance]initWithDict:[dict objectForKey:kData]];
     [self saveUserInfoWith:[dict objectForKey:kData]];
-    [AlertView showMsg:@"注册成功,请完善您的信息哦~" duration:2];
+    [AlertView showMsg:@"注册成功,请完善您的信息哦~"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIViewController *vc = [CommonTools findViewController:self];
         SignUserInfoController *info = [[SignUserInfoController alloc]init];
@@ -234,7 +234,7 @@ static const NSInteger kTotalTimeInterval = 60;
 #pragma mark - 获取验证码
 - (void)getCode:(UIButton *)btn{
     if (![CommonTools isTelNumber:_phone.text]) {
-        [AlertView showMsg:@"请输入正确的手机号码" duration:2];
+        [AlertView showMsg:@"请输入正确的手机号码"];
         return;
     }
     [SVProgressHUD show];

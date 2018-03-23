@@ -74,7 +74,7 @@ static const NSInteger kTotalTimeInterval = 60;
 - (void)getCode{
     
     if (![CommonTools isTelNumber:_phone.text]) {
-        [AlertView showMsg:@"请输入正确的手机号码" duration:2];
+        [AlertView showMsg:@"请输入正确的手机号码"];
         return;
     }
     [SVProgressHUD show];
@@ -136,12 +136,12 @@ static const NSInteger kTotalTimeInterval = 60;
         }
     }];
     if (!canGo) {
-        [AlertView showMsg:msg duration:2];
+        [AlertView showMsg:msg];
         return;
     }
     
     if (_psd.text.length > 12 || _psd.text.length < 6) {
-        [AlertView showMsg:@"请输入6-12位长度的密码" duration:2];
+        [AlertView showMsg:@"请输入6-12位长度的密码"];
         return;
     }
     
@@ -152,13 +152,13 @@ static const NSInteger kTotalTimeInterval = 60;
         [weakSelf presentData:result];
     } failedBlock:^(id  _Nullable errorInfo) {
         [SVProgressHUD dismiss];
-        [AlertView showMsg:[errorInfo message] duration:2];
+        [AlertView showMsg:[errorInfo message]];
     }];
 }
 
 - (void)presentData:(NSDictionary *)dict{
     [[UserStatus shareInstance]initWithDict:[dict objectForKey:kData]];
-    [AlertView showMsg:@"重置密码成功" duration:2];
+    [AlertView showMsg:@"重置密码成功"];
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
