@@ -66,4 +66,20 @@
     NSString *url = [NSString stringWithFormat:@"http://v.juhe.cn/xianxing/index?key=%@&city=%@&type=1",JUHE_KEY, @"chengdu"];
     return [CommonNetwork postDataWithUrl:url param:nil showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
 }
+
++ (NSURLSessionDataTask *)findCarportWithKeyword:(NSString *)keyword province:(NSString *)province city:(NSString *)city district:(NSString *)district latitude:(CGFloat )latitude longitude:(CGFloat )longitude index:(NSInteger )index size:(NSInteger)size type:(NSInteger)type succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:keyword forKey:@"Keyword"];
+    [param setObject:province forKey:@"Province"];
+    [param setObject:city forKey:@"City"];
+    [param setObject:district forKey:@"District"];
+    [param setObject:@(latitude) forKey:@"Latitude"];
+    [param setObject:@(longitude) forKey:@"Longitude"];
+    [param setObject:@(index) forKey:@"Index"];
+    [param setObject:@(size) forKey:@"Size"];
+    [param setObject:@(type) forKey:@"Type"];
+    NSString *url = [NSString stringWithFormat:@"%@/parking/list",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
 @end

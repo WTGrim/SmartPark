@@ -23,6 +23,12 @@ static NSString *const kPwd = @"pwd";
 static NSString *const kCode = @"code";
 static NSString *const kSign = @"sign";
 static NSString *const kExp = @"exp";
+static NSString *const kAddress = @"address";
+static NSString *const kEnd = @"end";
+static NSString *const kStart = @"start";
+static NSString *const kPrice = @"price";
+
+
 
 
 #endif /* GlobalModel_h */

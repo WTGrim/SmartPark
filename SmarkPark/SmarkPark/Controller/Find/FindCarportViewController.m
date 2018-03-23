@@ -12,6 +12,7 @@
 #import "FindCarportCell.h"
 #import "FindCarportHeader.h"
 #import "FindCarportDetailController.h"
+#import "LocationTool.h"
 
 @interface FindCarportViewController ()<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -22,7 +23,13 @@
 
 @end
 
-@implementation FindCarportViewController
+@implementation FindCarportViewController{
+    NSInteger _pageIndex;
+    NSString *_currentKeyword;
+    NSArray *_currentAddress;
+    CLLocation *_currentLocation;
+    NSInteger _currentType;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,9 +41,22 @@
 - (void)setupUI{
     
     self.title = @"找车位";
+    _pageIndex = 1;
+    
     [self setNavBar];
     [self setTableView];
+    [self startLocation];
+}
+
+- (void)startLocation{
     
+    WEAKSELF;
+    [LocationTool shareInstance].locationCompleted = ^(NSArray *address, CLLocation *location) {
+        _currentAddress = address;
+        _currentLocation = location;
+        _currentKeyword = @"";
+        [weakSelf searchCarport];
+    };
 }
 
 - (void)setTableView{
@@ -49,11 +69,48 @@
     _tableView.backgroundColor = ThemeColor_BackGround;
     [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([FindCarportCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FindCarportCell class])];
     [self.view addSubview:_tableView];
+    
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _pageIndex = 1;
+        [self.dataArray removeAllObjects];
+        [self searchCarport];
+    }];
+    
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        _pageIndex++;
+        [self searchCarport];
+    }];
 }
 
 #pragma mark - 搜索车位
 - (void)searchCarport{
     
+    [NetworkTool findCarportWithKeyword:_currentKeyword province:_currentAddress[0] city:_currentAddress[1] district:_currentAddress[2] latitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude index:_pageIndex size:COMMON_PAGE_SIZE type:_currentType succeedBlock:^(NSDictionary * _Nullable result) {
+        
+        [self presentData:[result objectForKey:kData]];
+        
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage] duration:2];
+    }];
+}
+
+- (void)presentData:(NSArray *)array{
+    
+    [_tableView.mj_header endRefreshing];
+    [_tableView.mj_footer endRefreshing];
+
+    [self.dataArray addObjectsFromArray:array];
+    [self.tableView reloadData];
+    
+    if (self.dataArray.count < COMMON_PAGE_SIZE && _pageIndex == 1) {
+        self.tableView.mj_footer.hidden = true;
+    }
+    
+    if (self.dataArray.count < COMMON_PAGE_SIZE && _pageIndex != 1) {
+        [_tableView.mj_footer endRefreshingWithNoMoreData];
+    }
 }
 
 #pragma mark - header点击事件
@@ -63,11 +120,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FindCarportCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FindCarportCell class]) forIndexPath:indexPath];
+    if(self.dataArray.count != 0){
+        [cell setCellWithDict:self.dataArray[indexPath.row] indexPath:indexPath];
+    }
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    
+    self.tableView.mj_footer.hidden = self.dataArray.count == 0;
+    return self.dataArray.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

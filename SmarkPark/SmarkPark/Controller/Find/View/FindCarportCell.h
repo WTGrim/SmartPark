@@ -10,4 +10,6 @@
 
 @interface FindCarportCell : UITableViewCell
 
+- (void)setCellWithDict:(NSDictionary *)dict indexPath:(NSIndexPath *)indexPath;
+
 @end

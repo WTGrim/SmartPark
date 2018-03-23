@@ -64,7 +64,7 @@
     [self checkLocationServicesAuthorizationStatus];
     
     //限行
-    [self getLimitNo];
+//    [self getLimitNo];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
