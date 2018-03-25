@@ -10,4 +10,6 @@
 
 @interface EnsureReserveController : BasicViewController
 
+@property(nonatomic, strong)NSDictionary *dict;
+
 @end

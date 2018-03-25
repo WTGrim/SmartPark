@@ -84,8 +84,7 @@ static const NSInteger kTotalTimeInterval = 60;
         [weakSelf dealTimer:result];
     } failedBlock:^(id  _Nullable errorInfo) {
         [SVProgressHUD dismiss];
-        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMsg]];
-        [SVProgressHUD dismissWithDelay:2];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
 }
 
@@ -120,8 +119,7 @@ static const NSInteger kTotalTimeInterval = 60;
 - (IBAction)submitBtnClick:(UIButton *)sender {
     
     if (![CommonTools isTelNumber:_phone.text]) {
-        [SVProgressHUD showInfoWithStatus:@"请输入正确的手机号码"];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:@"请输入正确的手机号码"];
         return;
     }
     NSArray *textFei = @[_code, _psd];

@@ -107,17 +107,13 @@
     self.locationManager = [[AMapLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager setLocatingWithReGeocode:YES];
-    
     [self.locationManager startUpdatingLocation];
-    if ([AMapLocationManager headingAvailable]) {
-        [self.locationManager startUpdatingHeading];
-    }
     
     //搜索
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
     AMapGeocodeSearchRequest *geo = [[AMapGeocodeSearchRequest alloc] init];
-    geo.address = @"四川大学望江校区";
+    geo.address = [_dict objectForKey:kAddress];
     [self.search AMapGeocodeSearch:geo];
     
     //导航

@@ -111,9 +111,6 @@
     [self.locationManager setLocatingWithReGeocode:YES];
     
     [self.locationManager startUpdatingLocation];
-//    if ([AMapLocationManager headingAvailable]) {
-//        [self.locationManager startUpdatingHeading];
-//    }
     
     //搜索
     self.search = [[AMapSearchAPI alloc] init];
@@ -260,6 +257,7 @@
 - (IBAction)sureBtnClick:(UIButton *)sender {
     
     EnsureReserveController *ensure = [[EnsureReserveController alloc]init];
+    ensure.dict = _dict;
     ensure.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:ensure animated:true];
 }

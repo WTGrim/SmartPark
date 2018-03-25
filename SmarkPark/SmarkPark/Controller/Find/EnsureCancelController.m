@@ -9,7 +9,7 @@
 #import "EnsureCancelController.h"
 #import "BackBtnLayer.h"
 
-@interface EnsureCancelController ()<UITextViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface EnsureCancelController ()<UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UILabel *tips;
@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *ensureCancel;
 @property (weak, nonatomic) IBOutlet UILabel *reasonTip;
+@property (weak, nonatomic) IBOutlet UIView *pickerBgView;
+@property (weak, nonatomic) IBOutlet UIView *pickerBackView;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @property(nonatomic, strong)NSArray *dataArr;
 
@@ -24,7 +27,10 @@
 
 static NSString *const kCancelTip = @"请选择取消原因";
 
-@implementation EnsureCancelController
+@implementation EnsureCancelController{
+    NSInteger _selectedRow;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,8 +62,48 @@ static NSString *const kCancelTip = @"请选择取消原因";
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 60, 40)];
     [_ensureCancel.layer addSublayer:loginBtnLayer];
     
+    _pickerBackView.layer.borderColor = RGBA(150, 150, 150, 1.0).CGColor;
+    _pickerBackView.layer.borderWidth = 0.5f;
+    _pickerBackView.backgroundColor = [UIColor whiteColor];
+    _pickerBackView.hidden = YES;
+    _pickerBackView.transform = CGAffineTransformMakeTranslation(0, 185);
+    _pickerBgView.hidden = YES;
+    
+    _pickerView.showsSelectionIndicator = YES;
+    _pickerView.delegate = self;
+    _pickerView.dataSource = self;
     _dataArr = @[@"临时改变行程，不停了", @"点错了，误点预定按钮", @"距离太远，不想停了", @"车位信息错误，不能停", @"到达车位，车位不能在指定时间空闲出来", @"联系不到车主，停不了", @"停车场限进入，停不了"];
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return _dataArr.count;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    _selectedRow = row;
+    _textView.text = _dataArr[row];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return _dataArr[row];
+}
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    UILabel *label = (UILabel *)view;
+    if (!label) {
+        label = [[UILabel alloc]init];
+        label.font = [UIFont systemFontOfSize:13];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.adjustsFontSizeToFitWidth = true;
+    }
+    label.text = [self pickerView:pickerView titleForRow:row forComponent:component];
+    return label;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _dataArr.count;
@@ -156,6 +202,45 @@ static NSString *const kCancelTip = @"请选择取消原因";
     }
 }
 
+- (IBAction)tapClick:(UITapGestureRecognizer *)sender {
+    
+    if (_textView.isFirstResponder) {
+        [_textView resignFirstResponder];
+    }
+    [self showPicker];
+}
+
+- (IBAction)pickerBtnClick:(UIButton *)sender {
+    
+    if (_textView.isFirstResponder) {
+        [_textView resignFirstResponder];
+    }
+    
+    if (!_pickerBackView.hidden) {
+        [self dismissPicker];
+    }
+    
+}
+
+- (void)showPicker{
+    _pickerBackView.hidden = false;
+    _pickerBgView.hidden = false;
+    [UIView animateWithDuration:0.25 animations:^{
+        _pickerBackView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        _textView.text = _dataArr[_selectedRow];
+    }];
+}
+
+- (void)dismissPicker{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        _pickerBackView.transform = CGAffineTransformMakeTranslation(0, 185);
+    } completion:^(BOOL finished) {
+        _pickerBgView.hidden = true;
+        _pickerBackView.hidden = true;
+    }];
+}
 #pragma mark - 确认取消
 - (IBAction)ensureClick:(UIButton *)sender {
     if (_textView.isFirstResponder) {

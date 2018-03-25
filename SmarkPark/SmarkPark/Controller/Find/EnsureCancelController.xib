@@ -14,6 +14,9 @@
             <connections>
                 <outlet property="ensureCancel" destination="u49-hY-hRq" id="web-nR-NZt"/>
                 <outlet property="limitLabel" destination="7Ro-60-HwE" id="vJx-09-6QB"/>
+                <outlet property="pickerBackView" destination="pfh-Kp-nMf" id="egf-gv-VbU"/>
+                <outlet property="pickerBgView" destination="oc3-9s-Ds1" id="F2s-mi-ysD"/>
+                <outlet property="pickerView" destination="E9E-KL-EjG" id="hex-dv-Gr5"/>
                 <outlet property="reasonTip" destination="RQO-kT-tW1" id="l19-DG-XVv"/>
                 <outlet property="tableView" destination="Uhp-4H-vlR" id="7A3-z4-BiA"/>
                 <outlet property="textView" destination="Wuk-MP-b5V" id="UcE-i4-CGe"/>
@@ -51,6 +54,9 @@
                                 <constraint firstAttribute="trailing" secondItem="IUE-E6-P5N" secondAttribute="trailing" constant="8" id="hRX-tH-d8W"/>
                                 <constraint firstItem="IUE-E6-P5N" firstAttribute="centerY" secondItem="rvG-Yc-PdL" secondAttribute="centerY" id="nRp-iH-0vD"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="i5k-gt-kVR" appends="YES" id="irV-gE-5W8"/>
+                            </connections>
                         </view>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wuk-MP-b5V">
                             <rect key="frame" x="0.0" y="51" width="335" height="159"/>
@@ -122,6 +128,67 @@
                         <action selector="ensureClick:" destination="-1" eventType="touchUpInside" id="k4j-8o-i9L"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oc3-9s-Ds1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfh-Kp-nMf">
+                            <rect key="frame" x="0.0" y="482" width="375" height="185"/>
+                            <subviews>
+                                <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEr-ok-6eE">
+                                    <rect key="frame" x="302" y="2" width="60" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="XsK-g6-Vr7"/>
+                                    </constraints>
+                                    <state key="normal" title="确定">
+                                        <color key="titleColor" red="0.49019607840000001" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="pickerBtnClick:" destination="-1" eventType="touchUpInside" id="07N-f1-uof"/>
+                                    </connections>
+                                </button>
+                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9E-KL-EjG">
+                                    <rect key="frame" x="0.0" y="35" width="375" height="150"/>
+                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </pickerView>
+                                <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G22-t9-vyX">
+                                    <rect key="frame" x="8" y="2" width="60" height="31"/>
+                                    <state key="normal" title="取消">
+                                        <color key="titleColor" red="0.49019607840000001" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pickerBtnClick:" destination="-1" eventType="touchUpInside" id="UAn-sm-NWJ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="G22-t9-vyX" firstAttribute="leading" secondItem="pfh-Kp-nMf" secondAttribute="leading" constant="8" id="3ns-ti-LtA"/>
+                                <constraint firstItem="E9E-KL-EjG" firstAttribute="leading" secondItem="pfh-Kp-nMf" secondAttribute="leading" id="6mj-gD-xuN"/>
+                                <constraint firstItem="E9E-KL-EjG" firstAttribute="top" secondItem="UEr-ok-6eE" secondAttribute="bottom" constant="2" id="82D-kR-IBS"/>
+                                <constraint firstItem="G22-t9-vyX" firstAttribute="height" secondItem="UEr-ok-6eE" secondAttribute="height" id="89V-8p-VbR"/>
+                                <constraint firstAttribute="bottom" secondItem="E9E-KL-EjG" secondAttribute="bottom" id="Hf4-Z8-KHw"/>
+                                <constraint firstItem="UEr-ok-6eE" firstAttribute="top" secondItem="pfh-Kp-nMf" secondAttribute="top" constant="2" id="LBN-Xe-ieA"/>
+                                <constraint firstAttribute="trailing" secondItem="UEr-ok-6eE" secondAttribute="trailing" constant="13" id="dAd-mH-6Bu"/>
+                                <constraint firstItem="E9E-KL-EjG" firstAttribute="top" secondItem="pfh-Kp-nMf" secondAttribute="top" constant="35" id="gA2-LO-s3w"/>
+                                <constraint firstAttribute="trailing" secondItem="E9E-KL-EjG" secondAttribute="trailing" id="gwD-Fz-LqF"/>
+                                <constraint firstItem="G22-t9-vyX" firstAttribute="centerY" secondItem="UEr-ok-6eE" secondAttribute="centerY" id="hGq-Vl-m3v"/>
+                                <constraint firstAttribute="height" constant="185" id="krb-aP-r4q"/>
+                                <constraint firstItem="G22-t9-vyX" firstAttribute="width" secondItem="UEr-ok-6eE" secondAttribute="width" id="rbJ-dK-JOS"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.39945652170000001" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="pfh-Kp-nMf" secondAttribute="bottom" id="6ym-g2-p6e"/>
+                        <constraint firstItem="pfh-Kp-nMf" firstAttribute="leading" secondItem="oc3-9s-Ds1" secondAttribute="leading" id="79l-Lr-hNL"/>
+                        <constraint firstAttribute="trailing" secondItem="pfh-Kp-nMf" secondAttribute="trailing" id="NPe-Ez-yi6"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -130,9 +197,19 @@
                 <constraint firstAttribute="trailing" secondItem="PLl-sk-Pc0" secondAttribute="trailing" constant="20" id="8d9-sx-bi6"/>
                 <constraint firstAttribute="trailing" secondItem="u49-hY-hRq" secondAttribute="trailing" constant="30" id="Lpx-Rq-cas"/>
                 <constraint firstItem="PLl-sk-Pc0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="RGQ-PE-itx"/>
+                <constraint firstAttribute="bottom" secondItem="oc3-9s-Ds1" secondAttribute="bottom" id="S3p-Hl-vgD"/>
+                <constraint firstItem="oc3-9s-Ds1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Th4-QR-85V"/>
                 <constraint firstItem="u49-hY-hRq" firstAttribute="top" secondItem="PLl-sk-Pc0" secondAttribute="bottom" constant="30" id="be2-ez-qdK"/>
+                <constraint firstItem="oc3-9s-Ds1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="stc-Yo-POT"/>
+                <constraint firstAttribute="trailing" secondItem="oc3-9s-Ds1" secondAttribute="trailing" id="xyb-ov-dMZ"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="55.5"/>
         </view>
+        <tapGestureRecognizer id="i5k-gt-kVR">
+            <connections>
+                <action selector="tapClick:" destination="-1" id="eat-Oe-TNO"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="about_report_type" width="6" height="11"/>

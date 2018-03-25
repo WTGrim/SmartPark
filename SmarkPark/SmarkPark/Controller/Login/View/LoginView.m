@@ -153,11 +153,12 @@
         return;
     }
     WEAKSELF;
+    [SVProgressHUD show];
     [NetworkTool loginWithPhone:_phone.text pwd:_password.text succeedBlock:^(NSDictionary * _Nullable result) {
+        [SVProgressHUD dismiss];
         [weakSelf loginSucceed:result];
     } failedBlock:^(id  _Nullable errorInfo) {
-        [AlertView showMsg:@"请输入6-12位长度的密码"];
-
+        [SVProgressHUD dismiss];
         [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
     if (_loginBtnClick) {

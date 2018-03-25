@@ -167,8 +167,7 @@ static const NSInteger kTotalTimeInterval = 60;
 - (void)loginClick:(UIButton *)btn{
     
     if (![CommonTools isTelNumber:_phone.text]) {
-        [SVProgressHUD showInfoWithStatus:@"请输入正确的手机号码"];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:@"请输入正确的手机号码"];
         return;
     }
     NSArray *textFei = @[_codeText, _password];
@@ -199,8 +198,7 @@ static const NSInteger kTotalTimeInterval = 60;
         [weakSelf loginSucceed:result];
     } failedBlock:^(id  _Nullable errorInfo) {
         [SVProgressHUD dismiss];
-        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMessage]];
-        [SVProgressHUD dismissWithDelay:1.5];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
 }
 
@@ -245,8 +243,7 @@ static const NSInteger kTotalTimeInterval = 60;
         [weakSelf dealTimer:result];
     } failedBlock:^(id  _Nullable errorInfo) {
         [SVProgressHUD dismiss];
-        [SVProgressHUD showErrorWithStatus:[errorInfo objectForKey:kMsg]];
-        [SVProgressHUD dismissWithDelay:2];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
     
     if (_signBtnClick) {
