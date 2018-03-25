@@ -16,6 +16,7 @@
 #import "MineViewController.h"
 #import "FindCarportViewController.h"
 #import "NetworkTool.h"
+#import "PublishViewController.h"
 
 #define HEADER_HEIGHT 136
 #define LIMIT_API @""
@@ -227,7 +228,8 @@
             break;
         case 101:
         {
-            
+            PublishViewController *pub = [[PublishViewController alloc]init];
+            [self.navigationController pushViewController:pub animated:true];
         }
             break;
         case 102:

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,7 +14,6 @@
             <connections>
                 <outlet property="leisureTime" destination="00q-Tj-8dG" id="klT-3v-7dr"/>
                 <outlet property="mapView" destination="RSc-er-BfE" id="ZTp-cg-sMu"/>
-                <outlet property="mapViewHeight" destination="Tyj-uL-L7x" id="7Ux-x3-mRO"/>
                 <outlet property="planTime" destination="OdQ-4U-ele" id="6UU-7t-a1a"/>
                 <outlet property="price" destination="Tm2-Rm-bbv" id="JAq-dc-W7g"/>
                 <outlet property="sureBtn" destination="ydU-YE-4ec" id="JnH-wC-Uxq"/>
@@ -36,21 +36,21 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-ye-e8U">
-                            <rect key="frame" x="0.0" y="428" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="603" width="375" height="0.0"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" id="Cob-ag-LU4"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RSc-er-BfE">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="Tyj-uL-L7x"/>
+                                <constraint firstAttribute="width" secondItem="RSc-er-BfE" secondAttribute="height" id="HP7-Zn-ccZ"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZ0-FK-PGn">
-                            <rect key="frame" x="0.0" y="208" width="375" height="100"/>
+                            <rect key="frame" x="0.0" y="383" width="375" height="100"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车位空闲时间：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00q-Tj-8dG">
                                     <rect key="frame" x="30" y="10" width="100" height="17"/>
@@ -95,7 +95,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydU-YE-4ec">
-                            <rect key="frame" x="40" y="348" width="295" height="40"/>
+                            <rect key="frame" x="40" y="523" width="295" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="MGk-eq-AKJ"/>
                             </constraints>

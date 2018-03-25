@@ -68,7 +68,6 @@
     
     self.title = @"车位信息";
     _isFirstLoad = true;
-    _mapViewHeight.constant = SCREEN_WIDTH;
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_sureBtn.layer addSublayer:loginBtnLayer];
 }
@@ -78,17 +77,15 @@
     _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"价格：%@", @"2积分"] attr:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]} rang:NSMakeRange(0, 3)];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    _aMapView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
-    [_aMapView setNeedsLayout];
-}
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    _aMapView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
+//    [_aMapView setNeedsLayout];
+//}
 
 - (void)setupLocation{
     
     _aMapView = [[MAMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
-    [_mapView layoutIfNeeded];
-    [_aMapView layoutIfNeeded];
     [_mapView addSubview:_aMapView];
     _aMapView.distanceFilter = 200;
     _aMapView.headingFilter = 90;
