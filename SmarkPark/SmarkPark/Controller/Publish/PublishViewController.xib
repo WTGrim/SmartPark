@@ -34,67 +34,6 @@
             <rect key="frame" x="0.0" y="0.0" width="395" height="933"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J5-Hl-sMx">
-                    <rect key="frame" x="0.0" y="0.0" width="395" height="933"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M32-3D-RH0">
-                            <rect key="frame" x="0.0" y="748" width="395" height="185"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-4o-l62">
-                                    <rect key="frame" x="322" y="2" width="60" height="31"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="60" id="pWI-Ea-Ker"/>
-                                    </constraints>
-                                    <state key="normal" title="确定">
-                                        <color key="titleColor" red="0.49019607840000001" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="3"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="pickerEnsureClick:" destination="-1" eventType="touchUpInside" id="kR8-OP-Stk"/>
-                                    </connections>
-                                </button>
-                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-jm-xzJ">
-                                    <rect key="frame" x="0.0" y="35" width="395" height="150"/>
-                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </pickerView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGK-KP-li2">
-                                    <rect key="frame" x="8" y="2" width="60" height="31"/>
-                                    <state key="normal" title="取消">
-                                        <color key="titleColor" red="0.49019607840000001" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="pickerEnsureClick:" destination="-1" eventType="touchUpInside" id="x2O-LH-BUU"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstItem="ecp-jm-xzJ" firstAttribute="leading" secondItem="M32-3D-RH0" secondAttribute="leading" id="5RV-VE-Vyi"/>
-                                <constraint firstItem="ecp-jm-xzJ" firstAttribute="top" secondItem="M32-3D-RH0" secondAttribute="top" constant="35" id="FXS-DQ-5Nd"/>
-                                <constraint firstAttribute="bottom" secondItem="ecp-jm-xzJ" secondAttribute="bottom" id="JTO-Kb-5pJ"/>
-                                <constraint firstItem="fGK-KP-li2" firstAttribute="leading" secondItem="M32-3D-RH0" secondAttribute="leading" constant="8" id="KaE-Zy-Sqd"/>
-                                <constraint firstAttribute="height" constant="185" id="Uez-ni-wHu"/>
-                                <constraint firstItem="0ds-4o-l62" firstAttribute="top" secondItem="M32-3D-RH0" secondAttribute="top" constant="2" id="Wb7-ec-kCw"/>
-                                <constraint firstAttribute="trailing" secondItem="0ds-4o-l62" secondAttribute="trailing" constant="13" id="YRt-wW-QaV"/>
-                                <constraint firstItem="fGK-KP-li2" firstAttribute="width" secondItem="0ds-4o-l62" secondAttribute="width" id="YrO-tb-3ET"/>
-                                <constraint firstItem="ecp-jm-xzJ" firstAttribute="top" secondItem="0ds-4o-l62" secondAttribute="bottom" constant="2" id="dOG-6r-clh"/>
-                                <constraint firstItem="fGK-KP-li2" firstAttribute="centerY" secondItem="0ds-4o-l62" secondAttribute="centerY" id="l1U-fP-Yxq"/>
-                                <constraint firstItem="fGK-KP-li2" firstAttribute="height" secondItem="0ds-4o-l62" secondAttribute="height" id="ylz-eL-P4d"/>
-                                <constraint firstAttribute="trailing" secondItem="ecp-jm-xzJ" secondAttribute="trailing" id="yug-lt-R7C"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.39945652170000001" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="M32-3D-RH0" firstAttribute="leading" secondItem="9J5-Hl-sMx" secondAttribute="leading" id="BM8-Hr-kv6"/>
-                        <constraint firstAttribute="bottom" secondItem="M32-3D-RH0" secondAttribute="bottom" id="KtS-Vf-82p"/>
-                        <constraint firstAttribute="trailing" secondItem="M32-3D-RH0" secondAttribute="trailing" id="QvO-dk-irS"/>
-                    </constraints>
-                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yj-sz-BDb">
                     <rect key="frame" x="0.0" y="0.0" width="395" height="933"/>
                     <subviews>
@@ -528,6 +467,67 @@
                         <constraint firstAttribute="trailing" secondItem="pnm-DG-S4g" secondAttribute="trailing" id="wp2-ri-Y1k"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J5-Hl-sMx">
+                    <rect key="frame" x="0.0" y="0.0" width="395" height="933"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M32-3D-RH0">
+                            <rect key="frame" x="0.0" y="748" width="395" height="185"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-4o-l62">
+                                    <rect key="frame" x="322" y="2" width="60" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="pWI-Ea-Ker"/>
+                                    </constraints>
+                                    <state key="normal" title="确定">
+                                        <color key="titleColor" red="0.49019607840000001" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="pickerEnsureClick:" destination="-1" eventType="touchUpInside" id="kR8-OP-Stk"/>
+                                    </connections>
+                                </button>
+                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-jm-xzJ">
+                                    <rect key="frame" x="0.0" y="35" width="395" height="150"/>
+                                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </pickerView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGK-KP-li2">
+                                    <rect key="frame" x="8" y="2" width="60" height="31"/>
+                                    <state key="normal" title="取消">
+                                        <color key="titleColor" red="0.49019607840000001" green="0.76078431369999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pickerEnsureClick:" destination="-1" eventType="touchUpInside" id="x2O-LH-BUU"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="ecp-jm-xzJ" firstAttribute="leading" secondItem="M32-3D-RH0" secondAttribute="leading" id="5RV-VE-Vyi"/>
+                                <constraint firstItem="ecp-jm-xzJ" firstAttribute="top" secondItem="M32-3D-RH0" secondAttribute="top" constant="35" id="FXS-DQ-5Nd"/>
+                                <constraint firstAttribute="bottom" secondItem="ecp-jm-xzJ" secondAttribute="bottom" id="JTO-Kb-5pJ"/>
+                                <constraint firstItem="fGK-KP-li2" firstAttribute="leading" secondItem="M32-3D-RH0" secondAttribute="leading" constant="8" id="KaE-Zy-Sqd"/>
+                                <constraint firstAttribute="height" constant="185" id="Uez-ni-wHu"/>
+                                <constraint firstItem="0ds-4o-l62" firstAttribute="top" secondItem="M32-3D-RH0" secondAttribute="top" constant="2" id="Wb7-ec-kCw"/>
+                                <constraint firstAttribute="trailing" secondItem="0ds-4o-l62" secondAttribute="trailing" constant="13" id="YRt-wW-QaV"/>
+                                <constraint firstItem="fGK-KP-li2" firstAttribute="width" secondItem="0ds-4o-l62" secondAttribute="width" id="YrO-tb-3ET"/>
+                                <constraint firstItem="ecp-jm-xzJ" firstAttribute="top" secondItem="0ds-4o-l62" secondAttribute="bottom" constant="2" id="dOG-6r-clh"/>
+                                <constraint firstItem="fGK-KP-li2" firstAttribute="centerY" secondItem="0ds-4o-l62" secondAttribute="centerY" id="l1U-fP-Yxq"/>
+                                <constraint firstItem="fGK-KP-li2" firstAttribute="height" secondItem="0ds-4o-l62" secondAttribute="height" id="ylz-eL-P4d"/>
+                                <constraint firstAttribute="trailing" secondItem="ecp-jm-xzJ" secondAttribute="trailing" id="yug-lt-R7C"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="0.39945652170000001" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="M32-3D-RH0" firstAttribute="leading" secondItem="9J5-Hl-sMx" secondAttribute="leading" id="BM8-Hr-kv6"/>
+                        <constraint firstAttribute="bottom" secondItem="M32-3D-RH0" secondAttribute="bottom" id="KtS-Vf-82p"/>
+                        <constraint firstAttribute="trailing" secondItem="M32-3D-RH0" secondAttribute="trailing" id="QvO-dk-irS"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>

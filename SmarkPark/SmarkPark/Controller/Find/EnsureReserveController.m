@@ -17,7 +17,7 @@
 #import "GeocodeAnnotation.h"
 #import "BackBtnLayer.h"
 #import "EnsureCancelController.h"
-
+#import "FindSuccessViewController.h"
 
 @interface EnsureReserveController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
 
@@ -45,7 +45,6 @@
 @property (nonatomic) CLLocationCoordinate2D startCoordinate;
 /* 终点经纬度. */
 @property (nonatomic) CLLocationCoordinate2D destinationCoordinate;
-
 
 @end
 
@@ -83,8 +82,6 @@
 - (void)setupLocation{
     
     _aMapView = [[MAMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
-    [_aMapView layoutIfNeeded];
-    [_mapBgView addSubview:_aMapView];
     _aMapView.distanceFilter = 200;
     _aMapView.headingFilter = 90;
     _aMapView.showsUserLocation = true;
@@ -207,9 +204,8 @@
         [_aMapView addAnnotation:_minePoint];
         [_aMapView showAnnotations:@[_minePoint] animated:true];
     }
-    
-    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
     if (reGeocode){
+        [_locationManager stopUpdatingLocation];
         NSLog(@"reGeocode:%@", reGeocode);
     }
 }
@@ -264,7 +260,9 @@
 
 #pragma mark - 确认
 - (IBAction)ensureBtnClick:(UIButton *)sender {
-    
+    FindSuccessViewController *successVc = [[FindSuccessViewController alloc]init];
+    successVc.type = SuccessVcType_Find;
+    [self.navigationController pushViewController:successVc animated:true];
 }
 
 

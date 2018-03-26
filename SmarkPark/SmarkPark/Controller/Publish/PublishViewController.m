@@ -165,15 +165,12 @@
         [_aMapView addAnnotation:_minePoint];
         [_aMapView showAnnotations:@[_minePoint] animated:true];
         [_aMapView setZoomLevel:16 animated:true];
-        [self.locationManager stopUpdatingLocation];
         _currentLocation = location;
     }
-    
-    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
     if (reGeocode){
         _regecode = reGeocode;
         _address.text = _regecode.formattedAddress;
-        NSLog(@"reGeocode:%@", reGeocode);
+        [self.locationManager stopUpdatingLocation];
     }
 }
 
@@ -266,10 +263,12 @@
     }else if (textField == _carportType) {
         _currentTextField = _carportType;
         [self showPicker];
+        [_pickerView reloadAllComponents];
         return false;
     }else if(textField == _carType){
         _currentTextField = _carType;
         [self showPicker];
+        [_pickerView reloadAllComponents];
         return false;
     }
     return true;

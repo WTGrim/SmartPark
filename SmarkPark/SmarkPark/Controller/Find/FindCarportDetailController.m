@@ -71,8 +71,9 @@
 }
 
 - (void)setData{
-    _leisureTime.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"车位空闲时间：%@", @"11:00~12:00"] attr:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]} rang:NSMakeRange(0, 7)];
-    _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"价格：%@", @"2积分"] attr:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]} rang:NSMakeRange(0, 3)];
+    _leisureTime.text = [NSString stringWithFormat:@"%@-%@", [_dict objectForKey:kStart], [_dict objectForKey:kEnd]];
+    _price.text = [NSString stringWithFormat:@"%.2f积分", [[_dict objectForKey:kPrice]floatValue]];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -83,10 +84,9 @@
 - (void)setupLocation{
     
     _aMapView = [[MAMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
-    [_mapView addSubview:_aMapView];
     _aMapView.distanceFilter = 200;
     _aMapView.headingFilter = 90;
-    _aMapView.showsUserLocation = true;
+    _aMapView.showsUserLocation = false;
     _aMapView.delegate = self;
     
     //没有开启定位服务
@@ -103,7 +103,6 @@
     self.locationManager = [[AMapLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager setLocatingWithReGeocode:YES];
-    
     [self.locationManager startUpdatingLocation];
     
     //搜索
@@ -206,11 +205,9 @@
         _startCoordinate = location.coordinate;
         [_aMapView addAnnotation:_minePoint];
         [_aMapView showAnnotations:@[_minePoint] animated:true];
-        [self.locationManager stopUpdatingLocation];
     }
-    
-    NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
     if (reGeocode){
+        [self.locationManager stopUpdatingLocation];
         NSLog(@"reGeocode:%@", reGeocode);
     }
 }
