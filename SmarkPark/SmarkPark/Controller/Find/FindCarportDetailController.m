@@ -77,11 +77,11 @@
     _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"价格：%@", @"2积分"] attr:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]} rang:NSMakeRange(0, 3)];
 }
 
-//- (void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:animated];
-//    _aMapView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
-//    [_aMapView setNeedsLayout];
-//}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    _aMapView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
+    [_aMapView setNeedsLayout];
+}
 
 - (void)setupLocation{
     
@@ -173,7 +173,6 @@
         return;
     }
     
-    [self.locationManager stopUpdatingLocation];
     NSMutableArray *annotations = [NSMutableArray array];
     [response.geocodes enumerateObjectsUsingBlock:^(AMapGeocode *obj, NSUInteger idx, BOOL *stop) {
         GeocodeAnnotation *geocodeAnnotation = [[GeocodeAnnotation alloc] initWithGeocode:obj];
@@ -210,6 +209,7 @@
         _startCoordinate = location.coordinate;
         [_aMapView addAnnotation:_minePoint];
         [_aMapView showAnnotations:@[_minePoint] animated:true];
+        [self.locationManager stopUpdatingLocation];
     }
     
     NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
