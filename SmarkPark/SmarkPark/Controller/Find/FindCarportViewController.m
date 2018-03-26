@@ -51,7 +51,7 @@
 - (void)startLocation{
     
     WEAKSELF;
-    [SVProgressHUD show];
+    [AlertView showProgress];
     [[LocationTool shareInstance] beginLocation];
     [LocationTool shareInstance].locationCompleted = ^(NSArray *address, CLLocation *location) {
         _currentAddress = address;
@@ -86,14 +86,14 @@
 
 #pragma mark - 搜索车位
 - (void)searchCarport{
-    [SVProgressHUD dismiss];
-    [SVProgressHUD show];
+    [AlertView dismiss];
+    [AlertView showProgress];
     [NetworkTool findCarportWithKeyword:_currentKeyword province:_currentAddress[0] city:_currentAddress[1] district:_currentAddress[2] latitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude index:_pageIndex size:COMMON_PAGE_SIZE type:_currentType succeedBlock:^(NSDictionary * _Nullable result) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [self presentData:[result objectForKey:kData]];
         
     } failedBlock:^(id  _Nullable errorInfo) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
         [AlertView showMsg:[errorInfo objectForKey:kMessage]];

@@ -53,12 +53,10 @@
     [self showSuccess:success toView:nil];
 }
 
-+ (void)showProgress:(NSString *)msg timeout:(CGFloat)timeout{
-    if (msg) {
-        [SVProgressHUD showProgress:timeout status:msg];
-    }else{
-        [SVProgressHUD showProgress:timeout];
-    }
++ (void)showProgress{
+    [SVProgressHUD show];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD dismissWithDelay:30];
 }
 
 + (void)showError:(NSString *)msg duration:(CGFloat)duration{
@@ -66,7 +64,7 @@
     [SVProgressHUD dismissWithDelay:duration];
 }
 
-+ (void)dimiss{
++ (void)dismiss{
     [SVProgressHUD dismiss];
 }
 

@@ -82,4 +82,32 @@
     NSString *url = [NSString stringWithFormat:@"%@/parking/list",SERVER_IP];
     return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
 }
+
++ (NSURLSessionDataTask *)pubCarportWithName:(NSString *)name phone:(NSString *)phone plates:(NSString *)plates type:(NSInteger)type size:(NSInteger)size price:(CGFloat)price start:(NSString *)start end:(NSString *)end  province:(NSString *)province city:(NSString *)city district:(NSString *)district address:(NSString *)address latitude:(CGFloat )latitude longitude:(CGFloat)longitude succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:name forKey:@"name"];
+    [param setObject:phone forKey:@"phone"];
+    [param setObject:plates forKey:@"plates"];
+    [param setObject:@(type) forKey:@"type"];
+    [param setObject:@(size) forKey:@"size"];
+    [param setObject:@(price) forKey:@"price"];
+    [param setObject:start forKey:@"start"];
+    [param setObject:end forKey:@"end"];
+    [param setObject:province forKey:@"province"];
+    [param setObject:city forKey:@"city"];
+    [param setObject:district forKey:@"district"];
+    [param setObject:address forKey:@"address"];
+    [param setObject:@(latitude) forKey:@"latitude"];
+    [param setObject:@(longitude) forKey:@"longitude"];
+
+    NSString *url = [NSString stringWithFormat:@"%@/parking/add",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
+
++ (NSURLSessionDataTask *)getLastParkWithSucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+
+    NSString *url = [NSString stringWithFormat:@"%@/parking/last",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:nil showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
 @end

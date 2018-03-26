@@ -25,4 +25,8 @@
 
 + (NSURLSessionDataTask *)findCarportWithKeyword:(NSString *)Keyword province:(NSString *)province city:(NSString *)city district:(NSString *)district latitude:(CGFloat )latitude longitude:(CGFloat)longitude index:(NSInteger )index size:(NSInteger)size type:(NSInteger)type succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
 
++ (NSURLSessionDataTask *)pubCarportWithName:(NSString *)name phone:(NSString *)phone plates:(NSString *)plates type:(NSInteger)type size:(NSInteger)size price:(CGFloat)price start:(NSString *)start end:(NSString *)end  province:(NSString *)province city:(NSString *)city district:(NSString *)district address:(NSString *)address latitude:(CGFloat )latitude longitude:(CGFloat)longitude succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
+
++ (NSURLSessionDataTask *)getLastParkWithSucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
+
 @end

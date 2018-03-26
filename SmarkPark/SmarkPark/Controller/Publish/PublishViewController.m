@@ -53,6 +53,7 @@
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 60, 40)];
     [_pubBtn.layer addSublayer:loginBtnLayer];
     
+    
     _pickerBackView.layer.borderColor = RGBA(150, 150, 150, 1.0).CGColor;
     _pickerBackView.layer.borderWidth = 0.5f;
     _pickerBackView.backgroundColor = [UIColor whiteColor];
@@ -148,7 +149,9 @@
 
 #pragma mark - 取消与确认
 - (IBAction)pickerEnsureClick:(UIButton *)sender {
-    
+    if (!_pickerBackView.hidden) {
+        [self dismissPicker];
+    }
 }
 
 @end

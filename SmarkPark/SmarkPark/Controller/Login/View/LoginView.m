@@ -153,12 +153,12 @@
         return;
     }
     WEAKSELF;
-    [SVProgressHUD show];
+    [AlertView showProgress];
     [NetworkTool loginWithPhone:_phone.text pwd:_password.text succeedBlock:^(NSDictionary * _Nullable result) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [weakSelf loginSucceed:result];
     } failedBlock:^(id  _Nullable errorInfo) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
     if (_loginBtnClick) {

@@ -191,13 +191,13 @@ static const NSInteger kTotalTimeInterval = 60;
         return;
     }
     
-    [SVProgressHUD show];
+    [AlertView showProgress];
     WEAKSELF;
     [NetworkTool registerWithPhone:_phone.text pwd:_password.text code:_codeText.text sign:[_codeDict objectForKey:@"sign"] exp:[[_codeDict objectForKey:@"exp"] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [weakSelf loginSucceed:result];
     } failedBlock:^(id  _Nullable errorInfo) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
 }
@@ -235,14 +235,14 @@ static const NSInteger kTotalTimeInterval = 60;
         [AlertView showMsg:@"请输入正确的手机号码"];
         return;
     }
-    [SVProgressHUD show];
+    [AlertView showProgress];
     WEAKSELF;
     //获取验证码接口
     [NetworkTool getVerifyCodeWithPhone:_phone.text succeedBlock:^(NSDictionary * _Nullable result) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [weakSelf dealTimer:result];
     } failedBlock:^(id  _Nullable errorInfo) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
     

@@ -22,7 +22,7 @@
 
 + (void)showSuccess:(NSString *)success;
 
-+ (void)showProgress:(NSString *)msg timeout:(CGFloat)timeout;
++ (void)showProgress;
 
-+ (void)dimiss;
++ (void)dismiss;
 @end

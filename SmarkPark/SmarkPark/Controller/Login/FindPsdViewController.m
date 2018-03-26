@@ -77,19 +77,19 @@ static const NSInteger kTotalTimeInterval = 60;
         [AlertView showMsg:@"请输入正确的手机号码"];
         return;
     }
-    [SVProgressHUD show];
+    [AlertView showProgress];
     WEAKSELF;
     //获取验证码接口
     [NetworkTool getVerifyCodeWithPhone:_phone.text succeedBlock:^(NSDictionary * _Nullable result) {
+        [AlertView dismiss];
         [weakSelf dealTimer:result];
     } failedBlock:^(id  _Nullable errorInfo) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [AlertView showMsg:[errorInfo objectForKey:kMessage]];
     }];
 }
 
 - (void)dealTimer:(NSDictionary *)dict{
-    [SVProgressHUD dismiss];
     _codeDict = [NSDictionary dictionaryWithDictionary:[dict objectForKey:kData]];
     [self startTimer];
 }
@@ -143,13 +143,13 @@ static const NSInteger kTotalTimeInterval = 60;
         return;
     }
     
-    [SVProgressHUD show];
+    [AlertView showProgress];
     WEAKSELF;
     [NetworkTool forgetPsdWithPhone:_phone.text pwd:_psd.text code:_code.text sign:[_codeDict objectForKey:kSign] exp:[[_codeDict objectForKey:kExp] integerValue] succeedBlock:^(NSDictionary * _Nullable result) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [weakSelf presentData:result];
     } failedBlock:^(id  _Nullable errorInfo) {
-        [SVProgressHUD dismiss];
+        [AlertView dismiss];
         [AlertView showMsg:[errorInfo message]];
     }];
 }
