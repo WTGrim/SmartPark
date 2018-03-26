@@ -14,6 +14,9 @@
             <connections>
                 <outlet property="account" destination="r9q-vR-ZEj" id="vYJ-F3-BfS"/>
                 <outlet property="icon" destination="dJN-Ho-rso" id="hs8-qa-RX1"/>
+                <outlet property="scrollView" destination="5kL-Tm-jCC" id="zbz-aj-8Bo"/>
+                <outlet property="scrollViewHeight" destination="z82-Ov-8PP" id="npP-mg-2uX"/>
+                <outlet property="topView" destination="HAK-IB-WIF" id="heV-at-nS4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,6 +25,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAK-IB-WIF">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                    <color key="backgroundColor" red="0.15686274510000001" green="0.87058823529999996" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="z82-Ov-8PP"/>
+                    </constraints>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kL-Tm-jCC">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
@@ -48,7 +58,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.15686274510000001" green="0.87058823529999996" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="r9q-vR-ZEj" firstAttribute="leading" secondItem="dJN-Ho-rso" secondAttribute="trailing" constant="20" id="6yA-JZ-oqI"/>
                                 <constraint firstItem="dJN-Ho-rso" firstAttribute="leading" secondItem="smc-G8-Soj" secondAttribute="leading" constant="30" id="KtW-Wv-E7v"/>
@@ -281,6 +291,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="HAK-IB-WIF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Mth-0X-oen"/>
+                <constraint firstAttribute="trailing" secondItem="HAK-IB-WIF" secondAttribute="trailing" id="WcS-7v-Ga1"/>
+                <constraint firstItem="HAK-IB-WIF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="a0E-vc-Kmi"/>
                 <constraint firstItem="5kL-Tm-jCC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ifC-ar-Vfr"/>
                 <constraint firstItem="5kL-Tm-jCC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ijH-DX-Z5C"/>
                 <constraint firstAttribute="trailing" secondItem="5kL-Tm-jCC" secondAttribute="trailing" id="pFG-5p-V5A"/>

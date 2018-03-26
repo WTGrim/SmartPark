@@ -41,6 +41,18 @@
 		082ADFB02068BCFF00DF1400 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFAF2068BCFF00DF1400 /* UIView+Extension.m */; };
 		082ADFB42068DD4D00DF1400 /* FindSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFB22068DD4D00DF1400 /* FindSuccessViewController.m */; };
 		082ADFB52068DD4D00DF1400 /* FindSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFB32068DD4D00DF1400 /* FindSuccessViewController.xib */; };
+		082ADFB92069302000DF1400 /* MineWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFB72069302000DF1400 /* MineWalletViewController.m */; };
+		082ADFBA2069302000DF1400 /* MineWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFB82069302000DF1400 /* MineWalletViewController.xib */; };
+		082ADFBE206935D900DF1400 /* MineCarMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFBC206935D900DF1400 /* MineCarMsgViewController.m */; };
+		082ADFBF206935D900DF1400 /* MineCarMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFBD206935D900DF1400 /* MineCarMsgViewController.xib */; };
+		082ADFC32069362F00DF1400 /* MineParkInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFC12069362F00DF1400 /* MineParkInfoViewController.m */; };
+		082ADFC42069362F00DF1400 /* MineParkInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFC22069362F00DF1400 /* MineParkInfoViewController.xib */; };
+		082ADFC82069366B00DF1400 /* MinePubInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFC62069366B00DF1400 /* MinePubInfoViewController.m */; };
+		082ADFC92069366B00DF1400 /* MinePubInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFC72069366B00DF1400 /* MinePubInfoViewController.xib */; };
+		082ADFCD206936A200DF1400 /* MineSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFCB206936A200DF1400 /* MineSettingViewController.m */; };
+		082ADFCE206936A200DF1400 /* MineSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFCC206936A200DF1400 /* MineSettingViewController.xib */; };
+		082ADFD2206936BA00DF1400 /* MineServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFD0206936BA00DF1400 /* MineServiceViewController.m */; };
+		082ADFD3206936BA00DF1400 /* MineServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFD1206936BA00DF1400 /* MineServiceViewController.xib */; };
 		0835768D205272D800C51BFF /* UserStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0835768C205272D800C51BFF /* UserStatus.m */; };
 		086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D06204CDD3E00F354EC /* AppDelegate.m */; };
 		086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D0E204CDD3E00F354EC /* Assets.xcassets */; };
@@ -143,6 +155,24 @@
 		082ADFB12068DD4D00DF1400 /* FindSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindSuccessViewController.h; sourceTree = "<group>"; };
 		082ADFB22068DD4D00DF1400 /* FindSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindSuccessViewController.m; sourceTree = "<group>"; };
 		082ADFB32068DD4D00DF1400 /* FindSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindSuccessViewController.xib; sourceTree = "<group>"; };
+		082ADFB62069302000DF1400 /* MineWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineWalletViewController.h; sourceTree = "<group>"; };
+		082ADFB72069302000DF1400 /* MineWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineWalletViewController.m; sourceTree = "<group>"; };
+		082ADFB82069302000DF1400 /* MineWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineWalletViewController.xib; sourceTree = "<group>"; };
+		082ADFBB206935D900DF1400 /* MineCarMsgViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineCarMsgViewController.h; sourceTree = "<group>"; };
+		082ADFBC206935D900DF1400 /* MineCarMsgViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineCarMsgViewController.m; sourceTree = "<group>"; };
+		082ADFBD206935D900DF1400 /* MineCarMsgViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCarMsgViewController.xib; sourceTree = "<group>"; };
+		082ADFC02069362F00DF1400 /* MineParkInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineParkInfoViewController.h; sourceTree = "<group>"; };
+		082ADFC12069362F00DF1400 /* MineParkInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineParkInfoViewController.m; sourceTree = "<group>"; };
+		082ADFC22069362F00DF1400 /* MineParkInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineParkInfoViewController.xib; sourceTree = "<group>"; };
+		082ADFC52069366B00DF1400 /* MinePubInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinePubInfoViewController.h; sourceTree = "<group>"; };
+		082ADFC62069366B00DF1400 /* MinePubInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinePubInfoViewController.m; sourceTree = "<group>"; };
+		082ADFC72069366B00DF1400 /* MinePubInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MinePubInfoViewController.xib; sourceTree = "<group>"; };
+		082ADFCA206936A200DF1400 /* MineSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineSettingViewController.h; sourceTree = "<group>"; };
+		082ADFCB206936A200DF1400 /* MineSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSettingViewController.m; sourceTree = "<group>"; };
+		082ADFCC206936A200DF1400 /* MineSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineSettingViewController.xib; sourceTree = "<group>"; };
+		082ADFCF206936BA00DF1400 /* MineServiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineServiceViewController.h; sourceTree = "<group>"; };
+		082ADFD0206936BA00DF1400 /* MineServiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineServiceViewController.m; sourceTree = "<group>"; };
+		082ADFD1206936BA00DF1400 /* MineServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineServiceViewController.xib; sourceTree = "<group>"; };
 		0835768B205272D800C51BFF /* UserStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatus.h; sourceTree = "<group>"; };
 		0835768C205272D800C51BFF /* UserStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatus.m; sourceTree = "<group>"; };
 		086F0D02204CDD3E00F354EC /* SmarkPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmarkPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,6 +290,24 @@
 				0802882B20592B2900FEBA4E /* MineViewController.h */,
 				0802882C20592B2900FEBA4E /* MineViewController.m */,
 				0802882D20592B2900FEBA4E /* MineViewController.xib */,
+				082ADFB62069302000DF1400 /* MineWalletViewController.h */,
+				082ADFB72069302000DF1400 /* MineWalletViewController.m */,
+				082ADFB82069302000DF1400 /* MineWalletViewController.xib */,
+				082ADFBB206935D900DF1400 /* MineCarMsgViewController.h */,
+				082ADFBC206935D900DF1400 /* MineCarMsgViewController.m */,
+				082ADFBD206935D900DF1400 /* MineCarMsgViewController.xib */,
+				082ADFC02069362F00DF1400 /* MineParkInfoViewController.h */,
+				082ADFC12069362F00DF1400 /* MineParkInfoViewController.m */,
+				082ADFC22069362F00DF1400 /* MineParkInfoViewController.xib */,
+				082ADFC52069366B00DF1400 /* MinePubInfoViewController.h */,
+				082ADFC62069366B00DF1400 /* MinePubInfoViewController.m */,
+				082ADFC72069366B00DF1400 /* MinePubInfoViewController.xib */,
+				082ADFCA206936A200DF1400 /* MineSettingViewController.h */,
+				082ADFCB206936A200DF1400 /* MineSettingViewController.m */,
+				082ADFCC206936A200DF1400 /* MineSettingViewController.xib */,
+				082ADFCF206936BA00DF1400 /* MineServiceViewController.h */,
+				082ADFD0206936BA00DF1400 /* MineServiceViewController.m */,
+				082ADFD1206936BA00DF1400 /* MineServiceViewController.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -637,20 +685,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				08081E522057B3C2005CB86B /* README.md in Resources */,
+				082ADFC92069366B00DF1400 /* MinePubInfoViewController.xib in Resources */,
 				0808213C205F8E080051980D /* EnsureCancelController.xib in Resources */,
 				086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */,
+				082ADFBA2069302000DF1400 /* MineWalletViewController.xib in Resources */,
 				082ADFAA2068BAF000DF1400 /* DatePickerView.xib in Resources */,
 				0802884D205BBAF400FEBA4E /* EnsureReserveController.xib in Resources */,
 				087282852056806B0098B358 /* ProtocolViewController.xib in Resources */,
 				08028842205A5BEF00FEBA4E /* FindCarportDetailController.xib in Resources */,
+				082ADFD3206936BA00DF1400 /* MineServiceViewController.xib in Resources */,
+				082ADFC42069362F00DF1400 /* MineParkInfoViewController.xib in Resources */,
 				082ADFB52068DD4D00DF1400 /* FindSuccessViewController.xib in Resources */,
 				08728280205676D10098B358 /* FindPsdViewController.xib in Resources */,
 				086F0D42204CE18600F354EC /* HomeViewController.xib in Resources */,
 				086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */,
+				082ADFBF206935D900DF1400 /* MineCarMsgViewController.xib in Resources */,
 				0802883A205A21C400FEBA4E /* FindCarportCell.xib in Resources */,
 				080288272059205600FEBA4E /* SignUserInfoController.xib in Resources */,
 				0802882F20592B2900FEBA4E /* MineViewController.xib in Resources */,
 				08FEE8EA2063B2A200ADA00F /* PublishViewController.xib in Resources */,
+				082ADFCE206936A200DF1400 /* MineSettingViewController.xib in Resources */,
 				08028834205A191000FEBA4E /* FindCarportViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -741,7 +795,9 @@
 				08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */,
 				0802884C205BBAF400FEBA4E /* EnsureReserveController.m in Sources */,
 				082ADFB02068BCFF00DF1400 /* UIView+Extension.m in Sources */,
+				082ADFBE206935D900DF1400 /* MineCarMsgViewController.m in Sources */,
 				087282842056806B0098B358 /* ProtocolViewController.m in Sources */,
+				082ADFC82069366B00DF1400 /* MinePubInfoViewController.m in Sources */,
 				0802881F2058EC7600FEBA4E /* CommonSystemAlert.m in Sources */,
 				08028841205A5BEF00FEBA4E /* FindCarportDetailController.m in Sources */,
 				08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */,
@@ -758,9 +814,12 @@
 				08FEE8ED20649AFF00ADA00F /* LocationTool.m in Sources */,
 				082ADFB42068DD4D00DF1400 /* FindSuccessViewController.m in Sources */,
 				082ADFAD2068BC9900DF1400 /* NSDate+Extension.m in Sources */,
+				082ADFC32069362F00DF1400 /* MineParkInfoViewController.m in Sources */,
 				08FEE8F02064E75100ADA00F /* MBProgressHUD+MT.m in Sources */,
+				082ADFCD206936A200DF1400 /* MineSettingViewController.m in Sources */,
 				08FEE8E92063B2A200ADA00F /* PublishViewController.m in Sources */,
 				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,
+				082ADFD2206936BA00DF1400 /* MineServiceViewController.m in Sources */,
 				080A7ACA20510E4500245D7D /* BackBtnLayer.m in Sources */,
 				0802882E20592B2900FEBA4E /* MineViewController.m in Sources */,
 				082ADFA82068BAE300DF1400 /* DatePickerView.m in Sources */,
@@ -772,6 +831,7 @@
 				080A7AC72050DE4400245D7D /* SignView.m in Sources */,
 				087282892056B7F30098B358 /* CommonNetwork.m in Sources */,
 				086F0D97204D35C300F354EC /* CommonTools.m in Sources */,
+				082ADFB92069302000DF1400 /* MineWalletViewController.m in Sources */,
 				086F0D45204CE66A00F354EC /* BootViewControllerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

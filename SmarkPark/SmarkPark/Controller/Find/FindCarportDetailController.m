@@ -41,8 +41,6 @@
 /* 终点经纬度. */
 @property (nonatomic) CLLocationCoordinate2D destinationCoordinate;
 
-
-
 @end
 
 @implementation FindCarportDetailController{
