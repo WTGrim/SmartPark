@@ -15,8 +15,13 @@
 @interface PublishViewController ()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *mapBgView;
-@property (weak, nonatomic) IBOutlet UILabel *address;
-@property (weak, nonatomic) IBOutlet UITextField *time;
+@property (weak, nonatomic) IBOutlet UITextField *address;
+@property (weak, nonatomic) IBOutlet UITextField *carportType;
+@property (weak, nonatomic) IBOutlet UITextField *carOwner;
+@property (weak, nonatomic) IBOutlet UITextField *phone;
+@property (weak, nonatomic) IBOutlet UITextField *carType;
+@property (weak, nonatomic) IBOutlet UITextField *startTime;
+@property (weak, nonatomic) IBOutlet UITextField *endTime;
 @property (weak, nonatomic) IBOutlet UITextField *price;
 @property (weak, nonatomic) IBOutlet UIButton *pubBtn;
 @property (weak, nonatomic) IBOutlet UIView *pickerBgView;
@@ -47,7 +52,8 @@
 - (void)setupUI{
     self.title = @"发布车位";
     
-    _time.delegate = self;
+    _startTime.delegate = self;
+    _endTime.delegate = self;
     _price.delegate = self;
     
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 60, 40)];
@@ -72,7 +78,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    if (_currentTextField == _time) {
+    if (_currentTextField == _startTime || _currentTextField == _endTime) {
         return _timeArr.count;
     }
     return _priceArr.count;
@@ -80,15 +86,18 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     _selectedRow = row;
-    if (_currentTextField == _time) {
-        _currentTextField = _time;
+    if (_currentTextField == _startTime) {
+        _currentTextField = _startTime;
+    }else if(_currentTextField == _endTime){
+        _currentTextField = _endTime;
+        
     }else{
         _currentTextField = _price;
     }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    if (_currentTextField == _time) {
+    if (_currentTextField == _startTime || _currentTextField == _endTime) {
         return _timeArr[row];
     }
     return _priceArr[row];
@@ -108,10 +117,13 @@
 
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    if (textField == _time) {
-        _currentTextField = _time;
+    if (textField == _startTime) {
+        _currentTextField = _startTime;
         [self showPicker];
-    }else{
+    }else if(textField == _endTime){
+        _currentTextField = _endTime;
+
+    }else if(_currentTextField == _price){
         _currentTextField = _price;
         [self showPicker];
     }
@@ -124,9 +136,11 @@
     [UIView animateWithDuration:0.25 animations:^{
         _pickerBackView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        if(_currentTextField == _time){
-            _time.text = _timeArr[_selectedRow];
-        }else{
+        if(_currentTextField == _startTime){
+            _startTime.text = _timeArr[_selectedRow];
+        }else if(_currentTextField == _endTime){
+            
+        }else if(_currentTextField == _price){
             _price.text = _priceArr[_selectedRow];
         }
     }];
