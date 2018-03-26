@@ -15,6 +15,7 @@
 #import "DatePickerView.h"
 #import "NSDate+Extension.h"
 #import "MinePointAnnotation.h"
+#import "FindSuccessViewController.h"
 
 @interface PublishViewController ()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MAMapViewDelegate, AMapLocationManagerDelegate>
 
@@ -52,7 +53,6 @@
     NSInteger _carTypeSelectedRow;
     NSInteger _sizeSelectedRow;
     
-    NSInteger _selectedRow;
     UITextField *_currentTextField;
     BOOL _isFirstLoad;
 
@@ -80,6 +80,10 @@
     _carType.delegate = self;
     _startTime.delegate = self;
     _endTime.delegate = self;
+    _phone.keyboardType = UIKeyboardTypeNumberPad;
+    
+    _cartPortArr = @[@"车库", @"停车场", @"路边"];
+    _carTypeArr = @[@"小型车", @"中型车", @"大型车"];
     
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 60, 40)];
     [_pubBtn.layer addSublayer:loginBtnLayer];
@@ -96,8 +100,6 @@
     _pickerView.dataSource = self;
     
     _aMapView = [[MAMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
-    [_aMapView setNeedsLayout];
-    [_mapBgView addSubview:_aMapView];
     _aMapView.distanceFilter = 200;
     _aMapView.headingFilter = 90;
     _aMapView.showsUserLocation = false;
@@ -108,6 +110,12 @@
     self.locationManager.delegate = self;
     [self.locationManager setLocatingWithReGeocode:YES];
     [self.locationManager startUpdatingLocation];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [_mapBgView addSubview:_aMapView];
 }
 
 - (void)getDataNetwork{
@@ -125,7 +133,26 @@
 }
 
 - (void)presentData:(NSDictionary *)dict{
+    _carOwner.text = [dict objectForKey:kName];
+    _phone.text = [dict objectForKey:kPhone];
+    _plates.text = [dict objectForKey:kPlates];
     
+    NSInteger type = [[dict objectForKey:kType] integerValue];
+    NSString *carSize = @"";
+    switch (type) {
+        case 0:
+            carSize = @"小型车";
+            break;
+        case 1:
+            carSize = @"中型车";
+            break;
+        case 2:
+            carSize = @"大型车";
+            break;
+        default:
+            break;
+    }
+    _carType.text = carSize;
 }
 
 #pragma mark - AMapLocationManagerDelegate
@@ -140,12 +167,12 @@
         [_aMapView setZoomLevel:16 animated:true];
         [self.locationManager stopUpdatingLocation];
         _currentLocation = location;
-        _regecode = reGeocode;
-        _address.text = _regecode.formattedAddress;
     }
     
     NSLog(@"location:{lat:%f; lon:%f; accuracy:%f}", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
     if (reGeocode){
+        _regecode = reGeocode;
+        _address.text = _regecode.formattedAddress;
         NSLog(@"reGeocode:%@", reGeocode);
     }
 }
@@ -176,25 +203,32 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-
-    return _priceArr.count;
+    if (_currentTextField == _carportType) {
+        return _cartPortArr.count;
+    }else if (_currentTextField == _carType){
+        return _carTypeArr.count;
+    }
+    return 0;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    _selectedRow = row;
-    if (_currentTextField == _startTime) {
-        _currentTextField = _startTime;
-    }else if(_currentTextField == _endTime){
-        _currentTextField = _endTime;
-        
-    }else{
-        _currentTextField = _price;
+    if (_currentTextField == _carportType) {
+        _carTypeSelectedRow = row;
+        _carportType.text = _cartPortArr[row];
+    }else if (_currentTextField == _carType){
+        _sizeSelectedRow = row;
+        _carType.text = _carTypeArr[row];
     }
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
 
-    return _priceArr[row];
+    if (_currentTextField == _carportType) {
+        return _cartPortArr[row];
+    }else if (_currentTextField == _carType){
+        return _carTypeArr[row];
+    }
+    return nil;
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
@@ -228,18 +262,17 @@
         datepicker.datePickerColor = [UIColor blackColor];//滚轮日期颜色
         datepicker.doneButtonColor = RGB(65, 188, 241);//确定按钮的颜色
         [datepicker show];
-    }
-    if (textField == _startTime) {
-        _currentTextField = _startTime;
+        return false;
+    }else if (textField == _carportType) {
+        _currentTextField = _carportType;
         [self showPicker];
-    }else if(textField == _endTime){
-        _currentTextField = _endTime;
-
-    }else if(_currentTextField == _price){
-        _currentTextField = _price;
+        return false;
+    }else if(textField == _carType){
+        _currentTextField = _carType;
         [self showPicker];
+        return false;
     }
-    return false;
+    return true;
 }
 
 - (void)showPicker{
@@ -248,10 +281,10 @@
     [UIView animateWithDuration:0.25 animations:^{
         _pickerBackView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        if(_currentTextField == _endTime){
-            
-        }else if(_currentTextField == _price){
-            _price.text = _priceArr[_selectedRow];
+        if (_currentTextField == _carportType) {
+            _carportType.text = _cartPortArr[_carTypeSelectedRow];
+        }else if (_currentTextField == _carType){
+            _carType.text = _carTypeArr[_sizeSelectedRow];
         }
     }];
 }
@@ -281,7 +314,9 @@
 }
 
 - (void)pubSuccess:(NSDictionary *)dict{
-    
+    FindSuccessViewController *successVc = [[FindSuccessViewController alloc]init];
+    successVc.type =  SuccessVcType_Publish;
+    [self.navigationController pushViewController:successVc animated:true];
 }
 
 #pragma mark - 取消与确认
@@ -289,6 +324,15 @@
     if (!_pickerBackView.hidden) {
         [self dismissPicker];
     }
+}
+
+- (void)hiddenKeyboard{
+    NSArray *arr = @[_address, _carOwner, _carType, _phone, _plates, _carportType, _price];
+    [arr enumerateObjectsUsingBlock:^(UITextField *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.isFirstResponder) {
+            [obj resignFirstResponder];
+        }
+    }];
 }
 
 @end

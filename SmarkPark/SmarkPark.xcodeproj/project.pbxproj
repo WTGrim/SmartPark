@@ -39,6 +39,8 @@
 		082ADFAA2068BAF000DF1400 /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFA92068BAF000DF1400 /* DatePickerView.xib */; };
 		082ADFAD2068BC9900DF1400 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFAC2068BC9900DF1400 /* NSDate+Extension.m */; };
 		082ADFB02068BCFF00DF1400 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFAF2068BCFF00DF1400 /* UIView+Extension.m */; };
+		082ADFB42068DD4D00DF1400 /* FindSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFB22068DD4D00DF1400 /* FindSuccessViewController.m */; };
+		082ADFB52068DD4D00DF1400 /* FindSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFB32068DD4D00DF1400 /* FindSuccessViewController.xib */; };
 		0835768D205272D800C51BFF /* UserStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0835768C205272D800C51BFF /* UserStatus.m */; };
 		086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D06204CDD3E00F354EC /* AppDelegate.m */; };
 		086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D0E204CDD3E00F354EC /* Assets.xcassets */; };
@@ -138,6 +140,9 @@
 		082ADFAC2068BC9900DF1400 /* NSDate+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		082ADFAE2068BCFF00DF1400 /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		082ADFAF2068BCFF00DF1400 /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		082ADFB12068DD4D00DF1400 /* FindSuccessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindSuccessViewController.h; sourceTree = "<group>"; };
+		082ADFB22068DD4D00DF1400 /* FindSuccessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindSuccessViewController.m; sourceTree = "<group>"; };
+		082ADFB32068DD4D00DF1400 /* FindSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindSuccessViewController.xib; sourceTree = "<group>"; };
 		0835768B205272D800C51BFF /* UserStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatus.h; sourceTree = "<group>"; };
 		0835768C205272D800C51BFF /* UserStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatus.m; sourceTree = "<group>"; };
 		086F0D02204CDD3E00F354EC /* SmarkPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmarkPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +237,9 @@
 				08082138205F8E080051980D /* EnsureCancelController.h */,
 				08082139205F8E080051980D /* EnsureCancelController.m */,
 				0808213A205F8E080051980D /* EnsureCancelController.xib */,
+				082ADFB12068DD4D00DF1400 /* FindSuccessViewController.h */,
+				082ADFB22068DD4D00DF1400 /* FindSuccessViewController.m */,
+				082ADFB32068DD4D00DF1400 /* FindSuccessViewController.xib */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -635,6 +643,7 @@
 				0802884D205BBAF400FEBA4E /* EnsureReserveController.xib in Resources */,
 				087282852056806B0098B358 /* ProtocolViewController.xib in Resources */,
 				08028842205A5BEF00FEBA4E /* FindCarportDetailController.xib in Resources */,
+				082ADFB52068DD4D00DF1400 /* FindSuccessViewController.xib in Resources */,
 				08728280205676D10098B358 /* FindPsdViewController.xib in Resources */,
 				086F0D42204CE18600F354EC /* HomeViewController.xib in Resources */,
 				086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */,
@@ -747,6 +756,7 @@
 				0835768D205272D800C51BFF /* UserStatus.m in Sources */,
 				08028845205A775300FEBA4E /* MinePointAnnotation.m in Sources */,
 				08FEE8ED20649AFF00ADA00F /* LocationTool.m in Sources */,
+				082ADFB42068DD4D00DF1400 /* FindSuccessViewController.m in Sources */,
 				082ADFAD2068BC9900DF1400 /* NSDate+Extension.m in Sources */,
 				08FEE8F02064E75100ADA00F /* MBProgressHUD+MT.m in Sources */,
 				08FEE8E92063B2A200ADA00F /* PublishViewController.m in Sources */,

@@ -21,7 +21,6 @@
 
 @interface EnsureReserveController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapBgViewHeight;
 @property (weak, nonatomic) IBOutlet UIView *mapBgView;
 @property (weak, nonatomic) IBOutlet UILabel *leisureTime;
 @property (weak, nonatomic) IBOutlet UILabel *price;
@@ -68,15 +67,13 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    _aMapView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
-    [_aMapView setNeedsLayout];
+    [_mapBgView addSubview:_aMapView];
 }
 
 - (void)setupUI{
     
     self.title = @"确认预定";
     self.view.backgroundColor = [UIColor whiteColor];
-    _mapBgViewHeight.constant = SCREEN_WIDTH;
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_ensurePortBtn.layer addSublayer:loginBtnLayer];
     

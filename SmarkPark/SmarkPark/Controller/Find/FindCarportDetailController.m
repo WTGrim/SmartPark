@@ -22,8 +22,6 @@
 
 //地图
 @property (weak, nonatomic) IBOutlet UIView *mapView;
-//高度
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewHeight;
 //空闲时间
 @property (weak, nonatomic) IBOutlet UILabel *leisureTime;
 @property (weak, nonatomic) IBOutlet UILabel *price;
@@ -79,8 +77,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    _aMapView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
-    [_aMapView setNeedsLayout];
+    [_mapView addSubview:_aMapView];
 }
 
 - (void)setupLocation{

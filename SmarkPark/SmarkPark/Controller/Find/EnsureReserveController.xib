@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +20,6 @@
                 <outlet property="hour" destination="DhH-6f-8zk" id="lnr-bc-Ebg"/>
                 <outlet property="leisureTime" destination="Flu-pU-JWq" id="Al9-6k-uoX"/>
                 <outlet property="mapBgView" destination="1nD-Qz-8Kc" id="UEU-xu-kUI"/>
-                <outlet property="mapBgViewHeight" destination="Clu-QK-Vn3" id="mgx-m3-nzt"/>
                 <outlet property="minute" destination="fov-bp-pge" id="aaT-dJ-eHm"/>
                 <outlet property="phone" destination="0Xj-jd-e1V" id="paO-Om-J88"/>
                 <outlet property="price" destination="o4N-X3-npQ" id="HuP-Ud-Oyn"/>
@@ -43,21 +43,21 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZI-fU-YoB">
-                            <rect key="frame" x="0.0" y="565" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="740" width="375" height="0.0"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" id="Wsm-bP-3f4"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nD-Qz-8Kc">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="Clu-QK-Vn3"/>
+                                <constraint firstAttribute="width" secondItem="1nD-Qz-8Kc" secondAttribute="height" id="BrR-9y-j9P"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VnH-mJ-MD4">
-                            <rect key="frame" x="0.0" y="200" width="375" height="145"/>
+                            <rect key="frame" x="0.0" y="375" width="375" height="145"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预定车位信息：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMX-QR-3Ze">
                                     <rect key="frame" x="20" y="8" width="100" height="17"/>
@@ -114,7 +114,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8u-3x-iOy">
-                            <rect key="frame" x="0.0" y="345" width="375" height="200"/>
+                            <rect key="frame" x="0.0" y="520" width="375" height="200"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="离停车时间还有：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnL-bT-7g6">
                                     <rect key="frame" x="130" y="10" width="114.5" height="17"/>
