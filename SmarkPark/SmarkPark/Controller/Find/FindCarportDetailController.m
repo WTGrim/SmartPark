@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *planTime;
 //确认预定
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *priceTop;
+
 //地图相关
 @property(nonatomic, strong)MAMapView *aMapView;
 @property(nonatomic, strong)AMapLocationManager *locationManager;
@@ -69,9 +71,16 @@
 }
 
 - (void)setData{
-    _leisureTime.text = [NSString stringWithFormat:@"%@-%@", [_dict objectForKey:kStart], [_dict objectForKey:kEnd]];
-    _price.text = [NSString stringWithFormat:@"%.2f积分", [[_dict objectForKey:kPrice]floatValue]];
     
+    NSString *timeString = [NSString stringWithFormat:@"%@ 至 %@", [_dict objectForKey:kStart], [_dict objectForKey:kEnd]];
+    _leisureTime.text = timeString;
+    NSString *priceString = [NSString stringWithFormat:@"%.2f", [[_dict objectForKey:kPrice] floatValue]];
+    _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"%@积分", priceString] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(0, [priceString length])];
+    if ([CommonTools getVerticalHeight:timeString limitWidth:SCREEN_WIDTH - 108] > 18) {
+        _priceTop.constant = 26;
+    }else{
+        _priceTop.constant = 8;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -258,7 +267,6 @@
     [[AMapNaviDriveManager sharedInstance] setDelegate:nil];
     BOOL success = [AMapNaviDriveManager destroyInstance];
 }
-
 
 
 @end

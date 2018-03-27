@@ -22,10 +22,16 @@
 @interface EnsureReserveController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *mapBgView;
+@property (weak, nonatomic) IBOutlet UILabel *address;
+
 @property (weak, nonatomic) IBOutlet UILabel *leisureTime;
 @property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet UILabel *carportType;
+
 @property (weak, nonatomic) IBOutlet UILabel *carType;
 @property (weak, nonatomic) IBOutlet UILabel *carNo;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+
 @property (weak, nonatomic) IBOutlet UILabel *phone;
 @property (weak, nonatomic) IBOutlet UILabel *hour;
 @property (weak, nonatomic) IBOutlet UILabel *minute;
@@ -76,7 +82,7 @@
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_ensurePortBtn.layer addSublayer:loginBtnLayer];
     
-    [_cancelBtn setBackgroundColor:ThemeColor_RedText];
+    [_cancelBtn setBackgroundColor:ThemeColor_Red];
 }
 
 - (void)setupLocation{

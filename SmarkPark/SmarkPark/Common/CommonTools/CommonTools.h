@@ -101,15 +101,17 @@ BOOL chargeIdIsNullOrEmpty(id obj);
  @param second NSDate
  @return BOOL YES is < ; NO is >
  */
-+ (BOOL)dsperson_timeInterval:(NSDate *)first second:(NSDate *)second;
++ (BOOL)dsperson_timeInterval:(NSDate *_Nonnull)first second:(NSDate *_Nullable)second;
 
 //判断是否是iPhone X
 + (BOOL)isIphoneX;
 
 //根据格式获取日期
-+ (NSDate *)dateWithString:(NSString *)time formatter:(NSString *)formatter;
++ (NSDate *_Nullable)dateWithString:(NSString *)time formatter:(NSString *)formatter;
 //根据格式获取时间字符串
 + (NSString *)timeWithDate:(NSDate *)date formatter:(NSString *)formatter;
+
++ (CGFloat)getVerticalHeight:(NSString *)string limitWidth:(CGFloat)limitWidth;
 
 
 @end
