@@ -94,7 +94,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="jM2-DD-1lc"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="确认提交">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

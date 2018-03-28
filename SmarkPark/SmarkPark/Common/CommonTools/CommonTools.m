@@ -377,7 +377,7 @@ NSString* DeleteWitheAndSpace(NSString *string) {
 
 + (CGFloat)getVerticalHeight:(NSString *)string limitWidth:(CGFloat)limitWidth{
     
-    return [string boundingRectWithSize:CGSizeMake(limitWidth, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil].size.height;
+    return [string boundingRectWithSize:CGSizeMake(limitWidth, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;
 }
 
 

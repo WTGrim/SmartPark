@@ -78,7 +78,7 @@
 - (void)setupUI{
     
     self.title = @"确认预定";
-    self.view.backgroundColor = [UIColor whiteColor];
+    _isFirstLoad = true;
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_ensurePortBtn.layer addSublayer:loginBtnLayer];
     
@@ -90,7 +90,7 @@
     _aMapView = [[MAMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH)];
     _aMapView.distanceFilter = 200;
     _aMapView.headingFilter = 90;
-    _aMapView.showsUserLocation = true;
+    _aMapView.showsUserLocation = false;
     _aMapView.delegate = self;
     
     //没有开启定位服务

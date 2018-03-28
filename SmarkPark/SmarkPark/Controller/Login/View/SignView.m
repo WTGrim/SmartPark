@@ -107,7 +107,7 @@ static const NSInteger kTotalTimeInterval = 60;
     [loginBtn.layer addSublayer:loginBtnLayer];
     [loginBtn setTitle:@"注册" forState:UIControlStateNormal];
     [loginBtn addTarget:self action:@selector(loginClick:) forControlEvents:UIControlEventTouchUpInside];
-    loginBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    loginBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     loginBtn.layer.cornerRadius = 3;
     loginBtn.layer.masksToBounds = true;
     loginBtn.layer.shadowColor = RGBA(206, 248, 246, 0.9).CGColor;

@@ -50,7 +50,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxx-Me-llI">
-                        <rect key="frame" x="100.5" y="55" width="182.5" height="0.0"/>
+                        <rect key="frame" x="97.5" y="55" width="185.5" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXx-i6-vPf">
-                        <rect key="frame" x="100.5" y="81.5" width="182.5" height="0.0"/>
+                        <rect key="frame" x="97.5" y="81.5" width="185.5" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                     <constraint firstItem="nEJ-My-ed2" firstAttribute="top" secondItem="PV5-d6-BjZ" secondAttribute="bottom" constant="5" id="Ag2-gh-gEO"/>
                     <constraint firstAttribute="trailing" secondItem="WTw-J8-IGc" secondAttribute="trailing" constant="8" id="ElW-MY-SLX"/>
                     <constraint firstItem="SXx-i6-vPf" firstAttribute="centerY" secondItem="PV5-d6-BjZ" secondAttribute="centerY" id="H9q-8Q-Gi8"/>
-                    <constraint firstItem="kxx-Me-llI" firstAttribute="leading" secondItem="DIn-YF-Hyd" secondAttribute="trailing" constant="5" id="IKd-xD-L0p"/>
+                    <constraint firstItem="kxx-Me-llI" firstAttribute="leading" secondItem="DIn-YF-Hyd" secondAttribute="trailing" constant="2" id="IKd-xD-L0p"/>
                     <constraint firstItem="w0H-Je-3HO" firstAttribute="leading" secondItem="ssc-1D-tUO" secondAttribute="trailing" constant="8" id="NLN-TR-Nn2"/>
                     <constraint firstItem="PV5-d6-BjZ" firstAttribute="leading" secondItem="DIn-YF-Hyd" secondAttribute="leading" id="OVC-99-KJ4"/>
                     <constraint firstItem="WTw-J8-IGc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="THs-OO-UX1"/>

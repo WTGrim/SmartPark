@@ -75,7 +75,7 @@
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     [loginBtn.layer addSublayer:loginBtnLayer];
     [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
-    loginBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    loginBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     loginBtn.layer.cornerRadius = 3;
     loginBtn.layer.masksToBounds = true;
     [loginBtn addTarget:self action:@selector(loginBtnPress) forControlEvents:UIControlEventTouchUpInside];

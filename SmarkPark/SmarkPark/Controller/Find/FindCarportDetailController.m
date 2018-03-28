@@ -22,6 +22,9 @@
 
 //地图
 @property (weak, nonatomic) IBOutlet UIView *mapView;
+
+@property (weak, nonatomic) IBOutlet UILabel *address;
+
 //空闲时间
 @property (weak, nonatomic) IBOutlet UILabel *leisureTime;
 @property (weak, nonatomic) IBOutlet UILabel *price;
@@ -30,6 +33,8 @@
 //确认预定
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *priceTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leisureTimeTop;
 
 //地图相关
 @property(nonatomic, strong)MAMapView *aMapView;
@@ -77,9 +82,17 @@
     NSString *priceString = [NSString stringWithFormat:@"%.2f", [[_dict objectForKey:kPrice] floatValue]];
     _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"%@积分", priceString] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(0, [priceString length])];
     if ([CommonTools getVerticalHeight:timeString limitWidth:SCREEN_WIDTH - 108] > 18) {
-        _priceTop.constant = 26;
+        _priceTop.constant = 24;
+        _bgViewHeight.constant += 15;
     }else{
         _priceTop.constant = 8;
+    }
+    
+    NSString *addressString = [_dict objectForKey:kAddress];
+    _address.text = addressString;
+    if ([CommonTools getVerticalHeight:addressString limitWidth:SCREEN_WIDTH - 108] > 18) {
+        _leisureTimeTop.constant = 24;
+        _bgViewHeight.constant += 15;
     }
 }
 
