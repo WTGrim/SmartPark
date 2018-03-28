@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "mine_park@2x.png",
+      "filename" : "minePark@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "mine_park@3x.png",
+      "filename" : "minePark@3x.png",
       "scale" : "3x"
     }
   ],

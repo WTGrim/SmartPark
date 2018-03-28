@@ -17,6 +17,6 @@ typedef NS_ENUM(NSUInteger, SuccessVcType) {
 @interface FindSuccessViewController : BasicViewController
 
 @property(nonatomic, assign)SuccessVcType type;
-
+@property(nonatomic, strong)NSDictionary *dict;
 
 @end

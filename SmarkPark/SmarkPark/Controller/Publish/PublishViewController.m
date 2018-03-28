@@ -76,6 +76,7 @@
     _startTime.delegate = self;
     _endTime.delegate = self;
     _price.delegate = self;
+    _price.keyboardType = UIKeyboardTypePhonePad;
     _carportType.delegate = self;
     _carType.delegate = self;
     _startTime.delegate = self;
