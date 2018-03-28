@@ -11,6 +11,7 @@
 @interface BasicViewController : UIViewController
 
 /** 隐藏返回按钮 **/
-@property (assign, nonatomic) BOOL backItemHidden;
+@property(nonatomic, assign) BOOL backItemHidden;
 
+@property(nonatomic, assign) BOOL showGreenNav;
 @end

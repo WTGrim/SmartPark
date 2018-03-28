@@ -10,6 +10,11 @@
 
 @interface MineWalletViewController ()
 
+
+@property (weak, nonatomic) IBOutlet UILabel *wallet;
+@property (weak, nonatomic) IBOutlet UIButton *cashDetailBtn;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
 @end
 
 @implementation MineWalletViewController
@@ -24,7 +29,12 @@
 - (void)setupUI{
     
     self.title = @"我的钱包";
-    
+    self.showGreenNav = true;
+    _bgView.backgroundColor = ThemeColor_NavGreen;
+    _cashDetailBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+    _cashDetailBtn.layer.borderWidth = 1;
+    _cashDetailBtn.layer.masksToBounds = true;
+//    _cashDetailBtn.layer.
 }
 
 

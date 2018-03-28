@@ -25,6 +25,24 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (_showGreenNav) {
+        [self setNavigationBarShadowHidden];
+        [self setNavigationBarGreen];
+    }else{
+        [self setNavigationBarShadowShow];
+        [self setupNavColor];
+    }
+}
+
+- (void)setNavigationBarGreen {
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [self.navigationController.navigationBar setBarTintColor:ThemeColor_NavGreen];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+}
+
 - (void)setSubView{
     self.view.backgroundColor = ThemeColor_BackGround;
 }

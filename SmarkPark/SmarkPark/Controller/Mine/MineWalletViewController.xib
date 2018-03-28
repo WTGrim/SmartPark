@@ -11,7 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineWalletViewController">
             <connections>
+                <outlet property="bgView" destination="bXJ-r4-IN2" id="lUj-Y0-YNU"/>
+                <outlet property="cashDetailBtn" destination="tsf-Op-OdD" id="6Y1-we-3ww"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wallet" destination="b9i-9h-ofZ" id="DRT-hW-t2Z"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,13 +26,46 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_cash" translatesAutoresizingMaskIntoConstraints="NO" id="jRI-mY-dIv">
-                            <rect key="frame" x="142.5" y="30" width="90" height="90"/>
+                            <rect key="frame" x="157.5" y="30" width="60" height="60"/>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9i-9h-ofZ">
+                            <rect key="frame" x="146" y="110" width="84" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAp-Lz-LJi">
+                            <rect key="frame" x="235" y="140" width="31" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsf-Op-OdD">
+                            <rect key="frame" x="147" y="198" width="80" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="LhF-dB-dCT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="收支明细">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="tsf-Op-OdD" firstAttribute="centerX" secondItem="bXJ-r4-IN2" secondAttribute="centerX" id="3WJ-kL-1ND"/>
+                        <constraint firstItem="AAp-Lz-LJi" firstAttribute="bottom" secondItem="b9i-9h-ofZ" secondAttribute="bottom" id="70d-hH-Rrj"/>
                         <constraint firstAttribute="height" constant="300" id="80f-dQ-BQI"/>
                         <constraint firstItem="jRI-mY-dIv" firstAttribute="centerX" secondItem="bXJ-r4-IN2" secondAttribute="centerX" id="93W-oh-7TV"/>
+                        <constraint firstItem="tsf-Op-OdD" firstAttribute="top" secondItem="b9i-9h-ofZ" secondAttribute="bottom" constant="40" id="H5K-zV-jFZ"/>
+                        <constraint firstItem="b9i-9h-ofZ" firstAttribute="top" secondItem="jRI-mY-dIv" secondAttribute="bottom" constant="20" id="VHb-99-EJR"/>
+                        <constraint firstItem="b9i-9h-ofZ" firstAttribute="centerX" secondItem="bXJ-r4-IN2" secondAttribute="centerX" id="khc-4q-Yq1"/>
+                        <constraint firstItem="AAp-Lz-LJi" firstAttribute="leading" secondItem="b9i-9h-ofZ" secondAttribute="trailing" constant="5" id="uji-Yq-d9t"/>
                         <constraint firstItem="jRI-mY-dIv" firstAttribute="top" secondItem="bXJ-r4-IN2" secondAttribute="top" constant="30" id="xaY-mJ-cap"/>
                     </constraints>
                 </view>
@@ -40,10 +76,10 @@
                 <constraint firstAttribute="trailing" secondItem="bXJ-r4-IN2" secondAttribute="trailing" id="DS9-s6-SC9"/>
                 <constraint firstItem="bXJ-r4-IN2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Vcm-qG-DpI"/>
             </constraints>
-            <point key="canvasLocation" x="74" y="-40"/>
+            <point key="canvasLocation" x="73.5" y="-40.5"/>
         </view>
     </objects>
     <resources>
-        <image name="mine_cash" width="90" height="90"/>
+        <image name="mine_cash" width="60" height="60"/>
     </resources>
 </document>
