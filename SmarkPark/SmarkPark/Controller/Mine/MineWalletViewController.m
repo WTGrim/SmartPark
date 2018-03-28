@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *wallet;
 @property (weak, nonatomic) IBOutlet UIButton *cashDetailBtn;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIButton *pubBtn;
 
 @end
 
@@ -29,14 +30,22 @@
 - (void)setupUI{
     
     self.title = @"我的钱包";
-    self.showGreenNav = true;
     _bgView.backgroundColor = ThemeColor_NavGreen;
     _cashDetailBtn.layer.borderColor = [UIColor whiteColor].CGColor;
     _cashDetailBtn.layer.borderWidth = 1;
     _cashDetailBtn.layer.masksToBounds = true;
-//    _cashDetailBtn.layer.
+    self.showGreenNav = true;
+    
 }
 
+#pragma mark - 收支明细
+- (IBAction)scoreDetail:(UIButton *)sender {
+    
+}
 
+#pragma mark - 发布
+- (IBAction)pubBtn:(UIButton *)sender {
+    
+}
 
 @end

@@ -28,8 +28,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (_showGreenNav) {
-        [self setNavigationBarShadowHidden];
         [self setNavigationBarGreen];
+        [self setNavigationBarShadowHidden];
     }else{
         [self setNavigationBarShadowShow];
         [self setupNavColor];
@@ -64,8 +64,8 @@
 }
 
 - (void)setNavigationBarShadowHidden {
-    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:ThemeColor_Nav] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[self imageWithColor:ThemeColor_Nav]];
+    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:ThemeColor_NavGreen] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[self imageWithColor:ThemeColor_NavGreen]];
 }
 
 - (void)setNavigationBarShadowShow {
