@@ -7,8 +7,12 @@
 //
 
 #import "MineCarMsgViewController.h"
+#import "BackBtnLayer.h"
 
-@interface MineCarMsgViewController ()
+@interface MineCarMsgViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *addBtn;
 
 @end
 
@@ -24,7 +28,16 @@
 - (void)setupUI{
     
     self.title = @"车辆信息";
+    BackBtnLayer *btnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
+    [_addBtn.layer addSublayer:btnLayer];
     
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView deq]
 }
 
 

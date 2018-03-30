@@ -36,6 +36,9 @@
     _cashDetailBtn.layer.masksToBounds = true;
     self.showGreenNav = true;
     
+    _pubBtn.layer.borderColor = ThemeColor_NavGreen.CGColor;
+    _pubBtn.layer.borderWidth = 1;
+    
 }
 
 #pragma mark - 收支明细

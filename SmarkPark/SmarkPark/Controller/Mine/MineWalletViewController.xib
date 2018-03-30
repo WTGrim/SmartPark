@@ -13,7 +13,6 @@
             <connections>
                 <outlet property="bgView" destination="bXJ-r4-IN2" id="lUj-Y0-YNU"/>
                 <outlet property="cashDetailBtn" destination="tsf-Op-OdD" id="6Y1-we-3ww"/>
-                <outlet property="pubBtn" destination="22A-dS-6V0" id="rQ8-xh-4sO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wallet" destination="b9i-9h-ofZ" id="DRT-hW-t2Z"/>
             </connections>
@@ -79,25 +78,6 @@
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22A-dS-6V0">
-                    <rect key="frame" x="137" y="324.5" width="100" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="VQV-pv-gXx"/>
-                        <constraint firstAttribute="width" constant="100" id="WBP-4x-iun"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="现在发布">
-                        <color key="titleColor" red="0.0078431372550000003" green="0.67843137249999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="3"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="pubBtn:" destination="-1" eventType="touchUpInside" id="4Wn-E2-Zf7"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -106,8 +86,6 @@
                 <constraint firstAttribute="trailing" secondItem="bXJ-r4-IN2" secondAttribute="trailing" id="DS9-s6-SC9"/>
                 <constraint firstItem="nda-l1-iwh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="H1S-Gc-Fvr"/>
                 <constraint firstItem="bXJ-r4-IN2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Vcm-qG-DpI"/>
-                <constraint firstItem="22A-dS-6V0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hxR-0Q-g2C"/>
-                <constraint firstItem="22A-dS-6V0" firstAttribute="top" secondItem="nda-l1-iwh" secondAttribute="bottom" constant="10" id="kN8-0i-Nyy"/>
             </constraints>
             <point key="canvasLocation" x="73.5" y="-40.5"/>
         </view>

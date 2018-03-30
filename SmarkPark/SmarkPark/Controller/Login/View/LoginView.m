@@ -76,7 +76,7 @@
     [loginBtn.layer addSublayer:loginBtnLayer];
     [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     loginBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    loginBtn.layer.cornerRadius = 3;
+    loginBtn.layer.cornerRadius = 5;
     loginBtn.layer.masksToBounds = true;
     [loginBtn addTarget:self action:@selector(loginBtnPress) forControlEvents:UIControlEventTouchUpInside];
     loginBtn.layer.shadowColor = RGBA(206, 248, 246, 0.9).CGColor;
