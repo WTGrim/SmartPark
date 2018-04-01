@@ -13,6 +13,9 @@
 #import "MinePubInfoViewController.h"
 #import "MineSettingViewController.h"
 #import "MineServiceViewController.h"
+#import "CommonSystemAlert.h"
+
+static NSString *const kServiceCall = @"18818181818";
 
 @interface MineViewController ()<UIScrollViewDelegate>
 
@@ -74,8 +77,13 @@
             break;
         case 105:
         {
-            MineServiceViewController *service = [[MineServiceViewController alloc]init];
-            [self.navigationController pushViewController:service animated:true];
+            [CommonSystemAlert alertWithTitle:@"联系客服" message:kServiceCall style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"确定" rootVc:self leftClick:^{
+                
+            } rightClick:^{
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",kServiceCall]]];
+            }];
+//            MineServiceViewController *service = [[MineServiceViewController alloc]init];
+//            [self.navigationController pushViewController:service animated:true];
         }
             break;
         default:

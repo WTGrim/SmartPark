@@ -54,6 +54,10 @@
 		082ADFD2206936BA00DF1400 /* MineServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFD0206936BA00DF1400 /* MineServiceViewController.m */; };
 		082ADFD3206936BA00DF1400 /* MineServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFD1206936BA00DF1400 /* MineServiceViewController.xib */; };
 		0835768D205272D800C51BFF /* UserStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0835768C205272D800C51BFF /* UserStatus.m */; };
+		084297672070A12B0058B86E /* CarMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 084297652070A12B0058B86E /* CarMsgTableViewCell.m */; };
+		084297682070A12B0058B86E /* CarMsgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 084297662070A12B0058B86E /* CarMsgTableViewCell.xib */; };
+		0842976C2070AD380058B86E /* PubListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0842976A2070AD380058B86E /* PubListTableViewCell.m */; };
+		0842976D2070AD380058B86E /* PubListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0842976B2070AD380058B86E /* PubListTableViewCell.xib */; };
 		086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D06204CDD3E00F354EC /* AppDelegate.m */; };
 		086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D0E204CDD3E00F354EC /* Assets.xcassets */; };
 		086F0D15204CDD3E00F354EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D14204CDD3E00F354EC /* main.m */; };
@@ -175,6 +179,12 @@
 		082ADFD1206936BA00DF1400 /* MineServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineServiceViewController.xib; sourceTree = "<group>"; };
 		0835768B205272D800C51BFF /* UserStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatus.h; sourceTree = "<group>"; };
 		0835768C205272D800C51BFF /* UserStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatus.m; sourceTree = "<group>"; };
+		084297642070A12B0058B86E /* CarMsgTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarMsgTableViewCell.h; sourceTree = "<group>"; };
+		084297652070A12B0058B86E /* CarMsgTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarMsgTableViewCell.m; sourceTree = "<group>"; };
+		084297662070A12B0058B86E /* CarMsgTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarMsgTableViewCell.xib; sourceTree = "<group>"; };
+		084297692070AD380058B86E /* PubListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PubListTableViewCell.h; sourceTree = "<group>"; };
+		0842976A2070AD380058B86E /* PubListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PubListTableViewCell.m; sourceTree = "<group>"; };
+		0842976B2070AD380058B86E /* PubListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PubListTableViewCell.xib; sourceTree = "<group>"; };
 		086F0D02204CDD3E00F354EC /* SmarkPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmarkPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		086F0D05204CDD3E00F354EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		086F0D06204CDD3E00F354EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -287,6 +297,7 @@
 		080288222059141800FEBA4E /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				084297632070A1130058B86E /* View */,
 				0802882B20592B2900FEBA4E /* MineViewController.h */,
 				0802882C20592B2900FEBA4E /* MineViewController.m */,
 				0802882D20592B2900FEBA4E /* MineViewController.xib */,
@@ -393,6 +404,19 @@
 				0872828A2056B99F0098B358 /* GlobalModel.h */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		084297632070A1130058B86E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				084297642070A12B0058B86E /* CarMsgTableViewCell.h */,
+				084297652070A12B0058B86E /* CarMsgTableViewCell.m */,
+				084297662070A12B0058B86E /* CarMsgTableViewCell.xib */,
+				084297692070AD380058B86E /* PubListTableViewCell.h */,
+				0842976A2070AD380058B86E /* PubListTableViewCell.m */,
+				0842976B2070AD380058B86E /* PubListTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		086F0CF9204CDD3E00F354EC = {
@@ -689,6 +713,7 @@
 				0808213C205F8E080051980D /* EnsureCancelController.xib in Resources */,
 				086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */,
 				082ADFBA2069302000DF1400 /* MineWalletViewController.xib in Resources */,
+				084297682070A12B0058B86E /* CarMsgTableViewCell.xib in Resources */,
 				082ADFAA2068BAF000DF1400 /* DatePickerView.xib in Resources */,
 				0802884D205BBAF400FEBA4E /* EnsureReserveController.xib in Resources */,
 				087282852056806B0098B358 /* ProtocolViewController.xib in Resources */,
@@ -698,6 +723,7 @@
 				082ADFB52068DD4D00DF1400 /* FindSuccessViewController.xib in Resources */,
 				08728280205676D10098B358 /* FindPsdViewController.xib in Resources */,
 				086F0D42204CE18600F354EC /* HomeViewController.xib in Resources */,
+				0842976D2070AD380058B86E /* PubListTableViewCell.xib in Resources */,
 				086F0D51204D0C1800F354EC /* LoginViewController.xib in Resources */,
 				082ADFBF206935D900DF1400 /* MineCarMsgViewController.xib in Resources */,
 				0802883A205A21C400FEBA4E /* FindCarportCell.xib in Resources */,
@@ -804,6 +830,7 @@
 				08028833205A191000FEBA4E /* FindCarportViewController.m in Sources */,
 				08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */,
 				08028848205B641900FEBA4E /* GeocodeAnnotation.m in Sources */,
+				0842976C2070AD380058B86E /* PubListTableViewCell.m in Sources */,
 				08028839205A21C400FEBA4E /* FindCarportCell.m in Sources */,
 				086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */,
 				0808213B205F8E080051980D /* EnsureCancelController.m in Sources */,
@@ -816,6 +843,7 @@
 				082ADFAD2068BC9900DF1400 /* NSDate+Extension.m in Sources */,
 				082ADFC32069362F00DF1400 /* MineParkInfoViewController.m in Sources */,
 				08FEE8F02064E75100ADA00F /* MBProgressHUD+MT.m in Sources */,
+				084297672070A12B0058B86E /* CarMsgTableViewCell.m in Sources */,
 				082ADFCD206936A200DF1400 /* MineSettingViewController.m in Sources */,
 				08FEE8E92063B2A200ADA00F /* PublishViewController.m in Sources */,
 				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,

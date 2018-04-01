@@ -74,12 +74,12 @@
     [_scrollView setContentOffset:CGPointMake(0, -_scrollView.contentInset.top)];
 
     //检查登录状态
-    if (![UserStatus shareInstance].isLogin) {
-        LoginViewController *login = [[LoginViewController alloc]init];
-        [self presentViewController:login animated:true completion:^{
-
-        }];
-    }
+//    if (![UserStatus shareInstance].isLogin) {
+//        LoginViewController *login = [[LoginViewController alloc]init];
+//        [self presentViewController:login animated:true completion:^{
+//
+//        }];
+//    }
     
 }
 
