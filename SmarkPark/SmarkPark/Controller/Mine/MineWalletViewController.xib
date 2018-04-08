@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineWalletViewController">
             <connections>
                 <outlet property="bgView" destination="bXJ-r4-IN2" id="lUj-Y0-YNU"/>
-                <outlet property="cashDetailBtn" destination="tsf-Op-OdD" id="6Y1-we-3ww"/>
+                <outlet property="tableView" destination="Sk9-Ic-Jlc" id="j0P-7b-Fk3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="wallet" destination="b9i-9h-ofZ" id="DRT-hW-t2Z"/>
             </connections>
@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-r4-IN2">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_cash" translatesAutoresizingMaskIntoConstraints="NO" id="jRI-mY-dIv">
                             <rect key="frame" x="152.5" y="30" width="70" height="70"/>
@@ -40,52 +40,41 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsf-Op-OdD">
-                            <rect key="frame" x="147" y="188" width="80" height="29"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="80" id="LhF-dB-dCT"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="收支明细">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="3"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="scoreDetail:" destination="-1" eventType="touchUpInside" id="qfz-t0-oYC"/>
-                            </connections>
-                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布车位，并成功交易可赚取积分哦~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nda-l1-iwh">
+                            <rect key="frame" x="85" y="168" width="204" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="tsf-Op-OdD" firstAttribute="centerX" secondItem="bXJ-r4-IN2" secondAttribute="centerX" id="3WJ-kL-1ND"/>
                         <constraint firstItem="AAp-Lz-LJi" firstAttribute="bottom" secondItem="b9i-9h-ofZ" secondAttribute="bottom" constant="-10" id="70d-hH-Rrj"/>
-                        <constraint firstItem="tsf-Op-OdD" firstAttribute="top" secondItem="b9i-9h-ofZ" secondAttribute="bottom" constant="40" id="H5K-zV-jFZ"/>
+                        <constraint firstItem="nda-l1-iwh" firstAttribute="centerX" secondItem="bXJ-r4-IN2" secondAttribute="centerX" id="9wh-B9-1wp"/>
                         <constraint firstItem="jRI-mY-dIv" firstAttribute="centerX" secondItem="bXJ-r4-IN2" secondAttribute="centerX" id="PBJ-le-hWT"/>
                         <constraint firstItem="b9i-9h-ofZ" firstAttribute="top" secondItem="jRI-mY-dIv" secondAttribute="bottom" id="VHb-99-EJR"/>
-                        <constraint firstAttribute="height" constant="280" id="XZ7-hp-pf1"/>
+                        <constraint firstAttribute="height" constant="200" id="XZ7-hp-pf1"/>
+                        <constraint firstItem="nda-l1-iwh" firstAttribute="centerX" secondItem="bXJ-r4-IN2" secondAttribute="centerX" id="fs2-I8-PxO"/>
                         <constraint firstItem="b9i-9h-ofZ" firstAttribute="centerX" secondItem="bXJ-r4-IN2" secondAttribute="centerX" id="khc-4q-Yq1"/>
+                        <constraint firstItem="nda-l1-iwh" firstAttribute="top" secondItem="b9i-9h-ofZ" secondAttribute="bottom" constant="20" id="snF-HB-oaF"/>
                         <constraint firstItem="AAp-Lz-LJi" firstAttribute="leading" secondItem="b9i-9h-ofZ" secondAttribute="trailing" constant="5" id="uji-Yq-d9t"/>
                         <constraint firstItem="jRI-mY-dIv" firstAttribute="top" secondItem="bXJ-r4-IN2" secondAttribute="top" constant="30" id="xaY-mJ-cap"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布车位，并成功交易可赚取积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nda-l1-iwh">
-                    <rect key="frame" x="95" y="300" width="184" height="14.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sk9-Ic-Jlc">
+                    <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="nda-l1-iwh" firstAttribute="top" secondItem="bXJ-r4-IN2" secondAttribute="bottom" constant="20" id="4sa-e0-uqr"/>
                 <constraint firstItem="bXJ-r4-IN2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="54C-ZY-w7f"/>
                 <constraint firstAttribute="trailing" secondItem="bXJ-r4-IN2" secondAttribute="trailing" id="DS9-s6-SC9"/>
-                <constraint firstItem="nda-l1-iwh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="H1S-Gc-Fvr"/>
                 <constraint firstItem="bXJ-r4-IN2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Vcm-qG-DpI"/>
+                <constraint firstItem="Sk9-Ic-Jlc" firstAttribute="top" secondItem="bXJ-r4-IN2" secondAttribute="bottom" id="fzy-nu-Fxc"/>
+                <constraint firstAttribute="bottom" secondItem="Sk9-Ic-Jlc" secondAttribute="bottom" id="gqj-Lt-GB8"/>
+                <constraint firstItem="Sk9-Ic-Jlc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oV6-QQ-vff"/>
+                <constraint firstAttribute="trailing" secondItem="Sk9-Ic-Jlc" secondAttribute="trailing" id="wiW-7B-eMB"/>
             </constraints>
             <point key="canvasLocation" x="73.5" y="-40.5"/>
         </view>

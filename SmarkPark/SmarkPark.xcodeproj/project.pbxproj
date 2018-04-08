@@ -53,11 +53,15 @@
 		082ADFCE206936A200DF1400 /* MineSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFCC206936A200DF1400 /* MineSettingViewController.xib */; };
 		082ADFD2206936BA00DF1400 /* MineServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082ADFD0206936BA00DF1400 /* MineServiceViewController.m */; };
 		082ADFD3206936BA00DF1400 /* MineServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 082ADFD1206936BA00DF1400 /* MineServiceViewController.xib */; };
+		0834E8032074AC3F0043B8FF /* MineWalletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0834E8012074AC3F0043B8FF /* MineWalletTableViewCell.m */; };
+		0834E8042074AC3F0043B8FF /* MineWalletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0834E8022074AC3F0043B8FF /* MineWalletTableViewCell.xib */; };
 		0835768D205272D800C51BFF /* UserStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0835768C205272D800C51BFF /* UserStatus.m */; };
 		084297672070A12B0058B86E /* CarMsgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 084297652070A12B0058B86E /* CarMsgTableViewCell.m */; };
 		084297682070A12B0058B86E /* CarMsgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 084297662070A12B0058B86E /* CarMsgTableViewCell.xib */; };
 		0842976C2070AD380058B86E /* PubListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0842976A2070AD380058B86E /* PubListTableViewCell.m */; };
 		0842976D2070AD380058B86E /* PubListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0842976B2070AD380058B86E /* PubListTableViewCell.xib */; };
+		08429770207228F80058B86E /* UseCameraOrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0842976F207228F80058B86E /* UseCameraOrPhoto.m */; };
+		084297732072293C0058B86E /* PhotoClipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 084297722072293C0058B86E /* PhotoClipViewController.m */; };
 		086F0D07204CDD3E00F354EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D06204CDD3E00F354EC /* AppDelegate.m */; };
 		086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 086F0D0E204CDD3E00F354EC /* Assets.xcassets */; };
 		086F0D15204CDD3E00F354EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 086F0D14204CDD3E00F354EC /* main.m */; };
@@ -177,6 +181,9 @@
 		082ADFCF206936BA00DF1400 /* MineServiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineServiceViewController.h; sourceTree = "<group>"; };
 		082ADFD0206936BA00DF1400 /* MineServiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineServiceViewController.m; sourceTree = "<group>"; };
 		082ADFD1206936BA00DF1400 /* MineServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineServiceViewController.xib; sourceTree = "<group>"; };
+		0834E8002074AC3F0043B8FF /* MineWalletTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineWalletTableViewCell.h; sourceTree = "<group>"; };
+		0834E8012074AC3F0043B8FF /* MineWalletTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineWalletTableViewCell.m; sourceTree = "<group>"; };
+		0834E8022074AC3F0043B8FF /* MineWalletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineWalletTableViewCell.xib; sourceTree = "<group>"; };
 		0835768B205272D800C51BFF /* UserStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatus.h; sourceTree = "<group>"; };
 		0835768C205272D800C51BFF /* UserStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatus.m; sourceTree = "<group>"; };
 		084297642070A12B0058B86E /* CarMsgTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarMsgTableViewCell.h; sourceTree = "<group>"; };
@@ -185,6 +192,10 @@
 		084297692070AD380058B86E /* PubListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PubListTableViewCell.h; sourceTree = "<group>"; };
 		0842976A2070AD380058B86E /* PubListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PubListTableViewCell.m; sourceTree = "<group>"; };
 		0842976B2070AD380058B86E /* PubListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PubListTableViewCell.xib; sourceTree = "<group>"; };
+		0842976E207228F80058B86E /* UseCameraOrPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseCameraOrPhoto.h; sourceTree = "<group>"; };
+		0842976F207228F80058B86E /* UseCameraOrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseCameraOrPhoto.m; sourceTree = "<group>"; };
+		084297712072293C0058B86E /* PhotoClipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoClipViewController.h; sourceTree = "<group>"; };
+		084297722072293C0058B86E /* PhotoClipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoClipViewController.m; sourceTree = "<group>"; };
 		086F0D02204CDD3E00F354EC /* SmarkPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmarkPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		086F0D05204CDD3E00F354EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		086F0D06204CDD3E00F354EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -415,6 +426,9 @@
 				084297692070AD380058B86E /* PubListTableViewCell.h */,
 				0842976A2070AD380058B86E /* PubListTableViewCell.m */,
 				0842976B2070AD380058B86E /* PubListTableViewCell.xib */,
+				0834E8002074AC3F0043B8FF /* MineWalletTableViewCell.h */,
+				0834E8012074AC3F0043B8FF /* MineWalletTableViewCell.m */,
+				0834E8022074AC3F0043B8FF /* MineWalletTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -560,6 +574,10 @@
 				08FEE8EF2064E75100ADA00F /* MBProgressHUD+MT.m */,
 				0802881E2058EC7500FEBA4E /* CommonSystemAlert.h */,
 				0802881D2058EC7500FEBA4E /* CommonSystemAlert.m */,
+				0842976E207228F80058B86E /* UseCameraOrPhoto.h */,
+				0842976F207228F80058B86E /* UseCameraOrPhoto.m */,
+				084297712072293C0058B86E /* PhotoClipViewController.h */,
+				084297722072293C0058B86E /* PhotoClipViewController.m */,
 				086F0D84204D35C300F354EC /* CommonTools.h */,
 				086F0D85204D35C300F354EC /* CommonTools.m */,
 				080288282059297800FEBA4E /* AlertView.h */,
@@ -714,6 +732,7 @@
 				086F0D0F204CDD3E00F354EC /* Assets.xcassets in Resources */,
 				082ADFBA2069302000DF1400 /* MineWalletViewController.xib in Resources */,
 				084297682070A12B0058B86E /* CarMsgTableViewCell.xib in Resources */,
+				0834E8042074AC3F0043B8FF /* MineWalletTableViewCell.xib in Resources */,
 				082ADFAA2068BAF000DF1400 /* DatePickerView.xib in Resources */,
 				0802884D205BBAF400FEBA4E /* EnsureReserveController.xib in Resources */,
 				087282852056806B0098B358 /* ProtocolViewController.xib in Resources */,
@@ -823,6 +842,7 @@
 				082ADFB02068BCFF00DF1400 /* UIView+Extension.m in Sources */,
 				082ADFBE206935D900DF1400 /* MineCarMsgViewController.m in Sources */,
 				087282842056806B0098B358 /* ProtocolViewController.m in Sources */,
+				0834E8032074AC3F0043B8FF /* MineWalletTableViewCell.m in Sources */,
 				082ADFC82069366B00DF1400 /* MinePubInfoViewController.m in Sources */,
 				0802881F2058EC7600FEBA4E /* CommonSystemAlert.m in Sources */,
 				08028841205A5BEF00FEBA4E /* FindCarportDetailController.m in Sources */,
@@ -844,6 +864,7 @@
 				082ADFC32069362F00DF1400 /* MineParkInfoViewController.m in Sources */,
 				08FEE8F02064E75100ADA00F /* MBProgressHUD+MT.m in Sources */,
 				084297672070A12B0058B86E /* CarMsgTableViewCell.m in Sources */,
+				08429770207228F80058B86E /* UseCameraOrPhoto.m in Sources */,
 				082ADFCD206936A200DF1400 /* MineSettingViewController.m in Sources */,
 				08FEE8E92063B2A200ADA00F /* PublishViewController.m in Sources */,
 				086F0D50204D0C1800F354EC /* LoginViewController.m in Sources */,
@@ -855,6 +876,7 @@
 				0802883D205A228A00FEBA4E /* FindCarportHeader.m in Sources */,
 				0872827F205676D10098B358 /* FindPsdViewController.m in Sources */,
 				08081E512057B3C2005CB86B /* JSONKit.m in Sources */,
+				084297732072293C0058B86E /* PhotoClipViewController.m in Sources */,
 				086F0D41204CE18600F354EC /* HomeViewController.m in Sources */,
 				080A7AC72050DE4400245D7D /* SignView.m in Sources */,
 				087282892056B7F30098B358 /* CommonNetwork.m in Sources */,

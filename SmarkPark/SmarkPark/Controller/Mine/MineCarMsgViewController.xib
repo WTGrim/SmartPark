@@ -23,10 +23,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFf-ho-Cfg">
-                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOD-AG-eXb">
-                            <rect key="frame" x="30" y="5" width="315" height="40"/>
+                            <rect key="frame" x="30" y="10" width="315" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="XRQ-yB-0Pc"/>
                             </constraints>
@@ -43,18 +43,28 @@
                                 <action selector="addBtnClick:" destination="-1" eventType="touchUpInside" id="jTE-WI-l1Z"/>
                             </connections>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koJ-F0-Jhb">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="1lI-r9-hrP"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="CnE-69-fcq"/>
+                        <constraint firstAttribute="height" constant="60" id="CnE-69-fcq"/>
+                        <constraint firstAttribute="trailing" secondItem="koJ-F0-Jhb" secondAttribute="trailing" id="D1G-zk-T5x"/>
                         <constraint firstItem="aOD-AG-eXb" firstAttribute="leading" secondItem="SFf-ho-Cfg" secondAttribute="leading" constant="30" id="ETi-uK-31k"/>
+                        <constraint firstItem="koJ-F0-Jhb" firstAttribute="top" secondItem="SFf-ho-Cfg" secondAttribute="top" id="HkN-QT-jJo"/>
                         <constraint firstItem="aOD-AG-eXb" firstAttribute="centerY" secondItem="SFf-ho-Cfg" secondAttribute="centerY" id="OHE-g2-iah"/>
+                        <constraint firstItem="koJ-F0-Jhb" firstAttribute="leading" secondItem="SFf-ho-Cfg" secondAttribute="leading" id="hDi-Ks-lvj"/>
                         <constraint firstAttribute="trailing" secondItem="aOD-AG-eXb" secondAttribute="trailing" constant="30" id="hbI-WS-Wgy"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bdj-Do-Luf">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

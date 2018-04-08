@@ -39,7 +39,7 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableView.rowHeight = 200;
+    _tableView.rowHeight = 140;
     [self.view addSubview:_tableView];
 }
 

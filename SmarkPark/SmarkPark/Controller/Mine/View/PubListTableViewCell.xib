@@ -35,7 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="空闲时间：" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czP-qo-CYZ">
-                        <rect key="frame" x="8" y="61.5" width="61.5" height="14.5"/>
+                        <rect key="frame" x="15" y="61.5" width="61.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="62" id="JuS-T5-Rra"/>
                         </constraints>
@@ -44,13 +44,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价       格：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kge-qd-ZMt">
-                        <rect key="frame" x="8" y="84" width="61.5" height="14.5"/>
+                        <rect key="frame" x="15" y="84" width="61.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车位类型：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRJ-Kk-JuR">
-                        <rect key="frame" x="8" y="106.5" width="61.5" height="14.5"/>
+                        <rect key="frame" x="15" y="106.5" width="61.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -62,25 +62,25 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="车       牌：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M47-Qp-QHf">
-                        <rect key="frame" x="8" y="129" width="61.5" height="14.5"/>
+                        <rect key="frame" x="15" y="129" width="61.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-bC-Nhh">
-                        <rect key="frame" x="74.5" y="61.5" width="237.5" height="0.0"/>
+                        <rect key="frame" x="81.5" y="61.5" width="231" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJo-Dr-ulv">
-                        <rect key="frame" x="74" y="90.5" width="238" height="0.0"/>
+                        <rect key="frame" x="81" y="90.5" width="231" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBb-FD-Mne">
-                        <rect key="frame" x="75" y="114.5" width="84.5" height="0.0"/>
+                        <rect key="frame" x="82" y="114.5" width="77.5" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -99,7 +99,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9A-eN-jVM">
-                        <rect key="frame" x="75" y="136.5" width="237" height="0.0"/>
+                        <rect key="frame" x="82" y="136.5" width="231" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -133,11 +133,11 @@
                     <constraint firstItem="WJo-Dr-ulv" firstAttribute="centerY" secondItem="Kge-qd-ZMt" secondAttribute="centerY" id="eQV-xA-Tp8"/>
                     <constraint firstItem="p9A-eN-jVM" firstAttribute="trailing" secondItem="Pn3-bC-Nhh" secondAttribute="trailing" id="eg7-Lg-laQ"/>
                     <constraint firstItem="WRJ-Kk-JuR" firstAttribute="width" secondItem="czP-qo-CYZ" secondAttribute="width" id="fRl-Dd-iHO"/>
+                    <constraint firstItem="czP-qo-CYZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fjI-X7-YtS"/>
                     <constraint firstAttribute="trailing" secondItem="ddO-8V-XQU" secondAttribute="trailing" constant="15" id="hOh-bJ-XjA"/>
                     <constraint firstItem="8qT-SG-VVd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="40" id="iQe-em-Yse"/>
                     <constraint firstItem="WJo-Dr-ulv" firstAttribute="leading" secondItem="Pn3-bC-Nhh" secondAttribute="leading" id="moe-iQ-oNv"/>
                     <constraint firstAttribute="trailing" secondItem="PVh-Y7-vh7" secondAttribute="trailing" constant="8" id="nZE-4n-8NM"/>
-                    <constraint firstItem="czP-qo-CYZ" firstAttribute="leading" secondItem="IgL-Hl-MxU" secondAttribute="leading" id="oSi-Cg-lAm"/>
                     <constraint firstItem="8qT-SG-VVd" firstAttribute="centerY" secondItem="WRJ-Kk-JuR" secondAttribute="centerY" id="r6n-RC-ffU"/>
                     <constraint firstItem="M47-Qp-QHf" firstAttribute="leading" secondItem="czP-qo-CYZ" secondAttribute="leading" id="rKN-zd-PfL"/>
                     <constraint firstItem="ddO-8V-XQU" firstAttribute="leading" secondItem="IgL-Hl-MxU" secondAttribute="trailing" constant="8" id="rX6-tF-1Wz"/>

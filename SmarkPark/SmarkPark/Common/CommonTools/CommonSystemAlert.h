@@ -15,4 +15,6 @@
 
 + (void)alertWithTitle:(NSString *)title message:(NSString *)message style:(UIAlertControllerStyle)style leftStyle:(UIAlertActionStyle)leftStyle rightStyle:(UIAlertActionStyle)rightStyle leftBtnTitle:(NSString *)leftBtnTitle rightBtnTitle:(NSString *)rightBtnTitle rootVc:(UIViewController *)rootVc leftClick:(void(^)(void))leftClick rightClick:(void(^)(void))rightClick;
 
++ (void)textFieldAlertWithTitle:(NSString *)title message:(NSString *)message placeholder:(NSString *)placeholder style:(UIAlertControllerStyle)style leftBtnTitle:(NSString *)leftBtnTitle rightBtnTitle:(NSString *)rightBtnTitle rootVc:(UIViewController *)rootVc leftClick:(void (^)(void))leftClick rightClick:(void (^)(NSString *text))rightClick;
+
 @end

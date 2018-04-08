@@ -35,7 +35,7 @@
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableView.rowHeight = 140;
+    _tableView.rowHeight = 120;
     [self.view addSubview:_tableView];
     
 }
@@ -54,7 +54,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataArray.count;
+    return 3;
 }
 
 - (NSMutableArray *)dataArray{
