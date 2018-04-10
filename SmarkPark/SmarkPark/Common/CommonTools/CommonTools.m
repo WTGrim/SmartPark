@@ -380,5 +380,15 @@ NSString* DeleteWitheAndSpace(NSString *string) {
     return [string boundingRectWithSize:CGSizeMake(limitWidth, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.height;
 }
 
++ (NSString *)getCarPortWithType:(CarType)carType number:(NSInteger)number{
+    if (carType == CarType_CarType) {
+        NSArray *arr = @[@"小型车", @"中型车", @"大型车"];
+        return arr[number];
+    }else{
+        NSArray *arr = @[@"车库", @"停车场", @"路边"];
+        return arr[number - 1];
+    }
+}
+
 
 @end

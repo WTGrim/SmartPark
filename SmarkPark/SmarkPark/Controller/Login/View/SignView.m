@@ -208,7 +208,7 @@ static const NSInteger kTotalTimeInterval = 60;
     [[UserStatus shareInstance]initWithDict:[dict objectForKey:kData]];
     [self saveUserInfoWith:[dict objectForKey:kData]];
     [AlertView showMsg:@"注册成功,请完善您的信息哦~"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIViewController *vc = [CommonTools findViewController:self];
         SignUserInfoController *info = [[SignUserInfoController alloc]init];
         info.phoneNo = _phone.text;

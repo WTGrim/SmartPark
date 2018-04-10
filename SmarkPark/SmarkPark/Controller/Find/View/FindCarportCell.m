@@ -40,7 +40,7 @@
 
 - (CGFloat)getHeight:(NSString *)string{
     
-    return [string boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 133, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil].size.height;
+    return [string boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 133, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

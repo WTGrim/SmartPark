@@ -14,6 +14,8 @@
 #import "MineSettingViewController.h"
 #import "MineServiceViewController.h"
 #import "CommonSystemAlert.h"
+#import "NetworkTool.h"
+#import <UIImageView+WebCache.h>
 
 static NSString *const kServiceCall = @"18818181818";
 
@@ -26,19 +28,41 @@ static NSString *const kServiceCall = @"18818181818";
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeight;
 @end
 
-@implementation MineViewController
+@implementation MineViewController{
+    NSDictionary *_dict;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     [self setupUI];
+    [self getData];
 }
 
 - (void)setupUI{
     
     self.title = @"我的账户";
     _scrollView.delegate = self;
+}
+
+- (void)getData{
+    [NetworkTool getUserInfoWithSucceedBlock:^(NSDictionary * _Nullable result) {
+        [self presentData:[result objectForKey:kData]];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
+    }];
+}
+
+- (void)presentData:(NSDictionary *)dict{
+    _dict = dict;
+    if (!StringIsNull([dict objectForKey:kAvatar])) {
+        [_icon sd_setImageWithURL:[NSURL URLWithString:[dict objectForKey:kAvatar]] placeholderImage:[UIImage imageNamed:@"mine_default"]];
+    }else{
+        _icon.image = [UIImage imageNamed:@"mine_default"];
+    }
+    _account.text = !StringIsNull([dict objectForKey:kName]) ? [dict objectForKey:kName] : @"";
+    
 }
 
 #pragma mark - 点击事件
@@ -54,6 +78,7 @@ static NSString *const kServiceCall = @"18818181818";
         case 101:
         {
             MineCarMsgViewController *carMsg = [[MineCarMsgViewController alloc]init];
+            carMsg.dict = _dict;
             [self.navigationController pushViewController:carMsg animated:true];
         }
             break;

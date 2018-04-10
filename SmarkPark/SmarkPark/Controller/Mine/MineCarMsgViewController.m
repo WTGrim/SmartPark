@@ -46,7 +46,11 @@
 
 - (void)getData{
     
-    NSArray *arr = @[@"川A323232"];
+    NSMutableArray *arr = [NSMutableArray array];
+    if (_dict) {
+        NSString *carMsg = [_dict objectForKey:kPlates];
+        [arr addObject:carMsg];
+    }
     [self.dataArray addObjectsFromArray:arr];
     [_tableView reloadData];
 }

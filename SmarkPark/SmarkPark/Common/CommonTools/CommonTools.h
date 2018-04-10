@@ -6,8 +6,16 @@
 //  Copyright © 2016 FineEx. All rights reserved.
 //
 
+
+
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSUInteger, CarType) {
+    CarType_CarType,
+    CarType_CarPortType,
+};
 
 @interface CommonTools : NSObject
 //判断输入框是否为空
@@ -113,5 +121,6 @@ BOOL chargeIdIsNullOrEmpty(id obj);
 
 + (CGFloat)getVerticalHeight:(NSString *)string limitWidth:(CGFloat)limitWidth;
 
++ (NSString *)getCarPortWithType:(CarType)carType number:(NSInteger)number;
 
 @end

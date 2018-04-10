@@ -170,7 +170,7 @@
     [[UserStatus shareInstance]initWithDict:[dict objectForKey:kData]];
     [self saveUserInfoWith:[dict objectForKey:kData]];
     [AlertView showMsg:@"登录成功"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIViewController *vc = [CommonTools findViewController:self];
         [vc dismissViewControllerAnimated:true completion:nil];
     });

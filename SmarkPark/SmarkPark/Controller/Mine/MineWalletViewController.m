@@ -8,6 +8,7 @@
 
 #import "MineWalletViewController.h"
 #import "MineWalletTableViewCell.h"
+#import "NetworkTool.h"
 
 @interface MineWalletViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -15,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *dataArray;
-
+@property (nonatomic, assign)NSInteger pageIndex;
 @end
 
 @implementation MineWalletViewController
@@ -25,11 +26,13 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setupUI];
+    [self getData];
 }
 
 - (void)setupUI{
     
     self.title = @"我的钱包";
+    _pageIndex = 1;
     _bgView.backgroundColor = ThemeColor_NavGreen;
     self.showGreenNav = true;
     
@@ -38,6 +41,48 @@
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.rowHeight = 50;
+    
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _pageIndex = 1;
+        [self.dataArray removeAllObjects];
+        [self getData];
+    }];
+    
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        _pageIndex++;
+        [self getData];
+    }];
+}
+
+
+- (void)getData{
+    
+    [NetworkTool getUserWalletWithPageIndex:_pageIndex pageSize:COMMON_PAGE_SIZE SucceedBlock:^(NSDictionary * _Nullable result) {
+        [self presentData:[result objectForKey:kData]];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        _pageIndex--;
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
+    }];
+}
+
+- (void)presentData:(NSDictionary *)dict{
+    
+    [_tableView.mj_header endRefreshing];
+    [_tableView.mj_footer endRefreshing];
+    if(_pageIndex == 1 && dict){
+        _wallet.text = [NSString stringWithFormat:@"%.2f", [[dict objectForKey:kIntegral] floatValue]];
+    }
+    NSArray *arr = [dict objectForKey:@"list"];
+    if (arr.count < COMMON_PAGE_SIZE && _pageIndex != 1) {
+        [_tableView.mj_footer endRefreshingWithNoMoreData];
+    }
+    [self.dataArray addObjectsFromArray:arr];
+    [_tableView reloadData];
+    if (arr.count < COMMON_PAGE_SIZE && _pageIndex == 1) {
+        _tableView.mj_footer.hidden = true;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -50,16 +95,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    _tableView.mj_footer.hidden = self.dataArray.count == 0;
+    return self.dataArray.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-}
-
-#pragma mark - 收支明细
-- (IBAction)scoreDetail:(UIButton *)sender {
-    
 }
 
 - (NSMutableArray *)dataArray{

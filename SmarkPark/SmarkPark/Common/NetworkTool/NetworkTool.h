@@ -11,10 +11,19 @@
 
 @interface NetworkTool : NSObject
 
+/**
+ 验证码
+ */
 + (NSURLSessionDataTask *)getVerifyCodeWithPhone:(NSString *)phone succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
 
+/**
+ 注册
+ */
 + (NSURLSessionDataTask *)registerWithPhone:(NSString *)phone pwd:(NSString *)pwd code:(NSString *)code sign:(NSString *)sign exp:(NSInteger )exp succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
 
+/**
+ 登录
+ */
 + (NSURLSessionDataTask *)loginWithPhone:(NSString *)phone pwd:(NSString *)pwd succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
 
 + (NSURLSessionDataTask *)forgetPsdWithPhone:(NSString *)phone pwd:(NSString *)pwd code:(NSString *)code sign:(NSString *)sign exp:(NSInteger )exp succeedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
@@ -29,4 +38,16 @@
 
 + (NSURLSessionDataTask *)getLastParkWithSucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
 
++ (NSURLSessionDataTask *)getUserInfoWithSucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
+
++ (NSURLSessionDataTask *)getUserWalletWithPageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
+
+/**
+ 停车记录
+ */
++ (NSURLSessionDataTask *)getUserUse_recordWithPageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
+/**
+ 发布记录
+ */
++ (NSURLSessionDataTask *)getUserPublish_recordWithPageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
 @end

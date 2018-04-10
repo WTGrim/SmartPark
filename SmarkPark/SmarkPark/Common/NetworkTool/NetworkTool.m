@@ -110,4 +110,40 @@
     NSString *url = [NSString stringWithFormat:@"%@/parking/last",SERVER_IP];
     return [CommonNetwork postDataWithUrl:url param:nil showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
 }
+
++ (NSURLSessionDataTask *)getUserInfoWithSucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    
+    NSString *url = [NSString stringWithFormat:@"%@/user/a/info",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:nil showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
+
++ (NSURLSessionDataTask *)getUserWalletWithPageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:@(pageIndex) forKey:kIndex];
+    [param setObject:@(pageSize) forKey:kSize];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/user/a/wallet",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
+
++ (NSURLSessionDataTask *)getUserUse_recordWithPageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:@(pageIndex) forKey:kIndex];
+    [param setObject:@(pageSize) forKey:kSize];
+    NSString *url = [NSString stringWithFormat:@"%@/user/a/use_record",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
+
++ (NSURLSessionDataTask *)getUserPublish_recordWithPageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:@(pageIndex) forKey:kIndex];
+    [param setObject:@(pageSize) forKey:kSize];
+    NSString *url = [NSString stringWithFormat:@"%@/user/a/publish_record",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
+
+
 @end

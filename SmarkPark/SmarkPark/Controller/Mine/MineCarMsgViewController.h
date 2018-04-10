@@ -10,4 +10,6 @@
 
 @interface MineCarMsgViewController : BasicViewController
 
+@property(nonatomic, strong)NSDictionary *dict;
+
 @end

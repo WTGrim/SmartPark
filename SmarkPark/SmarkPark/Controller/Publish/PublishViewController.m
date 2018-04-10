@@ -314,9 +314,10 @@
 }
 
 - (void)pubSuccess:(NSDictionary *)dict{
-    FindSuccessViewController *successVc = [[FindSuccessViewController alloc]init];
-    successVc.type =  SuccessVcType_Publish;
-    [self.navigationController pushViewController:successVc animated:true];
+    [AlertView showMsg:[dict objectForKey:kMessage]];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController popToRootViewControllerAnimated:true];
+    });
 }
 
 #pragma mark - 取消与确认

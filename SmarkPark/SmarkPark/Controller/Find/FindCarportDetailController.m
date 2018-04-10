@@ -159,7 +159,7 @@
     [_aMapView addOverlay:polyline];
     
     NSInteger hour = driveManager.naviRoute.routeTime / 3600;
-    NSInteger second = driveManager.naviRoute.routeTime / 60;
+    NSInteger second = driveManager.naviRoute.routeTime / 60  % 60;
     NSString *hourStr = hour > 0 ? [NSString stringWithFormat:@"%ld小时", (long)hour] : @"";
     NSString *secondStr = second > 0 ? [NSString stringWithFormat:@"%ld分钟", (long)second] : @"";
     _planTime.text = [NSString stringWithFormat:@"%@%@",hourStr, secondStr];

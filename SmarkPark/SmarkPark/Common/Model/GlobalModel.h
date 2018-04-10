@@ -19,6 +19,9 @@ static NSString *const kSaveUserInfo = @"saveUserInfo";
 static NSString *const kName = @"name";
 static NSString *const kPlates = @"plates";
 static NSString *const kType = @"type";
+static NSString *const kTime = @"time";
+static NSString *const kAmount = @"amount";
+
 static NSString *const kPwd = @"pwd";
 static NSString *const kCode = @"code";
 static NSString *const kSign = @"sign";
@@ -27,6 +30,14 @@ static NSString *const kAddress = @"address";
 static NSString *const kEnd = @"end";
 static NSString *const kStart = @"start";
 static NSString *const kPrice = @"price";
+
+static NSString *const kIndex = @"index";
+static NSString *const kSize = @"size";
+
+//我的账户
+static NSString *const kAvatar = @"avatar";
+static NSString *const kIntegral = @"integral";
+
 
 
 
