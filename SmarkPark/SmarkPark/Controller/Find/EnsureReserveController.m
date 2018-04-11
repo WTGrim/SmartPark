@@ -18,6 +18,7 @@
 #import "BackBtnLayer.h"
 #import "EnsureCancelController.h"
 #import "FindSuccessViewController.h"
+#import "NetworkTool.h"
 
 @interface EnsureReserveController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
 
@@ -39,6 +40,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UILabel *cancelTips;
 @property (weak, nonatomic) IBOutlet UIButton *ensurePortBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *infoHeight;
 
 //地图相关
 @property(nonatomic, strong)MAMapView *aMapView;
@@ -56,6 +58,9 @@
 
 @implementation EnsureReserveController{
     BOOL _isFirstLoad;
+    NSDateFormatter *_dateFormatter;
+    dispatch_source_t _timer;
+    dispatch_source_t _cancelTimer;
 }
 
 - (void)viewDidLoad {
@@ -64,6 +69,7 @@
     
     [self setupUI];
     [self setupLocation];
+    [self getData];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -77,12 +83,16 @@
 
 - (void)setupUI{
     
-    self.title = @"确认预定";
+    self.title = @"预定信息";
     _isFirstLoad = true;
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_ensurePortBtn.layer addSublayer:loginBtnLayer];
     
     [_cancelBtn setBackgroundColor:ThemeColor_Red];
+    
+    _dateFormatter = [[NSDateFormatter alloc]init];
+    _dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    
 }
 
 - (void)setupLocation{
@@ -109,16 +119,91 @@
     [self.locationManager setLocatingWithReGeocode:YES];
     [self.locationManager startUpdatingLocation];
     
+}
+
+- (void)getData{
+    
+    [AlertView showProgress];
+    [NetworkTool getParkingInfoWithId:_reserveId SucceedBlock:^(NSDictionary * _Nullable result) {
+        [AlertView dismiss];
+        [self presentData:[result objectForKey:kData]];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [AlertView dismiss];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
+    }];
+}
+
+- (void)presentData:(NSDictionary *)dict{
+    
+    [self searchDestination:dict];
+    _address.text = [dict objectForKey:kAddress];
+    _leisureTime.text = [NSString stringWithFormat:@"%@-%@", [dict objectForKey:kStart], [dict objectForKey:kEnd]];
+    NSString *priceString = [NSString stringWithFormat:@"%.0f", [[dict objectForKey:kPrice] floatValue]];
+    _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"%@积分", priceString] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(0, [priceString length])];
+    _carportType.text = [CommonTools getCarPortWithType:CarType_CarPortType number:[[dict objectForKey:kType] integerValue]];
+    _carType.text = [CommonTools getCarPortWithType:CarType_CarType number:[[dict objectForKey:kSize] integerValue]];
+    _carNo.text = [dict objectForKey:kPlates];
+    _name.text = [dict objectForKey:kName];
+    _phone.text = [dict objectForKey:kPhone];
+    
+    //UI界面调整
+    CGFloat height = 0;
+    if ([CommonTools getVerticalHeight:_address.text limitWidth:SCREEN_WIDTH - 112] > 20) {
+        height += 20;
+    }
+    if ([CommonTools getVerticalHeight:_leisureTime.text limitWidth:SCREEN_WIDTH - 112] > 20) {
+        height += 20;
+    }
+    _infoHeight.constant += height;
+    
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 1 * NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(_timer, ^{
+        NSArray *timeArr;
+        timeArr = [CommonTools caculateHourDateWithStartTime:nil endTime:[dict objectForKey:kStart]];
+        if ([timeArr[2] intValue] <= 0 && [timeArr[1] intValue] <= 0 && [timeArr[0] intValue] <= 0) {
+            _hour.text = @"--";
+            _minute.text = @"--";
+            _second.text = @"--";
+            dispatch_source_cancel(_timer);
+        }else{
+            _hour.text = [NSString stringWithFormat:@"%02d", [timeArr[0] intValue]];
+            _minute.text = [NSString stringWithFormat:@"%02d", [timeArr[1] intValue]];
+            _second.text = [NSString stringWithFormat:@"%02d", [timeArr[2] intValue]];
+        }
+    });
+    dispatch_resume(_timer);
+    
+    //可取消
+    _cancelTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(_cancelTimer, dispatch_walltime(NULL, 0), 1 * NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(_cancelTimer, ^{
+        NSArray *timeArr;
+        timeArr = [CommonTools caculateHourDateWithStartTime:nil endTime:[dict objectForKey:kEnd]];
+        if ([timeArr[2] intValue] <= 0 && [timeArr[1] intValue] <= 0 && [timeArr[0] intValue] <= 0) {
+            [_cancelBtn setBackgroundColor:ThemeColor_GrayBtn];
+            _cancelBtn.enabled = false;
+            _cancelTips.text = @"超过可取消时间，预订车位已不能取消";
+            dispatch_source_cancel(_timer);
+        }else{
+            _cancelBtn.enabled = true;
+            _cancelTips.text = [NSString stringWithFormat:@"距离可取消还剩：%d小时%d分%d秒", [timeArr[0] intValue], [timeArr[1] intValue], [timeArr[2] intValue]];
+        }
+    });
+    dispatch_resume(_cancelTimer);
+}
+
+#pragma mark - 搜索终点
+- (void)searchDestination:(NSDictionary *)dict{
     //搜索
     self.search = [[AMapSearchAPI alloc] init];
     self.search.delegate = self;
     AMapGeocodeSearchRequest *geo = [[AMapGeocodeSearchRequest alloc] init];
-    geo.address = [_dict objectForKey:kAddress];
+    geo.address = [dict objectForKey:kAddress];
     [self.search AMapGeocodeSearch:geo];
     
     //导航
     [[AMapNaviDriveManager sharedInstance] setDelegate:self];
-    
 }
 
 #pragma mark - 展示路线方案

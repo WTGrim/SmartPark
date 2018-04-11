@@ -17,6 +17,7 @@
 #import <AMapNaviKit/AMapNaviKit.h>
 #import "CommonSystemAlert.h"
 #import "EnsureReserveController.h"
+#import "NetworkTool.h"
 
 @interface FindCarportDetailController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
 
@@ -69,7 +70,7 @@
 
 - (void)setupUI{
     
-    self.title = @"车位信息";
+    self.title = @"车位预定";
     _isFirstLoad = true;
     BackBtnLayer *loginBtnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30, 40)];
     [_sureBtn.layer addSublayer:loginBtnLayer];
@@ -159,10 +160,11 @@
     [_aMapView addOverlay:polyline];
     
     NSInteger hour = driveManager.naviRoute.routeTime / 3600;
-    NSInteger second = driveManager.naviRoute.routeTime / 60  % 60;
+    NSInteger minute = driveManager.naviRoute.routeTime / 60  % 60;
     NSString *hourStr = hour > 0 ? [NSString stringWithFormat:@"%ld小时", (long)hour] : @"";
-    NSString *secondStr = second > 0 ? [NSString stringWithFormat:@"%ld分钟", (long)second] : @"";
-    _planTime.text = [NSString stringWithFormat:@"%@%@",hourStr, secondStr];
+    NSString *minuteStr = minute > 0 ? [NSString stringWithFormat:@"%ld分钟", (long)minute] : @"";
+    NSString *secondStr = hour <= 0 && minute <= 0 ? @"接近目的地" : @"";
+    _planTime.text = [NSString stringWithFormat:@"%@%@%@",hourStr, minuteStr, secondStr];
 }
 
 - (void)driveManager:(AMapNaviDriveManager *)driveManager onCalculateRouteFailure:(NSError *)error{
@@ -266,9 +268,38 @@
 
 #pragma mark - 确认预定
 - (IBAction)sureBtnClick:(UIButton *)sender {
+    //查看是否有未完成的订单
+    [AlertView showProgress];
+    [NetworkTool getParkingStatusWithSucceedBlock:^(NSDictionary * _Nullable result) {
+        [AlertView dismiss];
+        [self presentData:[result objectForKey:kData]];
+    } failedBlock:^(id  _Nullable errorInfo) {
+        [AlertView dismiss];
+        [AlertView showMsg:[errorInfo objectForKey:kMessage]];
+    }];
+}
+
+#pragma mark - 预定接口
+- (void)presentData:(NSDictionary *)dict{
     
+    if ([[dict objectForKey:kId] integerValue] == 0) {
+        [AlertView showProgress];
+        [NetworkTool getParkingReservationWithId:[[_dict objectForKey:kId] integerValue] SucceedBlock:^(NSDictionary * _Nullable result) {
+            [AlertView dismiss];
+            [self cheakDetail:_dict];
+        } failedBlock:^(id  _Nullable errorInfo) {
+            [AlertView dismiss];
+            [AlertView showMsg:[errorInfo objectForKey:kMessage]];
+        }];
+        
+    }else{
+        [self cheakDetail:dict];
+    }
+}
+
+- (void)cheakDetail:(NSDictionary *)dict{
     EnsureReserveController *ensure = [[EnsureReserveController alloc]init];
-    ensure.dict = _dict;
+    ensure.reserveId = [[dict objectForKey:kId] integerValue];
     ensure.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:ensure animated:true];
 }

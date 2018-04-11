@@ -64,4 +64,6 @@
 #define ThemeColor_RedText  RGB(252, 69, 6)
 #define ThemeColor RGB(40, 222, 234)
 #define ThemeColor_Red RGB(212, 35, 122)
+#define ThemeColor_GrayBtn  RGB(223, 223, 223)
+
 #endif /* CommonMacro_h */

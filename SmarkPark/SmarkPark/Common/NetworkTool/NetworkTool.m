@@ -145,5 +145,23 @@
     return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
 }
 
++ (NSURLSessionDataTask *)getParkingReservationWithId:(NSInteger)Id SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:@(Id) forKey:kId];
+    NSString *url = [NSString stringWithFormat:@"%@/parking/reservation",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
+
++ (NSURLSessionDataTask *)getParkingInfoWithId:(NSInteger)Id SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setObject:@(Id) forKey:kId];
+    NSString *url = [NSString stringWithFormat:@"%@/parking/info",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:param showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
+
++ (NSURLSessionDataTask *)getParkingStatusWithSucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed{
+    NSString *url = [NSString stringWithFormat:@"%@/parking/status",SERVER_IP];
+    return [CommonNetwork postDataWithUrl:url param:nil showLoader:NO showAlert:true gZip:NO succeedBlock:succeed failedBlock:failed];
+}
 
 @end

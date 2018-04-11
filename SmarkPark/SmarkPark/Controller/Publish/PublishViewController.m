@@ -10,6 +10,7 @@
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 #import "BackBtnLayer.h"
 #import "NetworkTool.h"
 #import "DatePickerView.h"
@@ -17,7 +18,7 @@
 #import "MinePointAnnotation.h"
 #import "FindSuccessViewController.h"
 
-@interface PublishViewController ()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MAMapViewDelegate, AMapLocationManagerDelegate>
+@interface PublishViewController ()<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MAMapViewDelegate, AMapLocationManagerDelegate, AMapSearchDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *mapBgView;
 @property (weak, nonatomic) IBOutlet UITextField *address;
@@ -41,6 +42,7 @@
 //地图相关
 @property(nonatomic, strong)MAMapView *aMapView;
 @property(nonatomic, strong)AMapLocationManager *locationManager;
+@property(nonatomic, strong)AMapSearchAPI *search;
 
 //用户位置标注
 @property(nonatomic, strong)MAPinAnnotationView *minePinView;
@@ -58,7 +60,11 @@
 
     //保存当前位置
     CLLocation *_currentLocation;
-    AMapLocationReGeocode *_regecode;
+    //当前的省
+    NSString *_currentProvince;
+    NSString *_currentCity;
+    NSString *_currentDistrict;
+    NSString *_currentAddress;
 }
 
 - (void)viewDidLoad {
@@ -111,6 +117,10 @@
     self.locationManager.delegate = self;
     [self.locationManager setLocatingWithReGeocode:YES];
     [self.locationManager startUpdatingLocation];
+    
+    self.search = [[AMapSearchAPI alloc]init];
+    self.search.delegate = self;
+    
 }
 
 
@@ -163,18 +173,63 @@
         _isFirstLoad = false;
         _minePoint = [[MinePointAnnotation alloc]init];
         _minePoint.coordinate = location.coordinate;
+        _minePoint.lockedScreenPoint = CGPointMake(SCREEN_WIDTH * 0.5, SCREEN_WIDTH * 0.5);
+        _minePoint.lockedToScreen = true;
         [_aMapView addAnnotation:_minePoint];
         [_aMapView showAnnotations:@[_minePoint] animated:true];
         [_aMapView setZoomLevel:16 animated:true];
+        [_aMapView setCenterCoordinate:location.coordinate animated:true];
         _currentLocation = location;
     }
     if (reGeocode){
-        _regecode = reGeocode;
-        _address.text = _regecode.formattedAddress;
+        _currentProvince = reGeocode.province;
+        _currentCity = reGeocode.city;
+        _currentDistrict = reGeocode.district;
+        _currentAddress = [NSString stringWithFormat:@"%@%@", reGeocode.street?:@"", reGeocode.number?:@""];
+        _address.text = reGeocode.formattedAddress;
         [self.locationManager stopUpdatingLocation];
     }
 }
 
+
+
+#pragma mark - 用户移动大头针
+- (void)mapView:(MAMapView *)mapView mapDidMoveByUser:(BOOL)wasUserAction{
+    if (wasUserAction) {
+        _minePoint.lockedToScreen = true;
+        [self pinAnimation];
+        [self searchLocation:mapView.centerCoordinate];
+        _currentLocation = [[CLLocation alloc]initWithLatitude:_aMapView.centerCoordinate.latitude longitude:_aMapView.centerCoordinate.longitude];
+        [_aMapView setCenterCoordinate:mapView.centerCoordinate animated:true];
+    }
+}
+
+- (void)searchLocation:(CLLocationCoordinate2D)location{
+    
+    AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc]init];
+    regeo.location = [AMapGeoPoint locationWithLatitude:location.latitude longitude:location.longitude];
+    regeo.requireExtension = true;
+    [self.search AMapReGoecodeSearch:regeo];
+}
+
+#pragma mark - AMapSearchDelegate
+/* 逆地理编码回调. */
+- (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response{
+    if (response.regeocode != nil){
+        _address.text = response.regeocode.formattedAddress;
+        _currentProvince = response.regeocode.addressComponent.province;
+        _currentCity = response.regeocode.addressComponent.city;
+        _currentDistrict = response.regeocode.addressComponent.district;
+        _currentAddress = [NSString stringWithFormat:@"%@%@", response.regeocode.addressComponent.streetNumber.street?:@"", response.regeocode.addressComponent.streetNumber.number?:@""];
+    }
+}
+
+- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error{
+    NSLog(@"Error: %@", error);
+}
+
+
+#pragma mark - AMapViewDelegate
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
 {
     //用户位置不需要自定义
@@ -189,7 +244,7 @@
             pinView = [[MAPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:pinID];
         }
         pinView.image = [UIImage imageNamed:@"pub_mineLocation"];
-        pinView.canShowCallout = false;
+        pinView.canShowCallout = true;
         _minePinView = pinView;
         return pinView;
     }
@@ -303,8 +358,7 @@
 - (IBAction)ensurePubClick:(UIButton *)sender {
     
     [AlertView showProgress];
-    NSString *address = [NSString stringWithFormat:@"%@%@", _regecode.street?:@"", _regecode.number?:@""];
-    [NetworkTool pubCarportWithName:_carOwner.text phone:_phone.text plates:_plates.text type:_carTypeSelectedRow size:_sizeSelectedRow price:[_price.text floatValue] start:_startTime.text end:_endTime.text province:_regecode.province city:_regecode.city district:_regecode.district address:address latitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude succeedBlock:^(NSDictionary * _Nullable result) {
+    [NetworkTool pubCarportWithName:_carOwner.text phone:_phone.text plates:_plates.text type:_carTypeSelectedRow + 1 size:_sizeSelectedRow price:[_price.text floatValue] start:_startTime.text end:_endTime.text province:_currentProvince city:_currentCity district:_currentDistrict address:_currentAddress latitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude succeedBlock:^(NSDictionary * _Nullable result) {
         [AlertView dismiss];
         [self pubSuccess:[result  objectForKey:kData]];
     } failedBlock:^(id  _Nullable errorInfo) {
@@ -314,7 +368,7 @@
 }
 
 - (void)pubSuccess:(NSDictionary *)dict{
-    [AlertView showMsg:[dict objectForKey:kMessage]];
+    [AlertView showMsg:@"发布成功"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.navigationController popToRootViewControllerAnimated:true];
     });
@@ -327,6 +381,18 @@
     }
 }
 
+
+#pragma mark - 大头针动画
+- (void)pinAnimation{
+    
+    CGRect frame = _minePinView.frame;
+    _minePinView.frame = CGRectMake(frame.origin.x, frame.origin.y - 20, frame.size.width, frame.size.width);
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _minePinView.frame = frame;
+    } completion:^(BOOL finished) {
+        
+    }];
+}
 - (void)hiddenKeyboard{
     NSArray *arr = @[_address, _carOwner, _carType, _phone, _plates, _carportType, _price];
     [arr enumerateObjectsUsingBlock:^(UITextField *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

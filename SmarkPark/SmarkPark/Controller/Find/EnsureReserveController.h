@@ -10,6 +10,7 @@
 
 @interface EnsureReserveController : BasicViewController
 
-@property(nonatomic, strong)NSDictionary *dict;
+//预定的Id
+@property(nonatomic, assign)NSInteger reserveId;
 
 @end

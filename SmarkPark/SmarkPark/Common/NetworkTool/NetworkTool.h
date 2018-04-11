@@ -50,4 +50,19 @@
  发布记录
  */
 + (NSURLSessionDataTask *)getUserPublish_recordWithPageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
+
+/**
+ 预定接口
+ */
++ (NSURLSessionDataTask *)getParkingReservationWithId:(NSInteger)Id SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
+
+/**
+ 预定车位信息
+ */
++ (NSURLSessionDataTask *)getParkingInfoWithId:(NSInteger)Id SucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
+
+/**
+ 当前用户是否有未完成的预定车位
+ */
++ (NSURLSessionDataTask *)getParkingStatusWithSucceedBlock:(RequestSucceed)succeed failedBlock:(RequestFailed)failed;
 @end

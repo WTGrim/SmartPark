@@ -382,11 +382,35 @@ NSString* DeleteWitheAndSpace(NSString *string) {
 
 + (NSString *)getCarPortWithType:(CarType)carType number:(NSInteger)number{
     if (carType == CarType_CarType) {
-        NSArray *arr = @[@"小型车", @"中型车", @"大型车"];
-        return arr[number];
+        switch (number) {
+            case 0:
+                return @"小型车";
+                break;
+            case 1:
+                return @"中型车";
+                break;
+            case 2:
+                return @"大型车";
+                break;
+            default:
+                return @"";
+                break;
+        }
     }else{
-        NSArray *arr = @[@"车库", @"停车场", @"路边"];
-        return arr[number - 1];
+        switch (number) {
+            case 1:
+                return @"车库";
+                break;
+            case 2:
+                return @"停车场";
+                break;
+            case 3:
+                return @"路边车位";
+                break;
+            default:
+                return @"";
+                break;
+        }
     }
 }
 
