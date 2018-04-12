@@ -14,7 +14,10 @@
     __weak IBOutlet UILabel *time;
     __weak IBOutlet UILabel *price;
     __weak IBOutlet UILabel *owner;
+    __weak IBOutlet UILabel *status;
+    
     __weak IBOutlet NSLayoutConstraint *topMargin;
+    __weak IBOutlet NSLayoutConstraint *statusW;
 }
 
 - (void)awakeFromNib {
@@ -22,7 +25,24 @@
     // Initialization code
 }
 
-- (void)setCellWithDict:(NSDictionary *)dict indexPath:(NSIndexPath *)indexPath{
+- (void)setCellWithDict:(NSDictionary *)dict indexPath:(NSIndexPath *)indexPath type:(CellType)type{
+    
+    switch (type) {
+        case CellType_Find:
+        {
+            statusW.constant = 0;
+            status.hidden = true;
+        }
+            break;
+        case CellType_Record:
+        {
+            statusW.constant = 44;
+            status.hidden = false;
+        }
+            break;
+        default:
+            break;
+    }
     
     location.text = [dict objectForKey:kAddress];
     NSString *priceTxt = [NSString stringWithFormat:@"%.2f", [[dict objectForKey:kPrice] floatValue]];
@@ -35,6 +55,34 @@
         topMargin.constant = 20;
     }else{
         topMargin.constant = 5;
+    }
+    [self setSatatus:1];
+    
+}
+
+- (void)setSatatus:(NSInteger)statusNum{
+    
+    switch (statusNum) {
+        case 1:
+        {
+            status.text = @"已完成";
+            status.textColor = ThemeColor;
+        }
+            break;
+        case 2:
+        {
+            status.text = @"已取消";
+            status.textColor = ThemeColor_GrayText;
+        }
+            break;
+        case 3:
+        {
+            status.text = @"用车中";
+            status.textColor = ThemeColor_GreenText;
+        }
+            break;
+        default:
+            break;
     }
 }
 

@@ -33,6 +33,8 @@ static NSString *const kDistrict = @"district";
 static NSString *const kAddress = @"address";
 static NSString *const kEnd = @"end";
 static NSString *const kStart = @"start";
+static NSString *const kCancel = @"cancel";
+static NSString *const kRevert = @"revert";
 static NSString *const kPrice = @"price";
 
 static NSString *const kIndex = @"index";

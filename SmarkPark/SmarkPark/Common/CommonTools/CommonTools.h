@@ -122,5 +122,6 @@ BOOL chargeIdIsNullOrEmpty(id obj);
 + (CGFloat)getVerticalHeight:(NSString *)string limitWidth:(CGFloat)limitWidth;
 
 + (NSString *)getCarPortWithType:(CarType)carType number:(NSInteger)number;
-
+//计算取消和还
++ (NSArray *)caculateTimeWithInterval:(NSInteger)interval;
 @end

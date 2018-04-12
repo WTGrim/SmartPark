@@ -60,7 +60,7 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self.navigationController.navigationBar setBarTintColor:ThemeColor_Nav];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    [self.navigationController.navigationBar setTintColor:ThemeColor_Nav];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 }
 
 - (void)setNavigationBarShadowHidden {

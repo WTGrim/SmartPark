@@ -20,7 +20,7 @@
 #import "FindSuccessViewController.h"
 #import "NetworkTool.h"
 
-@interface EnsureReserveController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate>
+@interface EnsureReserveController ()<AMapLocationManagerDelegate, MAMapViewDelegate, AMapSearchDelegate, AMapNaviDriveManagerDelegate, AMapNaviDriveViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *mapBgView;
 @property (weak, nonatomic) IBOutlet UILabel *address;
@@ -49,6 +49,8 @@
 @property(nonatomic, strong)MAPinAnnotationView *minePinView;
 @property(nonatomic, strong)MinePointAnnotation *minePoint;
 @property(nonatomic, strong)AMapSearchAPI *search;
+//导航
+@property(nonatomic, strong)AMapNaviDriveView *driveView;
 /* 起始点经纬度. */
 @property (nonatomic) CLLocationCoordinate2D startCoordinate;
 /* 终点经纬度. */
@@ -69,6 +71,7 @@
     
     [self setupUI];
     [self setupLocation];
+    [self initDriveView];
     [self getData];
 }
 
@@ -81,6 +84,7 @@
     [_mapBgView addSubview:_aMapView];
 }
 
+#pragma mark - UI
 - (void)setupUI{
     
     self.title = @"预定信息";
@@ -118,9 +122,17 @@
     self.locationManager.delegate = self;
     [self.locationManager setLocatingWithReGeocode:YES];
     [self.locationManager startUpdatingLocation];
-    
 }
 
+- (void)initDriveView{
+    if (self.driveView == nil){
+        self.driveView = [[AMapNaviDriveView alloc] initWithFrame:self.view.bounds];
+        self.driveView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        [self.driveView setDelegate:self];
+    }
+}
+
+#pragma mark - 获取数据
 - (void)getData{
     
     [AlertView showProgress];
@@ -155,42 +167,62 @@
         height += 20;
     }
     _infoHeight.constant += height;
-    
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 1 * NSEC_PER_SEC, 0);
-    dispatch_source_set_event_handler(_timer, ^{
-        NSArray *timeArr;
-        timeArr = [CommonTools caculateHourDateWithStartTime:nil endTime:[dict objectForKey:kStart]];
-        if ([timeArr[2] intValue] <= 0 && [timeArr[1] intValue] <= 0 && [timeArr[0] intValue] <= 0) {
-            _hour.text = @"--";
-            _minute.text = @"--";
-            _second.text = @"--";
-            dispatch_source_cancel(_timer);
-        }else{
-            _hour.text = [NSString stringWithFormat:@"%02d", [timeArr[0] intValue]];
-            _minute.text = [NSString stringWithFormat:@"%02d", [timeArr[1] intValue]];
-            _second.text = [NSString stringWithFormat:@"%02d", [timeArr[2] intValue]];
-        }
-    });
-    dispatch_resume(_timer);
+    NSString *revertTime = [dict objectForKey:kRevert];
+    __block NSInteger revert = [revertTime integerValue] / 1000;
+    if (revert > 0) {
+        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), 1 * NSEC_PER_SEC, 0);
+        dispatch_source_set_event_handler(_timer, ^{
+            NSArray *timeArr;
+            timeArr = [CommonTools caculateTimeWithInterval:revert];
+            if ([timeArr[2] intValue] <= 0 && [timeArr[1] intValue] <= 0 && [timeArr[0] intValue] <= 0) {
+                _hour.text = @"--";
+                _minute.text = @"--";
+                _second.text = @"--";
+                dispatch_source_cancel(_timer);
+            }else{
+                _hour.text = [NSString stringWithFormat:@"%02d", [timeArr[0] intValue]];
+                _minute.text = [NSString stringWithFormat:@"%02d", [timeArr[1] intValue]];
+                _second.text = [NSString stringWithFormat:@"%02d", [timeArr[2] intValue]];
+                revert-- ;
+            }
+        });
+        dispatch_resume(_timer);
+        
+    }else{
+        _hour.text = @"--";
+        _minute.text = @"--";
+        _second.text = @"--";
+    }
+
     
     //可取消
-    _cancelTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_source_set_timer(_cancelTimer, dispatch_walltime(NULL, 0), 1 * NSEC_PER_SEC, 0);
-    dispatch_source_set_event_handler(_cancelTimer, ^{
-        NSArray *timeArr;
-        timeArr = [CommonTools caculateHourDateWithStartTime:nil endTime:[dict objectForKey:kEnd]];
-        if ([timeArr[2] intValue] <= 0 && [timeArr[1] intValue] <= 0 && [timeArr[0] intValue] <= 0) {
-            [_cancelBtn setBackgroundColor:ThemeColor_GrayBtn];
-            _cancelBtn.enabled = false;
-            _cancelTips.text = @"超过可取消时间，预订车位已不能取消";
-            dispatch_source_cancel(_timer);
-        }else{
-            _cancelBtn.enabled = true;
-            _cancelTips.text = [NSString stringWithFormat:@"距离可取消还剩：%d小时%d分%d秒", [timeArr[0] intValue], [timeArr[1] intValue], [timeArr[2] intValue]];
-        }
-    });
-    dispatch_resume(_cancelTimer);
+    NSString *cancelTime = [dict objectForKey:kCancel];
+    __block NSInteger cancel = [cancelTime integerValue] / 1000;
+    if (cancel > 0) {
+        _cancelTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        dispatch_source_set_timer(_cancelTimer, dispatch_walltime(NULL, 0), 1 * NSEC_PER_SEC, 0);
+        dispatch_source_set_event_handler(_cancelTimer, ^{
+            NSArray *timeArr;
+            timeArr = [CommonTools caculateTimeWithInterval:cancel];
+            if ([timeArr[2] intValue] <= 0 && [timeArr[1] intValue] <= 0 && [timeArr[0] intValue] <= 0) {
+                [_cancelBtn setBackgroundColor:ThemeColor_GrayBtn];
+                _cancelBtn.enabled = false;
+                _cancelTips.text = @"超过可取消时间，预订车位已不能取消";
+                dispatch_source_cancel(_cancelTimer);
+            }else{
+                _cancelBtn.enabled = true;
+                _cancelTips.text = [NSString stringWithFormat:@"距离可取消还剩：%d小时%d分%d秒", [timeArr[0] intValue], [timeArr[1] intValue], [timeArr[2] intValue]];
+                cancel--;
+            }
+        });
+        dispatch_resume(_cancelTimer);
+    }else{
+        [_cancelBtn setBackgroundColor:ThemeColor_GrayBtn];
+        _cancelBtn.enabled = false;
+        _cancelTips.text = @"超过可取消时间，预订车位已不能取消";
+    }
+
 }
 
 #pragma mark - 搜索终点
@@ -204,6 +236,8 @@
     
     //导航
     [[AMapNaviDriveManager sharedInstance] setDelegate:self];
+    //将driveView添加为导航数据的Representative，使其可以接收到导航诱导数据
+    [[AMapNaviDriveManager sharedInstance] addDataRepresentative:self.driveView];
 }
 
 #pragma mark - 展示路线方案
@@ -227,11 +261,28 @@
     [_aMapView removeOverlays:_aMapView.overlays];
     [_aMapView addOverlay:polyline];
     
-    NSInteger hour = driveManager.naviRoute.routeTime / 3600;
-    NSInteger second = driveManager.naviRoute.routeTime / 60;
-    NSString *hourStr = hour > 0? [NSString stringWithFormat:@"%ld小时", (long)hour] : @"";
-    NSString *secondStr = second > 0?[NSString stringWithFormat:@"%ld分钟", (long)second] : @"";
-//    _planTime.text = [NSString stringWithFormat:@"%@%@",hourStr, secondStr];
+    
+    //显示导航按钮
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(beginNaviDrive)];
+}
+
+#pragma mark - 开始导航
+- (void)beginNaviDrive{
+    //算路成功后开始GPS导航
+    [[AMapNaviDriveManager sharedInstance] startGPSNavi];
+    [AMapNaviDriveManager sharedInstance].isUseInternalTTS = true;
+    [self.view addSubview:self.driveView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消导航" style:UIBarButtonItemStylePlain target:self action:@selector(cancelNaviDrive)];
+
+}
+
+#pragma mark - 取消导航
+- (void)cancelNaviDrive{
+    [[AMapNaviDriveManager sharedInstance] stopNavi];
+    [AMapNaviDriveManager sharedInstance].isUseInternalTTS = false;
+    [self.driveView removeFromSuperview];
+    //显示导航按钮
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(beginNaviDrive)];
 }
 
 - (void)driveManager:(AMapNaviDriveManager *)driveManager onCalculateRouteFailure:(NSError *)error{
@@ -337,10 +388,18 @@
     _locationManager.delegate = nil;
     _aMapView.delegate = nil;
     [[AMapNaviDriveManager sharedInstance] stopNavi];
+    [[AMapNaviDriveManager sharedInstance] removeDataRepresentative:self.driveView];
     [[AMapNaviDriveManager sharedInstance] setDelegate:nil];
     BOOL success = [AMapNaviDriveManager destroyInstance];
 }
 
+/**
+ * @brief 导航界面关闭按钮点击时的回调函数
+ * @param driveView 驾车导航界面
+ */
+- (void)driveViewCloseButtonClicked:(AMapNaviDriveView *)driveView{
+    [self.driveView removeFromSuperview];
+}
 
 #pragma mark - 取消
 - (IBAction)cancelBtnClick:(UIButton *)sender {

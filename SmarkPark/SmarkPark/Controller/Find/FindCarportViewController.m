@@ -128,7 +128,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FindCarportCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FindCarportCell class]) forIndexPath:indexPath];
     if(self.dataArray.count != 0){
-        [cell setCellWithDict:self.dataArray[indexPath.row] indexPath:indexPath];
+        [cell setCellWithDict:self.dataArray[indexPath.row] indexPath:indexPath type:CellType_Find];
     }
     return cell;
 }

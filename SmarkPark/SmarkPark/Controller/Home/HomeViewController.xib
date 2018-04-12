@@ -9,6 +9,11 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PingFang.ttc">
+            <string>PingFangSC-Semibold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
@@ -64,21 +69,21 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXE-Fq-eqg">
-                                    <rect key="frame" x="10" y="60.5" width="0.0" height="0.0"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <rect key="frame" x="20" y="60.5" width="0.0" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QFh-kj-H35">
-                                    <rect key="frame" x="10" y="40" width="40" height="40"/>
+                                    <rect key="frame" x="20" y="40" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="Jqg-W7-DqR"/>
                                         <constraint firstAttribute="width" secondItem="QFh-kj-H35" secondAttribute="height" id="XGX-xW-Vpl"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjO-Q5-Ogv">
-                                    <rect key="frame" x="10" y="95" width="0.0" height="0.0"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <rect key="frame" x="20" y="95" width="0.0" height="0.0"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="25"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -159,7 +164,7 @@
                                 <constraint firstItem="liu-wC-XTf" firstAttribute="centerY" secondItem="wjO-Q5-Ogv" secondAttribute="centerY" id="3rM-hf-PgQ"/>
                                 <constraint firstItem="dgE-QK-j9w" firstAttribute="centerY" secondItem="Iau-R6-YI9" secondAttribute="centerY" id="3ut-h9-oKJ"/>
                                 <constraint firstItem="dgE-QK-j9w" firstAttribute="leading" secondItem="Iau-R6-YI9" secondAttribute="trailing" constant="8" id="5U2-xy-s5t"/>
-                                <constraint firstItem="QFh-kj-H35" firstAttribute="leading" secondItem="gZd-9p-Cug" secondAttribute="leading" constant="10" id="BXJ-Hi-bCS"/>
+                                <constraint firstItem="QFh-kj-H35" firstAttribute="leading" secondItem="gZd-9p-Cug" secondAttribute="leading" constant="20" id="BXJ-Hi-bCS"/>
                                 <constraint firstItem="VNd-dv-sTX" firstAttribute="centerY" secondItem="liu-wC-XTf" secondAttribute="centerY" id="C22-VI-2ZR"/>
                                 <constraint firstAttribute="width" constant="300" id="Kde-hk-L6d"/>
                                 <constraint firstItem="VNd-dv-sTX" firstAttribute="centerY" secondItem="zkJ-ba-Qvl" secondAttribute="centerY" id="LdD-Wy-acO"/>
@@ -208,7 +213,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="300" id="x0G-cQ-nuE"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <state key="normal" title="找车位" image="home_find">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -224,7 +229,7 @@
                                 <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a76-Yc-dTd" customClass="ShopCartButton">
                                     <rect key="frame" x="195" y="20" width="170" height="145"/>
                                     <color key="backgroundColor" red="0.20392156862745098" green="0.62352941176470589" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <state key="normal" title="发布车位" image="home_pub">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -240,7 +245,7 @@
                                 <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgl-M9-iMa" customClass="ShopCartButton">
                                     <rect key="frame" x="195" y="175" width="170" height="145"/>
                                     <color key="backgroundColor" red="0.39215686274509803" green="0.69019607843137254" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <state key="normal" title="我的账户" image="home_mine">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>

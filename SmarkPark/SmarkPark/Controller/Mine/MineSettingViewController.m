@@ -10,6 +10,7 @@
 #import "BackBtnLayer.h"
 #import "CommonSystemAlert.h"
 #import "UseCameraOrPhoto.h"
+#import "LoginViewController.h"
 
 @interface MineSettingViewController ()
 
@@ -84,6 +85,7 @@
 - (IBAction)logoffBtnClick:(UIButton *)sender {
     [CommonSystemAlert alertWithTitle:nil message:@"确定退出登录吗？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"确定" rootVc:self leftClick:nil rightClick:^{
         [[UserStatus shareInstance]destoryUserStatus];
+        [self presentViewController:[[LoginViewController alloc]init] animated:true completion:nil];
         [self.navigationController popToRootViewControllerAnimated:true];
     }];
 }

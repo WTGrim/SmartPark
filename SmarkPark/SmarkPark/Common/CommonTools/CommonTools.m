@@ -68,6 +68,13 @@
     return @[@(houre),@(minute),@(second)];
 }
 
++ (NSArray *)caculateTimeWithInterval:(NSInteger)interval{
+    int hour = ((int)interval) / 3600;
+    int minute = ((int)(interval - hour * 3600)) / 60;
+    int second = ((int)(interval - minute * 60 - hour * 3600));
+    return @[@(hour), @(minute), @(second)];
+}
+
 + (NSString *)caculateTimeDistanceWithTime:(NSString *)time {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

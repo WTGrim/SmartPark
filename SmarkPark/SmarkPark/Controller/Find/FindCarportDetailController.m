@@ -293,7 +293,7 @@
         }];
         
     }else{
-        [self cheakDetail:dict];
+        [AlertView showMsg:@"您还有未完成的订单，不能再预定了"];
     }
 }
 

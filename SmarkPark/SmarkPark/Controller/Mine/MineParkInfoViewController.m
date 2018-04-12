@@ -9,6 +9,7 @@
 #import "MineParkInfoViewController.h"
 #import "FindCarportCell.h"
 #import "NetworkTool.h"
+#import "EnsureReserveController.h"
 
 @interface MineParkInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -84,7 +85,7 @@
     
     FindCarportCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FindCarportCell class]) forIndexPath:indexPath];
     if (self.dataArray.count != 0) {
-        [cell setCellWithDict:self.dataArray[indexPath.row] indexPath:indexPath];
+        [cell setCellWithDict:self.dataArray[indexPath.row] indexPath:indexPath type:CellType_Record];
     }
     return cell;
 }
@@ -92,6 +93,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     _tableView.mj_footer.hidden = self.dataArray.count == 0;
     return self.dataArray.count;
+}
+
+#pragma mark - 进入详情
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
+    EnsureReserveController *ensure = [[EnsureReserveController alloc]init];
+    ensure.reserveId = [[self.dataArray[indexPath.row] objectForKey:kId] integerValue];
+    ensure.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:ensure animated:true];
 }
 
 - (NSMutableArray *)dataArray{

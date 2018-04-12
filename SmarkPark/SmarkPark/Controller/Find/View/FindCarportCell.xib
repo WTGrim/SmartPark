@@ -35,7 +35,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="位置" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0H-Je-3HO">
-                        <rect key="frame" x="34" y="10" width="29" height="17"/>
+                        <rect key="frame" x="34" y="10" width="224" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.039215686270000001" green="0.039215686270000001" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -80,16 +80,28 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已完成" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh5-uR-a6s">
+                        <rect key="frame" x="268" y="10" width="44" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="0MV-aP-nb1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="WTw-J8-IGc" firstAttribute="leading" secondItem="kxx-Me-llI" secondAttribute="trailing" constant="5" id="1DI-tI-O35"/>
                     <constraint firstAttribute="bottom" secondItem="QpC-fu-lIK" secondAttribute="bottom" id="3DQ-cl-QNT"/>
                     <constraint firstItem="w0H-Je-3HO" firstAttribute="top" secondItem="ssc-1D-tUO" secondAttribute="top" id="5RU-d5-2fI"/>
+                    <constraint firstAttribute="trailing" secondItem="gh5-uR-a6s" secondAttribute="trailing" constant="8" id="84h-r1-WwX"/>
                     <constraint firstItem="SXx-i6-vPf" firstAttribute="leading" secondItem="kxx-Me-llI" secondAttribute="leading" id="8lh-r3-J8w"/>
                     <constraint firstItem="nEJ-My-ed2" firstAttribute="top" secondItem="PV5-d6-BjZ" secondAttribute="bottom" constant="5" id="Ag2-gh-gEO"/>
-                    <constraint firstAttribute="trailing" secondItem="WTw-J8-IGc" secondAttribute="trailing" constant="8" id="ElW-MY-SLX"/>
+                    <constraint firstItem="gh5-uR-a6s" firstAttribute="top" secondItem="ssc-1D-tUO" secondAttribute="top" id="FSc-DY-UHN"/>
                     <constraint firstItem="SXx-i6-vPf" firstAttribute="centerY" secondItem="PV5-d6-BjZ" secondAttribute="centerY" id="H9q-8Q-Gi8"/>
                     <constraint firstItem="kxx-Me-llI" firstAttribute="leading" secondItem="DIn-YF-Hyd" secondAttribute="trailing" constant="2" id="IKd-xD-L0p"/>
+                    <constraint firstAttribute="trailing" secondItem="WTw-J8-IGc" secondAttribute="trailing" constant="8" id="JaI-CZ-kYs"/>
+                    <constraint firstItem="gh5-uR-a6s" firstAttribute="leading" secondItem="w0H-Je-3HO" secondAttribute="trailing" constant="10" id="KzQ-Fn-WzV"/>
                     <constraint firstItem="w0H-Je-3HO" firstAttribute="leading" secondItem="ssc-1D-tUO" secondAttribute="trailing" constant="8" id="NLN-TR-Nn2"/>
                     <constraint firstItem="PV5-d6-BjZ" firstAttribute="leading" secondItem="DIn-YF-Hyd" secondAttribute="leading" id="OVC-99-KJ4"/>
                     <constraint firstItem="WTw-J8-IGc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="THs-OO-UX1"/>
@@ -97,7 +109,6 @@
                     <constraint firstItem="kxx-Me-llI" firstAttribute="top" secondItem="DIn-YF-Hyd" secondAttribute="top" id="bfm-XH-gfY"/>
                     <constraint firstItem="PV5-d6-BjZ" firstAttribute="top" secondItem="DIn-YF-Hyd" secondAttribute="bottom" constant="5" id="gHp-ZD-eXq"/>
                     <constraint firstItem="nEJ-My-ed2" firstAttribute="leading" secondItem="DIn-YF-Hyd" secondAttribute="leading" id="gHs-NG-U36"/>
-                    <constraint firstItem="WTw-J8-IGc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="w0H-Je-3HO" secondAttribute="trailing" constant="5" id="gsF-3L-8pZ"/>
                     <constraint firstItem="SXx-i6-vPf" firstAttribute="trailing" secondItem="kxx-Me-llI" secondAttribute="trailing" id="nJc-TJ-Hlh"/>
                     <constraint firstAttribute="bottom" secondItem="nEJ-My-ed2" secondAttribute="bottom" constant="15" id="nrA-Th-FdC"/>
                     <constraint firstItem="QpC-fu-lIK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="rII-hj-7d8"/>
@@ -111,10 +122,12 @@
                 <outlet property="location" destination="w0H-Je-3HO" id="UHY-t1-G48"/>
                 <outlet property="owner" destination="nEJ-My-ed2" id="C6X-Hf-Qg6"/>
                 <outlet property="price" destination="SXx-i6-vPf" id="T8Z-Ny-aYf"/>
+                <outlet property="status" destination="gh5-uR-a6s" id="U1M-jW-BPk"/>
+                <outlet property="statusW" destination="0MV-aP-nb1" id="iS4-ii-4kg"/>
                 <outlet property="time" destination="kxx-Me-llI" id="xxa-z3-gxS"/>
                 <outlet property="topMargin" destination="gHp-ZD-eXq" id="8jh-mp-yzY"/>
             </connections>
-            <point key="canvasLocation" x="34" y="93.5"/>
+            <point key="canvasLocation" x="20" y="94.5"/>
         </tableViewCell>
     </objects>
     <resources>
