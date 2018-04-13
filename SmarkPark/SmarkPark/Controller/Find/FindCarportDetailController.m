@@ -80,7 +80,7 @@
     
     NSString *timeString = [NSString stringWithFormat:@"%@ 至 %@", [_dict objectForKey:kStart], [_dict objectForKey:kEnd]];
     _leisureTime.text = timeString;
-    NSString *priceString = [NSString stringWithFormat:@"%.2f", [[_dict objectForKey:kPrice] floatValue]];
+    NSString *priceString = [NSString stringWithFormat:@"%.0f", [[_dict objectForKey:kPrice] floatValue]];
     _price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"%@积分", priceString] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(0, [priceString length])];
     if ([CommonTools getVerticalHeight:timeString limitWidth:SCREEN_WIDTH - 108] > 18) {
         _priceTop.constant = 24;
@@ -286,14 +286,14 @@
         [AlertView showProgress];
         [NetworkTool getParkingReservationWithId:[[_dict objectForKey:kId] integerValue] SucceedBlock:^(NSDictionary * _Nullable result) {
             [AlertView dismiss];
-            [self cheakDetail:_dict];
+            [self cheakDetail:[result objectForKey:kData]];
         } failedBlock:^(id  _Nullable errorInfo) {
             [AlertView dismiss];
             [AlertView showMsg:[errorInfo objectForKey:kMessage]];
         }];
         
     }else{
-        [AlertView showMsg:@"您还有未完成的订单，不能再预定了"];
+        [AlertView showMsg:@"您还有未完成的订单，请在“停车记录”查看"];
     }
 }
 

@@ -188,7 +188,7 @@
     _textField.layer.cornerRadius = 15;
     _textField.layer.masksToBounds = true;
     _textField.placeholder = @"搜索车位";
-    _textField.font = [UIFont systemFontOfSize:12];
+    _textField.font = [UIFont systemFontOfSize:13];
     _textField.textColor = ThemeColor_BlackText;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     

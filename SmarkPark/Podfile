@@ -17,5 +17,6 @@ target 'SmarkPark' do
   pod 'SVProgressHUD'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod ’SDWebImage’
+  pod 'AliyunOSSiOS'
 
 end

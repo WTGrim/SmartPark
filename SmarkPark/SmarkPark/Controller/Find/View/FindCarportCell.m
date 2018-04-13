@@ -45,7 +45,7 @@
     }
     
     location.text = [dict objectForKey:kAddress];
-    NSString *priceTxt = [NSString stringWithFormat:@"%.2f", [[dict objectForKey:kPrice] floatValue]];
+    NSString *priceTxt = [NSString stringWithFormat:@"%.0f", [[dict objectForKey:kPrice] floatValue]];
     price.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"%@积分", priceTxt] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(0, [priceTxt length])];
     NSString *timeString = [NSString stringWithFormat:@"%@ 至 %@", [dict objectForKey:kStart], [dict objectForKey:kEnd]];
     time.text = timeString;

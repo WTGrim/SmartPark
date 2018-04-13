@@ -72,7 +72,7 @@
     [_tableView.mj_header endRefreshing];
     [_tableView.mj_footer endRefreshing];
     if(_pageIndex == 1 && dict){
-        _wallet.text = [NSString stringWithFormat:@"%.2f", [[dict objectForKey:kIntegral] floatValue]];
+        _wallet.text = [NSString stringWithFormat:@"%.0f", [[dict objectForKey:kIntegral] floatValue]];
     }
     NSArray *arr = [dict objectForKey:@"list"];
     if (arr.count < COMMON_PAGE_SIZE && _pageIndex != 1) {

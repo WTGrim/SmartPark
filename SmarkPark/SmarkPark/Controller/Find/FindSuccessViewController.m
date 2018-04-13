@@ -37,14 +37,15 @@
         case SuccessVcType_Find:
         {
             _successTitle.text = @"发布车位成功";
-            NSString *price = [NSString stringWithFormat:@"%.2f",  [[_dict objectForKey:kPrice] floatValue]];
-            _tips.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"本次发布车位获得%@积分", price] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(8, [price length])];
+            NSString *price = [NSString stringWithFormat:@"%.0f",  [[_dict objectForKey:kPrice] floatValue]];
+            _tips.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"本次停车消费%@积分", price] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(6, [price length])];
         }
+            break;
         case SuccessVcType_Publish:
         {
             _successTitle.text = @"交易完成";
-            NSString *price = [NSString stringWithFormat:@"%.2f",  [[_dict objectForKey:kPrice] floatValue]];
-            _tips.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"本次停车消费%@积分", price] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(8, [price length])];
+            NSString *price = [NSString stringWithFormat:@"%.0f",  [[_dict objectForKey:kPrice] floatValue]];
+            _tips.attributedText = [CommonTools createAttributedStringWithString:[NSString stringWithFormat:@"本次发布车位获得%@积分", price] attr:@{NSForegroundColorAttributeName:ThemeColor_Red} rang:NSMakeRange(8, [price length])];
         }
             break;  break;
             

@@ -39,10 +39,18 @@
     [_logoffBtn.layer addSublayer:btnLayer];
     
     _cache.text = [NSString stringWithFormat:@"v%@", [[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"]];
+
+}
+
+#pragma mark - 保存
+- (void)saveClick{
+    
+    
 }
 
 - (IBAction)tapClick:(UITapGestureRecognizer *)sender {
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveClick)];
     switch (sender.view.tag) {
         case 100://设置头像
         {
@@ -64,18 +72,18 @@
             break;
         case 101://设置称呼
         {
-            [CommonSystemAlert textFieldAlertWithTitle:nil message:@"设置称呼" placeholder:@"请输入您的称呼" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"确定" rootVc:self leftClick:nil rightClick:^(NSString *text) {
-                
+            [CommonSystemAlert textFieldAlertWithTitle:nil message:@"设置称呼" placeholder:@"请输入您的称呼" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"确定" rootVc:self leftClick:nil rightClick:^(NSString *string) {
+                _name.text = string;
             }];
         }
             break;
-        case 102://设置电话
-        {
-            [CommonSystemAlert textFieldAlertWithTitle:nil message:@"设置电话号码" placeholder:@"请输入您的电话号码" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"确定" rootVc:self leftClick:nil rightClick:^(NSString *text) {
-                
-            }];
-        }
-            break;
+//        case 102://设置电话
+//        {
+//            [CommonSystemAlert textFieldAlertWithTitle:nil message:@"设置电话号码" placeholder:@"请输入您的电话号码" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"确定" rootVc:self leftClick:nil rightClick:^(NSString *text) {
+//
+//            }];
+//        }
+//            break;
         default:
             break;
     }
@@ -85,6 +93,7 @@
 - (IBAction)logoffBtnClick:(UIButton *)sender {
     [CommonSystemAlert alertWithTitle:nil message:@"确定退出登录吗？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"确定" rootVc:self leftClick:nil rightClick:^{
         [[UserStatus shareInstance]destoryUserStatus];
+        [CommonTools removeLocalWithKey:kSaveUserInfo];
         [self presentViewController:[[LoginViewController alloc]init] animated:true completion:nil];
         [self.navigationController popToRootViewControllerAnimated:true];
     }];

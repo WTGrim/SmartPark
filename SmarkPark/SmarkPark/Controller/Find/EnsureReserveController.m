@@ -63,6 +63,8 @@
     NSDateFormatter *_dateFormatter;
     dispatch_source_t _timer;
     dispatch_source_t _cancelTimer;
+    //保存数据
+    NSDictionary *_dict;
 }
 
 - (void)viewDidLoad {
@@ -147,6 +149,7 @@
 
 - (void)presentData:(NSDictionary *)dict{
     
+    _dict = dict;
     [self searchDestination:dict];
     _address.text = [dict objectForKey:kAddress];
     _leisureTime.text = [NSString stringWithFormat:@"%@-%@", [dict objectForKey:kStart], [dict objectForKey:kEnd]];
@@ -412,6 +415,7 @@
 - (IBAction)ensureBtnClick:(UIButton *)sender {
     FindSuccessViewController *successVc = [[FindSuccessViewController alloc]init];
     successVc.type = SuccessVcType_Find;
+    successVc.dict = _dict;
     [self.navigationController pushViewController:successVc animated:true];
 }
 

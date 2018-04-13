@@ -54,6 +54,7 @@
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 #define ThemeColor_Nav RGB(40, 222, 234)
+//#define ThemeColor_Nav RGB(33, 151, 217)
 #define ThemeColor_NavGreen RGB(2, 173, 87)
 #define ThemeColor_LightBg RGB(233, 233, 233)
 #define ThemeColor_BlackText  RGB(10, 10, 10)
