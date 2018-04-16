@@ -24,6 +24,7 @@
 		08028848205B641900FEBA4E /* GeocodeAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08028847205B641800FEBA4E /* GeocodeAnnotation.m */; };
 		0802884C205BBAF400FEBA4E /* EnsureReserveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0802884A205BBAF300FEBA4E /* EnsureReserveController.m */; };
 		0802884D205BBAF400FEBA4E /* EnsureReserveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0802884B205BBAF300FEBA4E /* EnsureReserveController.xib */; };
+		0802BB52208478C9003E4418 /* OssTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0802BB51208478C9003E4418 /* OssTool.m */; };
 		08081E4520577C57005CB86B /* LeftViewTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4420577C57005CB86B /* LeftViewTextField.m */; };
 		08081E4920577F8B005CB86B /* RelayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4820577F8B005CB86B /* RelayoutButton.m */; };
 		08081E4C2057A2CC005CB86B /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08081E4B2057A2CC005CB86B /* NetworkTool.m */; };
@@ -133,6 +134,8 @@
 		08028849205BBAF300FEBA4E /* EnsureReserveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnsureReserveController.h; sourceTree = "<group>"; };
 		0802884A205BBAF300FEBA4E /* EnsureReserveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnsureReserveController.m; sourceTree = "<group>"; usesTabs = 0; };
 		0802884B205BBAF300FEBA4E /* EnsureReserveController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EnsureReserveController.xib; sourceTree = "<group>"; };
+		0802BB50208478C9003E4418 /* OssTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OssTool.h; sourceTree = "<group>"; };
+		0802BB51208478C9003E4418 /* OssTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OssTool.m; sourceTree = "<group>"; };
 		08081E4320577C57005CB86B /* LeftViewTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewTextField.h; sourceTree = "<group>"; };
 		08081E4420577C57005CB86B /* LeftViewTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewTextField.m; sourceTree = "<group>"; };
 		08081E4720577F8B005CB86B /* RelayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelayoutButton.h; sourceTree = "<group>"; };
@@ -429,6 +432,8 @@
 				0834E8002074AC3F0043B8FF /* MineWalletTableViewCell.h */,
 				0834E8012074AC3F0043B8FF /* MineWalletTableViewCell.m */,
 				0834E8022074AC3F0043B8FF /* MineWalletTableViewCell.xib */,
+				0802BB50208478C9003E4418 /* OssTool.h */,
+				0802BB51208478C9003E4418 /* OssTool.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -628,7 +633,6 @@
 				086F0CFE204CDD3E00F354EC /* Sources */,
 				086F0CFF204CDD3E00F354EC /* Frameworks */,
 				086F0D00204CDD3E00F354EC /* Resources */,
-				6FB02BFBBFD8B3C3A91C6893 /* [CP] Embed Pods Frameworks */,
 				6DB953C164584277D739B843 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -786,26 +790,15 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMapNavi.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmarkPark/Pods-SmarkPark-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6FB02BFBBFD8B3C3A91C6893 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmarkPark/Pods-SmarkPark-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF662E1C0AC36A9D3B47EA9E /* [CP] Check Pods Manifest.lock */ = {
@@ -877,6 +870,7 @@
 				0872827F205676D10098B358 /* FindPsdViewController.m in Sources */,
 				08081E512057B3C2005CB86B /* JSONKit.m in Sources */,
 				084297732072293C0058B86E /* PhotoClipViewController.m in Sources */,
+				0802BB52208478C9003E4418 /* OssTool.m in Sources */,
 				086F0D41204CE18600F354EC /* HomeViewController.m in Sources */,
 				080A7AC72050DE4400245D7D /* SignView.m in Sources */,
 				087282892056B7F30098B358 /* CommonNetwork.m in Sources */,

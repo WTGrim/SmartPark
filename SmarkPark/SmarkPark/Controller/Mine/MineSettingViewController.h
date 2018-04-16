@@ -10,4 +10,6 @@
 
 @interface MineSettingViewController : BasicViewController
 
+@property(nonatomic, strong)NSDictionary *dict;
+
 @end

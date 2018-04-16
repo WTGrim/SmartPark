@@ -11,6 +11,8 @@
 #import "CommonSystemAlert.h"
 #import "UseCameraOrPhoto.h"
 #import "LoginViewController.h"
+#import "OssTool.h"
+#import <UIImageView+WebCache.h>
 
 @interface MineSettingViewController ()
 
@@ -19,9 +21,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *phone;
 @property (weak, nonatomic) IBOutlet UILabel *cache;
 @property (weak, nonatomic) IBOutlet UIButton *logoffBtn;
-
+//更换头像的图片
+@property (nonatomic, strong)UIImage *iconImage;
 @property (nonatomic, strong)UseCameraOrPhoto *cameraOrPhoto;
-
+@property (nonatomic, strong)OssTool *oss;
+@property (nonatomic, strong)NSString *imagePath;
 @end
 
 @implementation MineSettingViewController
@@ -30,23 +34,46 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setupUI];
+    [self setOss];
 }
 
+#pragma mark - initView
 - (void)setupUI{
     self.title = @"设置";
+    
+    _phone.text = [_dict objectForKey:kPhone];
+    if (!StringIsNull([_dict objectForKey:kAvatar])) {
+        [_icon sd_setImageWithURL:[NSURL URLWithString:[_dict objectForKey:kAvatar]] placeholderImage:[UIImage imageNamed:@"mine_default"]];
+    }else{
+        _icon.image = [UIImage imageNamed:@"mine_default"];
+    }
+    _name.text = !StringIsNull([_dict objectForKey:kName]) ? [_dict objectForKey:kName] : @"";
     
     BackBtnLayer *btnLayer = [BackBtnLayer layerWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 60, 40)];
     [_logoffBtn.layer addSublayer:btnLayer];
     
     _cache.text = [NSString stringWithFormat:@"v%@", [[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"]];
-
 }
 
-#pragma mark - 保存
+- (void)setOss{
+    _oss = [[OssTool alloc]initWithEndPoint:ossEndpoint];
+}
+
+#pragma mark - 点击保存
 - (void)saveClick{
-    
-    
+    [AlertView showProgress];
+    WEAKSELF;
+    //阿里云上传
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"yyyy-MM-dd-HH-mm-ss";
+    NSString *imageName = [formatter stringFromDate:[NSDate date]];
+    [_oss asynPutImage:imageName image:_iconImage resultCallBack:^(BOOL isSuccess) {
+        if (isSuccess) {
+            weakSelf.navigationItem.rightBarButtonItem = nil;
+        }
+    }];
 }
+
 
 - (IBAction)tapClick:(UITapGestureRecognizer *)sender {
     
@@ -58,13 +85,13 @@
             [CommonSystemAlert alertWithTitle:@"" message:@"设置头像" style:UIAlertControllerStyleActionSheet leftBtnTitle:@"拍照" rightBtnTitle:@"从相册中选择" rootVc:self leftClick:^{
                 [weakSelf.cameraOrPhoto useSystemWith:kUseSystemTypeCamera root:self block:^(UIImage *image,NSString *file) {
                     if (image) {
-//                        [weakself uploadImage:image];
+                        [weakSelf saveImage:image];
                     }
                 }];
             } rightClick:^{
                 [weakSelf.cameraOrPhoto useSystemWith:kUseSystemTypePhoto root:self block:^(UIImage *image, NSString *file) {
                     if (image) {
-//                        [weakself uploadImage:image];
+                        [weakSelf saveImage:image];
                     }
                 }];
             }];
@@ -89,7 +116,18 @@
     }
 }
 
+#pragma mark - 保存image
+- (void)saveImage:(UIImage *)image{
+    _iconImage = image;
+    _icon.image = _iconImage;
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    NSString *fullPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"currentImage"];
+    [imageData writeToFile:fullPath atomically:false];
+    _imagePath = fullPath;
+    NSLog(@"%@", _imagePath);
+}
 
+#pragma mark - 退出登录
 - (IBAction)logoffBtnClick:(UIButton *)sender {
     [CommonSystemAlert alertWithTitle:nil message:@"确定退出登录吗？" style:UIAlertControllerStyleAlert leftBtnTitle:@"取消" rightBtnTitle:@"确定" rootVc:self leftClick:nil rightClick:^{
         [[UserStatus shareInstance]destoryUserStatus];

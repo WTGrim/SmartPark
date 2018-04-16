@@ -215,7 +215,9 @@
                 dispatch_source_cancel(_cancelTimer);
             }else{
                 _cancelBtn.enabled = true;
-                _cancelTips.text = [NSString stringWithFormat:@"距离可取消还剩：%d小时%d分%d秒", [timeArr[0] intValue], [timeArr[1] intValue], [timeArr[2] intValue]];
+                NSString *hour = [timeArr[0] intValue] == 0 ? @"" : [NSString stringWithFormat:@"%d小时", [timeArr[0] intValue]];
+                NSString *minute = [timeArr[1] intValue] == 0 ? @"" : [NSString stringWithFormat:@"%d分钟", [timeArr[1] intValue]];
+                _cancelTips.text = [NSString stringWithFormat:@"距离可取消还剩：%@%@%d秒", hour, minute, [timeArr[2] intValue]];
                 cancel--;
             }
         });

@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="account" destination="r9q-vR-ZEj" id="vYJ-F3-BfS"/>
                 <outlet property="icon" destination="dJN-Ho-rso" id="hs8-qa-RX1"/>
+                <outlet property="phone" destination="cdq-k2-lNr" id="EoH-1z-JNW"/>
                 <outlet property="scrollView" destination="5kL-Tm-jCC" id="zbz-aj-8Bo"/>
                 <outlet property="scrollViewHeight" destination="z82-Ov-8PP" id="npP-mg-2uX"/>
                 <outlet property="topView" destination="HAK-IB-WIF" id="heV-at-nS4"/>
@@ -42,7 +43,7 @@
                                 <constraint firstAttribute="height" id="mAc-0D-hmj"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smc-G8-Soj">
+                        <view tag="99" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smc-G8-Soj">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_default" translatesAutoresizingMaskIntoConstraints="NO" id="dJN-Ho-rso">
@@ -51,10 +52,16 @@
                                         <constraint firstAttribute="width" secondItem="dJN-Ho-rso" secondAttribute="height" id="xLN-0q-9VF"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="称呼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9q-vR-ZEj">
-                                    <rect key="frame" x="110" y="20" width="33" height="19.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9q-vR-ZEj">
+                                    <rect key="frame" x="110" y="20" width="0.0" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdq-k2-lNr">
+                                    <rect key="frame" x="110" y="35.5" width="0.0" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.40784313729999999" green="0.40781933069999998" blue="0.40781933069999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -62,10 +69,15 @@
                             <constraints>
                                 <constraint firstItem="r9q-vR-ZEj" firstAttribute="leading" secondItem="dJN-Ho-rso" secondAttribute="trailing" constant="20" id="6yA-JZ-oqI"/>
                                 <constraint firstItem="dJN-Ho-rso" firstAttribute="leading" secondItem="smc-G8-Soj" secondAttribute="leading" constant="30" id="KtW-Wv-E7v"/>
+                                <constraint firstItem="cdq-k2-lNr" firstAttribute="leading" secondItem="r9q-vR-ZEj" secondAttribute="leading" id="Vdb-w1-WBJ"/>
                                 <constraint firstItem="r9q-vR-ZEj" firstAttribute="top" secondItem="dJN-Ho-rso" secondAttribute="top" id="eNo-RJ-6LG"/>
+                                <constraint firstItem="cdq-k2-lNr" firstAttribute="top" secondItem="r9q-vR-ZEj" secondAttribute="bottom" constant="16" id="fQc-aE-e1U"/>
                                 <constraint firstItem="dJN-Ho-rso" firstAttribute="centerY" secondItem="smc-G8-Soj" secondAttribute="centerY" id="gW1-J5-GL3"/>
                                 <constraint firstAttribute="height" constant="100" id="nYW-Ki-UGD"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="E2t-6t-S0x" appends="YES" id="mkd-hh-3ZI"/>
+                            </connections>
                         </view>
                         <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4B-ng-003">
                             <rect key="frame" x="0.0" y="108" width="375" height="50"/>
@@ -330,6 +342,11 @@
         <tapGestureRecognizer id="wJm-hp-4qY">
             <connections>
                 <action selector="tapClick:" destination="-1" id="Urr-ef-Rlf"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="E2t-6t-S0x">
+            <connections>
+                <action selector="tapClick:" destination="-1" id="vtb-zx-uTk"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

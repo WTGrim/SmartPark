@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
+  - AliyunOSSiOS (2.10.0)
   - AMap3DMap (5.7.0):
     - AMapFoundation (~> 1.4)
   - AMapFoundation (1.4.3)
@@ -36,6 +37,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - AliyunOSSiOS
   - AMapLocation
   - AMapNavi
   - AMapSearch
@@ -47,8 +49,26 @@ DEPENDENCIES:
   - SDWebImage
   - SVProgressHUD
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - AliyunOSSiOS
+    - AMap3DMap
+    - AMapFoundation
+    - AMapLocation
+    - AMapNavi
+    - AMapSearch
+    - IQKeyboardManager
+    - JSONModel
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - SDWebImage
+    - SVProgressHUD
+
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  AliyunOSSiOS: 1f42c7b1542f22b75a81127bdb0b0798122a2f1f
   AMap3DMap: 97afc57b88628237d916991ac31795eb7bde3f63
   AMapFoundation: 973682cfe60b92efd73a8ef8f1144fa0fa8e1296
   AMapLocation: 55116a2c8956eab7550cbb56e989aa5cdcc424e3
@@ -62,6 +82,6 @@ SPEC CHECKSUMS:
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: 61f468b0f48387e988a3b7326080cc0a1ae7668b
+PODFILE CHECKSUM: 561075e52ab779d3b7027046573552ddfb896bb5
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0

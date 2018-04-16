@@ -26,6 +26,8 @@ static NSString *const kServiceCall = @"18818181818";
 @property (weak, nonatomic) IBOutlet UILabel *account;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeight;
+@property (weak, nonatomic) IBOutlet UILabel *phone;
+
 @end
 
 @implementation MineViewController{
@@ -56,6 +58,7 @@ static NSString *const kServiceCall = @"18818181818";
 
 - (void)presentData:(NSDictionary *)dict{
     _dict = dict;
+    _phone.text = [dict objectForKey:kPhone];
     if (!StringIsNull([dict objectForKey:kAvatar])) {
         [_icon sd_setImageWithURL:[NSURL URLWithString:[dict objectForKey:kAvatar]] placeholderImage:[UIImage imageNamed:@"mine_default"]];
     }else{
@@ -69,6 +72,7 @@ static NSString *const kServiceCall = @"18818181818";
 - (IBAction)tapClick:(UITapGestureRecognizer *)sender {
     
     switch (sender.view.tag) {
+            
         case 100:
         {
             MineWalletViewController *wallet = [[MineWalletViewController alloc]init];
@@ -94,9 +98,10 @@ static NSString *const kServiceCall = @"18818181818";
             [self.navigationController pushViewController:pub animated:true];
         }
             break;
-        case 104:
+        case 104:case 99:
         {
             MineSettingViewController *setting = [[MineSettingViewController alloc]init];
+            setting.dict = _dict;
             [self.navigationController pushViewController:setting animated:true];
         }
             break;
